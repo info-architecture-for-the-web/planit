@@ -27,7 +27,7 @@
 										<li>
 											<a href="#">Events</a>
 											<ul>
-												<li><a href="#">Create Events</a></li>
+												<li><a href="createEvent.php">Create Events</a></li>
 												<li><a href="#">Search Events</a></li>
 												<li><a href="#">My Events</a></li>
 											</ul>
@@ -35,7 +35,7 @@
 									</ul>
 								</li>
                                                                 <li><a href="left-sidebar.php">About Us</a></li>
-                                                                 <li><a href="left-sidebar.php">Login/ Signup</a></li>
+                                                                <li><a href="login.php">Login/ Signup</a></li>
 <!--                                                              
 								<li><a href="right-sidebar.php">Right Sidebar</a></li>
 								<li><a href="no-sidebar.php">No Sidebar</a></li>-->
