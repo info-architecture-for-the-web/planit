@@ -36,7 +36,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="left-sidebar.php">About Us</a></li>
+                        <li><a href="index.php">About Us</a></li>
                         <li><a href="login.php">Login/ Signup</a></li>
                         <!--                                                              
                                                                                         <li><a href="right-sidebar.php">Right Sidebar</a></li>

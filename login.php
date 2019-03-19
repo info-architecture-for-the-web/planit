@@ -34,18 +34,15 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="left-sidebar.php">About Us</a></li>
-                        <li><a href="left-sidebar.php">Login/ Signup</a></li>
-                        <!--                                                              
-                                                                                        <li><a href="right-sidebar.php">Right Sidebar</a></li>
-                                                                                        <li><a href="no-sidebar.php">No Sidebar</a></li>-->
+                        <li><a href="index.php">About Us</a></li>
+                        <li><a href="login.php">Login/ Signup</a></li>
                     </ul>
                 </nav>
 
                 <!-- Banner -->
                 <section id="banner2">
                     <header>
-                        
+
                         <form id="contactform"> 
                             <input style="margin-bottom: 3%;" id="username" name="username" placeholder="username" required="" tabindex="2" type="text"> 
                             <input style="margin-bottom: 3%;" type="password" id="password" name="password" required="" placeholder="password"> 
@@ -53,8 +50,10 @@
                         </form>
                     </header>
                     <p>New User? <a href="signup.php">Sign Up Here</a></p>  
+
                 </section>
-                
+
+
                 <!-- Scripts -->
                 <script src="assets/js/jquery.min.js"></script>
                 <script src="assets/js/jquery.dropotron.min.js"></script>
