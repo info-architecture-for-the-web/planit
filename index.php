@@ -1,12 +1,7 @@
 <!DOCTYPE HTML>
-<!--
-	Dopetrope by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
-		<title>Dopetrope by HTML5 UP</title>
+		<title>Plan It!</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -18,42 +13,40 @@
 				<section id="header">
 
 					<!-- Logo -->
-						<h1><a href="index.php">Dopetrope</a></h1>
+						<h1><a href="index.php">Plan It!</a></h1>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
                                                             <li class="current"><a href="index.php">Home</a></li>
 								<li>
-									<a href="#">Dropdown</a>
+									<a href="#">Services</a>
 									<ul>
-										<li><a href="#">Lorem ipsum dolor</a></li>
-										<li><a href="#">Magna phasellus</a></li>
-										<li><a href="#">Etiam dolore nisl</a></li>
+										<li><a href="#">My Groups</a></li>
+										<li><a href="#">My Cart</a></li>
 										<li>
-											<a href="#">Phasellus consequat</a>
+											<a href="#">Events</a>
 											<ul>
-												<li><a href="#">Magna phasellus</a></li>
-												<li><a href="#">Etiam dolore nisl</a></li>
-												<li><a href="#">Veroeros feugiat</a></li>
-												<li><a href="#">Nisl sed aliquam</a></li>
-												<li><a href="#">Dolore adipiscing</a></li>
+												<li><a href="#">Create Events</a></li>
+												<li><a href="#">Search Events</a></li>
+												<li><a href="#">My Events</a></li>
 											</ul>
 										</li>
-										<li><a href="#">Veroeros feugiat</a></li>
 									</ul>
 								</li>
-                                                                <li><a href="left-sidebar.php">Left Sidebar</a></li>
+                                                                <li><a href="left-sidebar.php">About Us</a></li>
+                                                                 <li><a href="left-sidebar.php">Login/ Signup</a></li>
+<!--                                                              
 								<li><a href="right-sidebar.php">Right Sidebar</a></li>
-								<li><a href="no-sidebar.php">No Sidebar</a></li>
+								<li><a href="no-sidebar.php">No Sidebar</a></li>-->
 							</ul>
 						</nav>
 
 					<!-- Banner -->
 						<section id="banner">
 							<header>
-								<h2>Howdy. This is Dopetrope.</h2>
-								<p>A responsive template by HTML5 UP</p>
+								<h2>Hi. Welcome to Plan It!</h2>
+								<p>Event planning and Organisation website</p>
 							</header>
 						</section>
 
@@ -64,27 +57,27 @@
 									<section class="first">
 										<i class="icon featured fa-cog"></i>
 										<header>
-											<h2>Ipsum consequat</h2>
+											<h2>Host Events</h2>
 										</header>
-										<p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
+										<p>Are you planning to host a Part or an Event ?</p>
 									</section>
 								</div>
 								<div class="col-4 col-12-medium">
 									<section class="middle">
 										<i class="icon featured alt fa-flash"></i>
 										<header>
-											<h2>Magna etiam dolor</h2>
+											<h2>Manage Events</h2>
 										</header>
-										<p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
+										<p>Don't know where to begin?</p>
 									</section>
 								</div>
 								<div class="col-4 col-12-medium">
 									<section class="last">
 										<i class="icon featured alt2 fa-star"></i>
 										<header>
-											<h2>Tempus adipiscing</h2>
+											<h2>Create Teams</h2>
 										</header>
-										<p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
+										<p>Have tasks to divide amongst the event planners?</p>
 									</section>
 								</div>
 							</div>
@@ -107,7 +100,7 @@
 								<!-- Portfolio -->
 									<section>
 										<header class="major">
-											<h2>My Portfolio</h2>
+											<h2>Public Events - Under development</h2>
 										</header>
 										<div class="row">
 											<div class="col-4 col-6-medium col-12-small">
@@ -203,7 +196,7 @@
 								<!-- Blog -->
 									<section>
 										<header class="major">
-											<h2>The Blog</h2>
+											<h2>How to make it happen? - The Blog</h2>
 										</header>
 										<div class="row">
 											<div class="col-6 col-12-small">
@@ -217,7 +210,7 @@
 													<footer>
 														<ul class="actions">
 															<li><a href="#" class="button icon fa-file-text">Continue Reading</a></li>
-															<li><a href="#" class="button alt icon fa-comment">33 comments</a></li>
+<!--															<li><a href="#" class="button alt icon fa-comment">33 comments</a></li>-->
 														</ul>
 													</footer>
 												</section>
@@ -233,7 +226,7 @@
 													<footer>
 														<ul class="actions">
 															<li><a href="#" class="button icon fa-file-text">Continue Reading</a></li>
-															<li><a href="#" class="button alt icon fa-comment">33 comments</a></li>
+<!--															<li><a href="#" class="button alt icon fa-comment">33 comments</a></li>-->
 														</ul>
 													</footer>
 												</section>
@@ -253,7 +246,7 @@
 							<div class="col-8 col-12-medium">
 								<section>
 									<header>
-										<h2>Blandit nisl adipiscing</h2>
+										<h2>Upcoming public events</h2>
 									</header>
 									<ul class="dates">
 										<li>
@@ -291,9 +284,11 @@
 									</header>
 									<a href="#" class="image featured"><img src="images/pic10.jpg" alt="" /></a>
 									<p>
-										This is <strong>Dopetrope</strong> a free, fully responsive HTML5 site template by
-										<a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net/">HTML5 UP</a> It's released for free under
-										the <a href="http://html5up.net/license/">Creative Commons Attribution</a> license so feel free to use it for any personal or commercial project &ndash; just don't forget to credit us!
+										<strong>Plan It! </strong> focuses on the challenges faced for organizing an event.
+                                                                                From food to decorations and invitations to the event, there are many steps involved and missing out on some
+                                                                                can turn the event into a disaster. The event hosts and organizers can share the tasks amongst themselves and have deadlines
+                                                                                and priorities set to the tasks. This would streamline the process, make sure everything goes as planned and avoid last minute challenges or issues.
+										
 									</p>
 									<footer>
 										<ul class="actions">
@@ -302,7 +297,7 @@
 									</footer>
 								</section>
 							</div>
-							<div class="col-4 col-6-medium col-12-small">
+<!--							<div class="col-4 col-6-medium col-12-small">
 								<section>
 									<header>
 										<h2>Tempus consequat</h2>
@@ -331,11 +326,11 @@
 										<li><a href="#">Elit class aptent taciti sociosqu ad litora</a></li>
 									</ul>
 								</section>
-							</div>
+							</div>-->
 							<div class="col-4 col-12-medium">
 								<section>
 									<header>
-										<h2>Vitae tempor lorem</h2>
+										<h2>Contact Us</h2>
 									</header>
 									<ul class="social">
 										<li><a class="icon fa-facebook" href="#"><span class="label">Facebook</span></a></li>
@@ -348,18 +343,18 @@
 										<li>
 											<h3>Address</h3>
 											<p>
-												Untitled Incorporated<br />
-												1234 Somewhere Road Suite<br />
-												Nashville, TN 00000-0000
+												Indiana University<br />
+												Bloomington<br />
+												IN 47408
 											</p>
 										</li>
 										<li>
 											<h3>Mail</h3>
-											<p><a href="#">someone@untitled.tld</a></p>
+											<p><a href="#">planit@gmail.com</a></p>
 										</li>
 										<li>
 											<h3>Phone</h3>
-											<p>(800) 000-0000</p>
+											<p>(812) 000-0000</p>
 										</li>
 									</ul>
 								</section>
@@ -369,7 +364,7 @@
 								<!-- Copyright -->
 									<div id="copyright">
 										<ul class="links">
-											<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+											<li>&copy; Plan It. All rights reserved.</li>
 										</ul>
 									</div>
 
