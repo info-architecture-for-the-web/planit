@@ -43,7 +43,7 @@
                 <section id="banner2">
                     <header>
 
-                        <form id="contactform"> 
+                        <form id="contactform" action = "login_auth.php" method="post"> 
                             <input style="margin-bottom: 3%;" id="username" name="username" placeholder="username" required="" tabindex="2" type="text"> 
                             <input style="margin-bottom: 3%;" type="password" id="password" name="password" required="" placeholder="password"> 
                             <button>Login</button>

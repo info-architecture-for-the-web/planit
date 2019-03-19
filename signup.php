@@ -5,8 +5,6 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="assets/css/main.css" />
-        <!--                <link rel="stylesheet" href="assets/css/style.css" />
-                        <link rel="stylesheet" href="assets/css/demo.css" />-->
     </head>
     <body class="homepage is-preload">
         <div id="page-wrapper">
@@ -38,9 +36,6 @@
                         </li>
                         <li><a href="index.php">About Us</a></li>
                         <li><a href="login.php">Login/ Signup</a></li>
-                        <!--                                                              
-                                                                                        <li><a href="right-sidebar.php">Right Sidebar</a></li>
-                                                                                        <li><a href="no-sidebar.php">No Sidebar</a></li>-->
                     </ul>
                 </nav>
 
@@ -50,7 +45,7 @@
             <!-- Main -->
             <section id="main">
                 <div class="container">
-                    <form id="contactform">
+                    <form id="contactform" action="signup_controller.php" method="post">
                         <input id="name" name="name" placeholder="First and last name" required="" tabindex="1" type="text"> <br>
                         <input id="email" name="email" placeholder="example@domain.com" required="" type="email"> <br>
                         <input id="username" name="username" placeholder="username" required="" tabindex="2" type="text"><br>
