@@ -3,18 +3,23 @@
 /*
  * Caution: Need to call $conn->close() after including this file
  */
-$db_server = 'localhost';
-$db_username = 'root';
-$db_password = "";
-$db_name = 'planit';
-$conn = new mysqli($db_server, $db_username, $db_password, $db_name) or die('Unable to connect to Database');
+$db_server = 'db.ils.indiana.edu';
+$db_username = 'mbelnek';
+$db_password = "K3ZxVwHW";
+$db_name = 'mbelnek\planit';
+// TODO:
+// Move table to planit db.
+// Using public db for now to avoid access issues, that's why used dbname='$db_username'
+$connection_string = "host='$db_server' dbname='$db_username' port=5433 user='$db_username' password='$db_password'";
+$conn = pg_connect($connection_string) or die('Could not connect: ' . pg_last_error());
 
-function sendQuery($cmd) {
+function sendQuery($cmd){ 
     global $conn;
-    $conn->set_charset('utf8');
+    // $conn->set_charset('utf8');
 
-    $result = $conn->query($cmd);
-
+    // Performing SQL query
+    $result = pg_query($cmd) or die('Query failed: ' . pg_last_error());
+    
     /* SELECT:
      *  result has multiple rows -> return obj
      *  result has 0 rows -> return false
@@ -28,5 +33,5 @@ function sendQuery($cmd) {
     } else {
         return false;
     }
-    $conn->close();
+    pg_close($conn);
 }

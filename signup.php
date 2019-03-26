@@ -38,8 +38,6 @@
                         <li><a href="login.php">Login/ Signup</a></li>
                     </ul>
                 </nav>
-
-
             </section>
 
             <!-- Main -->
@@ -54,13 +52,8 @@
                         <input id="phone" name="phone" placeholder="phone number" required="" type="text"> <br>
                         <input class="buttom" name="submit" id="submit" tabindex="5" value="Sign me up!" type="submit"> 	
                     </form>
-
-
                 </div>
             </section>
-
-
-
         </div>
 
         <!-- Scripts -->
