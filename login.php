@@ -59,20 +59,20 @@
           <div class="inner text-center">
 		  
 			  <div class="container">
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal" method ="post" action="controller/login_controller.php" role="form">
                 <h2 font-family="Satisfy">Login</h2>
 
                 <div class="form-group">
                     <label for="userName" class="col-sm-3 control-label">User Name</label>
                     <div class="col-sm-9">
-                        <input type="text" id="userName" placeholder="User Name" class="form-control" autofocus>
+                        <input type="text" id="userName" name="username" placeholder="User Name" class="form-control" autofocus>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="password" class="col-sm-3 control-label">Password</label>
                     <div class="col-sm-9">
-                        <input type="password" id="password" placeholder="Password" class="form-control">
+                        <input type="password" id="password" name="password" placeholder="Password" class="form-control">
                     </div>
                 </div>
 

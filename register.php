@@ -63,37 +63,37 @@
 			  
 			  <div class="container">
 
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal" method="post" action="controller/signup_controller.php" role="form">
 
                 <h2 font-family="verdana">Registration</h2>
                 <div class="form-group">
                     <label for="fullName" class="col-sm-3 control-label">Full Name</label>
                     <div class="col-sm-9">
-                        <input type="text" id="Full Name" placeholder="Full Name" class="form-control" autofocus>
+                        <input type="text" id="Full Name" name="fullname" placeholder="Full Name" class="form-control" autofocus>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="userName" class="col-sm-3 control-label">User Name</label>
                     <div class="col-sm-9">
-                        <input type="text" id="userName" placeholder="User Name" class="form-control" autofocus>
+                        <input type="text" id="userName" name="username" placeholder="User Name" class="form-control" autofocus>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="email" class="col-sm-3 control-label">Email </label>
                     <div class="col-sm-9">
-                        <input type="email" id="email" placeholder="Email" class="form-control" name= "email">
+                        <input type="email" id="email" name="email" placeholder="Email" class="form-control" name= "email">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="password" class="col-sm-3 control-label">Password</label>
                     <div class="col-sm-9">
-                        <input type="password" id="password" placeholder="Password" class="form-control">
+                        <input type="password" id="password" name="password" placeholder="Password" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="confirmPassword" class="col-sm-3 control-label">Confirm Password</label>
                     <div class="col-sm-9">
-                        <input type="confirmPassword" id="confirmPassword" placeholder="Confirm Password" class="form-control">
+                        <input type="confirmPassword" id="confirmPassword" name="confirmpassword" placeholder="Confirm Password" class="form-control">
                     </div>
                 </div>
 <!--
@@ -107,7 +107,7 @@
                 <div class="form-group">
                     <label for="phoneNumber" class="col-sm-3 control-label">Phone number </label>
                     <div class="col-sm-9">
-                        <input type="phoneNumber" id="phoneNumber" placeholder="Phone number" class="form-control">
+                        <input type="phoneNumber" id="phoneNumber" name="phone" placeholder="Phone number" class="form-control">
 <!--                        <span class="help-block">Your phone number won't be disclosed anywhere </span>-->
                     </div>
                 </div>

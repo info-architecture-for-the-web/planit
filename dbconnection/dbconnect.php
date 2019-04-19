@@ -3,6 +3,7 @@
 /*
  * Caution: Need to call $conn->close() after including this file
  */
+session_start();
 $db_server = '34.219.187.195';
 $db_username = 'team_planit';
 $db_password = 'team_planit@123';
