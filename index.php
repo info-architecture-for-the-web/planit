@@ -30,8 +30,10 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="#about">About</a>
             <a href="#event">Event</a>
-			<a href="login.php">Login</a>
-			<a href="register.php">Register</a>
+            <a href="create-event.php">Create Event</a> <!-- Can allow this only after login -->
+            <a href="myprofile.php">Manage Profile</a>  <!-- Can allow this only after login -->
+          <a href="login.php">Login</a>
+			<!-- <a href="register.php">Register</a> -->
           </div>
           <!-- Use any element to open the sidenav -->
           <span onclick="openNav()" class="pull-right menu-icon">☰</span>
@@ -102,9 +104,7 @@
               <div class="col-md-6 col-sm-6 details-text">
                 <div class="content-holder">
                   <h2>ISA Holi 2019</h2>
-                  <p>Need some color in your life? Come out to ISA Holi on April 21st at Dunn Meadow! ITS FREE!!! 
-There will be holi powder, water balloons and more! IU dance teams HooSher Bhangra and IU Jhanak will also be performing! 
-Holi is also known as the “festival of love” as on this day people unite together forgetting all resentments and all types of bad feeling towards each other. The vibrancy of colors is something that brings in a lot of positivity in our lives and Holi being the festival of colours is a day worth rejoicing. It’s always a good time to throw color and water balloons!</p>
+                  <p>Holi is also known as the “festival of love” as on this day people unite together forgetting all resentments and all types of bad feeling towards each other.</p>
                   <address>
                               <strong>Place: </strong>
                               Dunn Meadow, 900 E 7th St, 47408 Bloomington
