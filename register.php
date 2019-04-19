@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Delicious</title>
+  <title>Plan It</title>
   <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
   <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
@@ -23,13 +23,13 @@
 }
 
 *[role="form"] h2 { 
-    font-family: 'Open Sans' , sans-serif;
+    font-family: 'Satisfy' , sans-serif;
     font-size: 40px;
     font-weight: 600;
     color: #000000;
     margin-top: 5%;
     text-align: center;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     letter-spacing: 4px;
 }
 
@@ -45,8 +45,8 @@
         <div class="container">
           <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-			<a href="index.html">Home</a>
-			<a href="login.html">Login</a>
+			<a href="index.php">Home</a>
+			<a href="login.php">Login</a>
             <a href="#about">About</a>
             <a href="#event">Event</a>
           </div>
@@ -62,7 +62,9 @@
 <!--            <p>Specialized in Indian Cuisine!!</p>-->
 			  
 			  <div class="container">
+
             <form class="form-horizontal" role="form">
+
                 <h2 font-family="verdana">Registration</h2>
                 <div class="form-group">
                     <label for="fullName" class="col-sm-3 control-label">Full Name</label>
@@ -149,24 +151,13 @@
       <div class="row">
         <div class="col-md-offset-3 col-md-6 text-center">
           <div class="widget">
-            <h4 class="widget-title">Delicious</h4>
-            <address>324 Ellte Road<br>Delhi, DL 110013</address>
+            <h4 class="widget-title">Plan It</h4>
+            <address>Indiana Univeristy<br>Bloomington</address>
             <div class="social-list">
               <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
               <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
             </div>
-            <p class="copyright clear-float">
-              © Delicious Theme. All Rights Reserved
-              <div class="credits">
-                <!--
-                  All the links in the footer should remain intact.
-                  You can delete the links only if you purchased the pro version.
-                  Licensing information: https://bootstrapmade.com/license/
-                  Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Delicious
-                -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-              </div>
-            </p>
+            
           </div>
         </div>
       </div>
