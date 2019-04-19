@@ -32,7 +32,7 @@
             <a href="#about">About</a>
             <a href="#event">Event</a>
 
-            <?php if ($_SESSION["username"]) { ?>
+            <?php if (isset($_SESSION['username'])) { ?>
               <a href="create-event.php">Create Event</a> <!-- Can allow this only after login -->
               <a href="myprofile.php">Manage Profile</a>  <!-- Can allow this only after login -->
               <a href="controller/logout_controller.php">Logout</a>
