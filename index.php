@@ -43,6 +43,7 @@
             <h1 class="logo-name">Plan It</h1>
             <h2>Your party planner</h2>
             <p>Manage and Organise your events!</p>
+            <a class="btn btn-imfo btn-read-more" href="events-details.html">Get Started</a>
           </div>
         </div>
       </div>
@@ -76,7 +77,7 @@
             </div>
           </div>
           <div class="col-md-6 col-sm-6">
-            <img src="img/res03.jpg" alt="" class="img-responsive">
+            <img src="img/res06.jpg" alt="" class="img-responsive">
           </div>
         </div>
         <div class="col-md-1"></div>
@@ -91,23 +92,25 @@
         <div class="row">
           <div class="col-xs-12 text-center" style="padding:60px;">
             <h1 class="header-h">Up Coming events</h1>
-            <p class="header-p">Decorations 100% complete here</p>
+            <p class="header-p">Sneak into upcoming events</p>
           </div>
           <div class="col-md-12" style="padding-bottom:60px;">
             <div class="item active left">
               <div class="col-md-6 col-sm-6 left-images">
-                <img src="img/res02.jpg" class="img-responsive">
+                <img src="img/holi1.jpg" class="img-responsive">
               </div>
               <div class="col-md-6 col-sm-6 details-text">
                 <div class="content-holder">
-                  <h2>Joyful party</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore eos suscipit earum voluptas aliquam recusandae, quae iure adipisci, inventore quia, quos delectus quaerat praesentium id expedita nihil illo accusantium, tempora.</p>
+                  <h2>ISA Holi 2019</h2>
+                  <p>Need some color in your life? Come out to ISA Holi on April 21st at Dunn Meadow! ITS FREE!!! 
+There will be holi powder, water balloons and more! IU dance teams HooSher Bhangra and IU Jhanak will also be performing! 
+Holi is also known as the “festival of love” as on this day people unite together forgetting all resentments and all types of bad feeling towards each other. The vibrancy of colors is something that brings in a lot of positivity in our lives and Holi being the festival of colours is a day worth rejoicing. It’s always a good time to throw color and water balloons!</p>
                   <address>
                               <strong>Place: </strong>
-                              1612 Collins Str, Victoria 8007
+                              Dunn Meadow, 900 E 7th St, 47408 Bloomington
                               <br>
                               <strong>Time: </strong>
-                              07:30pm
+                              04:00pm
                             </address>
                   <a class="btn btn-imfo btn-read-more" href="events-details.html">Read more</a>
                 </div>
@@ -124,17 +127,16 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center marb-35">
-          <h1 class="header-h">Menu List</h1>
-          <p class="header-p">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-            <br>nibh euismod tincidunt ut laoreet dolore magna aliquam. </p>
+          <h1 class="header-h">Checkout other events and planners</h1>
+          <p class="header-p">Feature hosts of trending events
+            <br>Get inspired by their planning skills.</p>
         </div>
 
         <div class="col-md-12  text-center" id="menu-flters">
           <ul>
             <li><a class="filter active" data-filter=".menu-restaurant">Show All</a></li>
-            <li><a class="filter" data-filter=".breakfast">Breakfast</a></li>
-            <li><a class="filter" data-filter=".lunch">Lunch</a></li>
-            <li><a class="filter" data-filter=".dinner">Dinner</a></li>
+            <li><a class="filter" data-filter=".breakfast">Events</a></li>
+            <li><a class="filter" data-filter=".lunch">Planners</a></li>
           </ul>
         </div>
 
@@ -142,112 +144,111 @@
 
           <div class="breakfast menu-restaurant">
             <span class="clearfix">
-              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Food Item Name</a>
+              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Event Name</a>
               <span style="left: 166px; right: 44px;" class="menu-line"></span>
-              <span class="menu-price">$20.99</span>
+              <span class="menu-price">ddmmyyyy</span>
             </span>
-            <span class="menu-subtitle">Neque porro quisquam est qui dolorem</span>
+            <span class="menu-subtitle">Planner name</span>
           </div>
 
           <div class="breakfast menu-restaurant">
             <span class="clearfix">
-              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Food Item Name</a>
+              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Event Name</a>
               <span style="left: 166px; right: 44px;" class="menu-line"></span>
-              <span class="menu-price">$20.99</span>
+              <span class="menu-price">ddmmyyyy</span>
             </span>
-            <span class="menu-subtitle">Neque porro quisquam est qui dolorem</span>
+            <span class="menu-subtitle">Planner name</span>
           </div>
 
           <div class="breakfast menu-restaurant">
             <span class="clearfix">
-              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Food Item Name</a>
+              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Event Name</a>
               <span style="left: 166px; right: 44px;" class="menu-line"></span>
-              <span class="menu-price">$20.99</span>
+              <span class="menu-price">ddmmyyyy</span>
             </span>
-            <span class="menu-subtitle">Neque porro quisquam est qui dolorem</span>
+            <span class="menu-subtitle">Planner name</span>
           </div>
 
           <div class="breakfast menu-restaurant">
             <span class="clearfix">
-              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Food Item Name</a>
+              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Event Name</a>
               <span style="left: 166px; right: 44px;" class="menu-line"></span>
-              <span class="menu-price">$20.99</span>
+              <span class="menu-price">ddmmyyyy</span>
             </span>
-            <span class="menu-subtitle">Neque porro quisquam est qui dolorem</span>
+            <span class="menu-subtitle">Planner name</span>
+          </div>
+
+          <div class="breakfast menu-restaurant">
+            <span class="clearfix">
+              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Event Name</a>
+              <span style="left: 166px; right: 44px;" class="menu-line"></span>
+              <span class="menu-price">ddmmyyyy</span>
+            </span>
+            <span class="menu-subtitle">Planner name</span>
+          </div>
+
+          <div class="breakfast menu-restaurant">
+            <span class="clearfix">
+              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Event Name</a>
+              <span style="left: 166px; right: 44px;" class="menu-line"></span>
+              <span class="menu-price">ddmmyyyy</span>
+            </span>
+            <span class="menu-subtitle">Planner name</span>
           </div>
 
           <div class="lunch menu-restaurant">
             <span class="clearfix">
-              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Food Item Name</a>
+              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Planner Name</a>
               <span style="left: 166px; right: 44px;" class="menu-line"></span>
-              <span class="menu-price">$20.99</span>
+              <span class="menu-price">Number of Events</span>
             </span>
-            <span class="menu-subtitle">Neque porro quisquam est qui dolorem</span>
+            <span class="menu-subtitle">located in</span>
           </div>
 
           <div class="lunch menu-restaurant">
             <span class="clearfix">
-              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Food Item Name</a>
+              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Planner Name</a>
               <span style="left: 166px; right: 44px;" class="menu-line"></span>
-              <span class="menu-price">$20.99</span>
+              <span class="menu-price">Number of Events</span>
             </span>
-            <span class="menu-subtitle">Neque porro quisquam est qui dolorem</span>
+            <span class="menu-subtitle">located in</span>
           </div>
 
           <div class="lunch menu-restaurant">
             <span class="clearfix">
-              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Food Item Name</a>
+              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Planner Name</a>
               <span style="left: 166px; right: 44px;" class="menu-line"></span>
-              <span class="menu-price">$20.99</span>
+              <span class="menu-price">Number of Events</span>
             </span>
-            <span class="menu-subtitle">Neque porro quisquam est qui dolorem</span>
+            <span class="menu-subtitle">located in</span>
           </div>
 
           <div class="lunch menu-restaurant">
             <span class="clearfix">
-              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Food Item Name</a>
+              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Planner Name</a>
               <span style="left: 166px; right: 44px;" class="menu-line"></span>
-              <span class="menu-price">$20.99</span>
+              <span class="menu-price">Number of Events</span>
             </span>
-            <span class="menu-subtitle">Neque porro quisquam est qui dolorem</span>
+            <span class="menu-subtitle">located in</span>
           </div>
 
           <div class="lunch menu-restaurant">
             <span class="clearfix">
-              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Food Item Name</a>
+              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Planner Name</a>
               <span style="left: 166px; right: 44px;" class="menu-line"></span>
-              <span class="menu-price">$20.99</span>
+              <span class="menu-price">Number of Events</span>
             </span>
-            <span class="menu-subtitle">Neque porro quisquam est qui dolorem</span>
+            <span class="menu-subtitle">located in</span>
           </div>
 
-          <div class="dinner menu-restaurant">
+          <div class="lunch menu-restaurant">
             <span class="clearfix">
-              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Food Item Name</a>
+              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Planner Name</a>
               <span style="left: 166px; right: 44px;" class="menu-line"></span>
-              <span class="menu-price">$20.99</span>
+              <span class="menu-price">Number of Events</span>
             </span>
-            <span class="menu-subtitle">Neque porro quisquam est qui dolorem</span>
+            <span class="menu-subtitle">located in</span>
           </div>
-
-          <div class="dinner menu-restaurant">
-            <span class="clearfix">
-              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Food Item Name</a>
-              <span style="left: 166px; right: 44px;" class="menu-line"></span>
-              <span class="menu-price">$20.99</span>
-            </span>
-            <span class="menu-subtitle">Neque porro quisquam est qui dolorem</span>
-          </div>
-
-          <div class="dinner menu-restaurant">
-            <span class="clearfix">
-              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Food Item Name</a>
-              <span style="left: 166px; right: 44px;" class="menu-line"></span>
-              <span class="menu-price">$20.99</span>
-            </span>
-            <span class="menu-subtitle">Neque porro quisquam est qui dolorem</span>
-          </div>
-        </div>
 
       </div>
     </div>
@@ -258,9 +259,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <h1 class="header-h">Book Your table</h1>
-          <p class="header-p">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-            <br>nibh euismod tincidunt ut laoreet dolore magna aliquam. </p>
+          <h1 class="header-h">Have questions?</h1>
+          <p class="header-p">Contact us for any queries and questions. </p>
         </div>
       </div>
       <div class="row msg-row">
@@ -271,7 +271,8 @@
             </div>
             <div class="media-body">
               <h4 class="dark-blue regular">Phone Numbers</h4>
-              <p class="light-blue regular alt-p">+440 875369208 - <span class="contacts-sp">Phone Booking</span></p>
+              <!-- <p class="light-blue regular alt-p">+812 0000000000 - <span class="contacts-sp">Call us</span></p> -->
+              <p class="light-blue regular alt-p">+812 0000000000 </p>
             </div>
           </div>
           <div class="media-2">
@@ -279,7 +280,7 @@
               <div class="contact-email bg-14 text-center"><span class="hour-icon fa fa-clock-o"></span></div>
             </div>
             <div class="media-body">
-              <h4 class="dark-blue regular">Opening Hours</h4>
+              <h4 class="dark-blue regular">Working hours</h4>
               <p class="light-blue regular alt-p"> Monday to Friday 09.00 - 24:00</p>
               <p class="light-blue regular alt-p">
                 Friday and Sunday 08:00 - 03.00
@@ -337,7 +338,7 @@
             </div>
             <div class="col-md-12 btnpad">
               <div class="contacts-btn-pad">
-                <button class="contacts-btn">Book Table</button>
+                <button class="contacts-btn">Send</button>
               </div>
             </div>
           </form>
