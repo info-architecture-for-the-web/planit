@@ -15,12 +15,19 @@
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!-- =======================================================
     Theme Name: Delicious
     Theme URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
     Author: BootstrapMade.com
     Author URL: https://bootstrapmade.com
   ======================================================= -->
+	<?php 
+	echo "hi".$_SERVER['DOCUMENT_ROOT'];
+	include 'model\profile_controller.php';
+	$prof = getProfile($_SESSION['username']);
+	echo $prof->email;
+	?>
 </head>
 
 <body>
@@ -52,19 +59,21 @@
 
 	<div class="container">
 		<div class="row">
-		<br>
+			<br>
 			<div class="col-md-12">
 
 				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h4>User Profile</h4>
+					<div class="panel-heading" >
+						<h4>My Profile</h4>
+						<button style="font-size:24px"><i class="material-icons" >mode_edit</i>
 					</div>
+					
 					<div class="panel-body">
 
 						<div class="box box-info">
 
 							<div class="box-body">
-								<div class="col-sm-6">
+								<div class="col-sm-12">
 									<div align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive">
 
 										<input id="profile-image-upload" class="hidden" type="file">
@@ -76,7 +85,9 @@
 
 
 
-
+										<h4 style="color:#00b1b1;">
+											<?php echo $prof->fullname ?>
+										</h4>
 									</div>
 
 									<br>
@@ -84,57 +95,36 @@
 									<!-- /input-group -->
 								</div>
 								<div class="col-sm-6">
-									<h4 style="color:#00b1b1;">Prasad Shankar Huddedar </h4>
+
 									</span>
-									<span>
-										<p>Aspirant</p>
-									</span>
+
 								</div>
 								<div class="clearfix"></div>
 								<hr style="margin:5px 0 5px 0;">
 
 
-								<div class="col-sm-5 col-xs-6 tital ">First Name:</div>
-								<div class="col-sm-7 col-xs-6 ">Prasad</div>
+								<div class="col-sm-5 col-xs-6 tital ">Username:</div>
+								<div class="col-sm-7 ">
+									<?php echo $prof->username ?>
+								</div>
 								<div class="clearfix"></div>
 								<div class="bot-border"></div>
 
-								<div class="col-sm-5 col-xs-6 tital ">Middle Name:</div>
-								<div class="col-sm-7"> Shankar</div>
+								<div class="col-sm-5 col-xs-6 tital ">Email:</div>
+								<div class="col-sm-7">
+									<?php echo $prof->email ?>
+								</div>
 								<div class="clearfix"></div>
 								<div class="bot-border"></div>
 
-								<div class="col-sm-5 col-xs-6 tital ">Last Name:</div>
-								<div class="col-sm-7"> Huddedar</div>
+								<div class="col-sm-5 col-xs-6 tital ">Phone Number:</div>
+								<div class="col-sm-7">
+									<?php echo $prof->phone ?>
+								</div>
 								<div class="clearfix"></div>
 								<div class="bot-border"></div>
 
-								<div class="col-sm-5 col-xs-6 tital ">Date Of Joining:</div>
-								<div class="col-sm-7">15 Jun 2016</div>
 
-								<div class="clearfix"></div>
-								<div class="bot-border"></div>
-
-								<div class="col-sm-5 col-xs-6 tital ">Date Of Birth:</div>
-								<div class="col-sm-7">11 Jun 1998</div>
-
-								<div class="clearfix"></div>
-								<div class="bot-border"></div>
-
-								<div class="col-sm-5 col-xs-6 tital ">Place Of Birth:</div>
-								<div class="col-sm-7">Shirdi</div>
-
-								<div class="clearfix"></div>
-								<div class="bot-border"></div>
-
-								<div class="col-sm-5 col-xs-6 tital ">Nationality:</div>
-								<div class="col-sm-7">Indian</div>
-
-								<div class="clearfix"></div>
-								<div class="bot-border"></div>
-
-								<div class="col-sm-5 col-xs-6 tital ">Relition:</div>
-								<div class="col-sm-7">Hindu</div>
 								<!-- /.box-body -->
 							</div>
 							<!-- /.box -->
@@ -152,21 +142,21 @@
 					} );
 				} );
 			</script>
-		 <script src="js/jquery.min.js"></script>
-  <script src="js/jquery.easing.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/custom.js"></script>
-  <script src="contactform/contactform.js"></script>
+			<script src="js/jquery.min.js"></script>
+			<script src="js/jquery.easing.min.js"></script>
+			<script src="js/bootstrap.min.js"></script>
+			<script src="js/custom.js"></script>
+			<script src="contactform/contactform.js"></script>
+			<script>
+				$( document ).ready( function () {
+					console.log( "on ready" );
 
+				} );
+			</script>
+			</button>
+
+		</div>
+	</div>
 </body>
 
 </html>
-
-
-
-
-
-
-
-</div>
-</div>
