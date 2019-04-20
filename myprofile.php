@@ -25,8 +25,11 @@
   ======================================================= -->
 	<?php 
 //	echo "hi".$_SERVER['DOCUMENT_ROOT'];
+	require $_SERVER['DOCUMENT_ROOT']."/planit/dbconnection/dbconnect.php";
 	include 'model\profile_model.php';
+	include 'model\friends_model.php';
 	$prof = getProfile($_SESSION['username']);
+	$friendArray = getFriends($_SESSION['username']);
 //	echo $prof->email;
 	?>
 	<script>
@@ -89,8 +92,8 @@
 			<br>
 			<div class="col-md-12">
 
-<!--				<div class="panel panel-default">-->
-					<div class="panel panel-warning" >
+				<!--				<div class="panel panel-default">-->
+				<div class="panel panel-warning">
 					<div class="panel-heading">
 						<h4 class="heading">My Profile</h4>
 
@@ -146,7 +149,7 @@
 								<div class="clearfix"></div>
 								<div class="bot-border"></div>
 
-								<div class="col-sm-5 col-xs-6 tital ">Phone Number:</div>
+								<div class="col-sm-5 col-xs-6 form-group ">Phone Number:</div>
 								<div id="phone" class="col-sm-7" contenteditable="true">
 									<?php echo $prof->phone ?>
 								</div>
@@ -163,24 +166,26 @@
 						</div>
 
 					</div>
-				<div style="display: flex">
-					<div class="panel-body">
+					<div style="display: flex">
+						<div class="panel-body">
 
-						<div class="box box-info">
+							<div class="box box-info">
 
-							<div class="box-body">
-								<div class="col-sm-12">
-									
-									<div class="panel panel-warning" id="result_panel">
-										<div class="panel-heading">
-											<h5 class="heading">My Friends</h3>
+								<div class="box-body">
+									<div class="col-sm-12">
+
+										<div style="width: 325px" class="panel panel-warning" id="result_panel">
+											<div class="panel-heading">
+												<h5 class="heading">My Friends</h3>
 										</div>
 										<div class="panel-body">
 											<ul class="list-group">
-												<li class="list-group-item"><strong>Signature
-                Accommodations</strong>(1480m)
-												</li>
 												
+												
+												  <?php foreach ($friendArray as $friend) {
+		?> <li class="list-group-item"><strong><?php echo $friend->fname;}	?></li>   
+												
+        
 											</ul>
 										</div>
 									</div>
@@ -195,15 +200,13 @@
 							<div class="box-body">
 								<div class="col-sm-12">
 									
-									<div class="panel panel-warning" id="result_panel">
+									<div style="width: 325px" class="panel panel-warning" id="result_panel">
 										<div class="panel-heading">
 											<h5 class="heading">My Events</h3>
 										</div>
 										<div class="panel-body">
 											<ul class="list-group">
-												<li class="list-group-item"><strong>Signature
-                Accommodations</strong>(1480m)
-												</li>
+												
 												
 											</ul>
 										</div>
@@ -219,15 +222,13 @@
 							<div class="box-body">
 								<div class="col-sm-12">
 									
-									<div class="panel panel-warning" id="result_panel">
+									<div style="width: 325px" class="panel panel-warning" id="result_panel">
 										<div class="panel-heading">
 											<h5 class="heading">My Tasks</h3>
 										</div>
 										<div class="panel-body">
 											<ul class="list-group">
-												<li class="list-group-item"><strong>Signature
-                Accommodations</strong>(1480m)
-												</li>
+												
 												
 											</ul>
 										</div>
