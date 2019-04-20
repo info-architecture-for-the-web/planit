@@ -12,6 +12,12 @@
   <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="contactform/contactform.js"></script>
+
   <!-- =======================================================
     Theme Name: Delicious
     Theme URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
@@ -19,7 +25,20 @@
     Author URL: https://bootstrapmade.com
   ======================================================= -->
 </head>
+  <script>
+        $( function () {
+          $( '#profile-image1' ).on( 'click', function () {
+            $( '#profile-image-upload' ).click();
+          } );
+        } );
+  </script>
 
+  <script>
+        $( document ).ready( function () {
+          console.log( "on ready" );
+
+        } );
+  </script>
 <body>
   <!--banner-->
   <section id="banner2">
@@ -58,6 +77,12 @@
           <form action="" method="post" role="form" class="contactForm">
             <div id="sendmessage">Your event has been created. Thank you!</div>
             <div id="errormessage"></div>
+            <div align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive">
+
+                    <input id="profile-image-upload" class="hidden" type="file">
+                    <div style="color:#999;">click here to change profile image</div>
+                    <!--Upload Image Js And Css-->
+                  </div>
             <div class="col-md-6 col-sm-6 contact-form pad-form">
               <div class="form-group label-floating is-empty">
                 <input type="text" name="name" class="form-control" id="name" placeholder="Event Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -95,6 +120,18 @@
                 <div class="validation"></div>
               </div>
             </div>
+            <div class="col-md-6 col-sm-6 contact-form">
+              <div class="form-group">
+                <input type="text" class="form-control label-floating is-empty" name="host" id="host" placeholder="Host Name" data-rule="required" data-msg="This field is required" />
+                <div class="validation"></div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 contact-form">
+              <div class="form-group">
+                <input type="text" class="form-control label-floating is-empty" name="venue" id="venue" placeholder="Venue" data-rule="required" data-msg="This field is required" />
+                <div class="validation"></div>
+              </div>
+            </div>
             <div class="col-md-12 contact-form">
               <div class="form-group label-floating is-empty">
                 <textarea class="form-control" name="message" rows="5" rows="3" data-rule="required" data-msg="Please write something for us" placeholder="Describe your event"></textarea>
@@ -104,7 +141,7 @@
             </div>
             <div class="col-md-12 btnpad">
               <div class="contacts-btn-pad">
-                <button class="contacts-btn">Send</button>
+                <button class="contacts-btn">Create</button>
               </div>
             </div>
           </form>
