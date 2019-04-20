@@ -31,6 +31,20 @@
             $( '#profile-image-upload' ).click();
           } );
         } );
+      function readURL(input, id,size) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $("#" + id).attr("src", e.target.result);
+                // $("#" + id).attr("width", size);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+
+      }
+
   </script>
 
   <script>
@@ -79,7 +93,7 @@
             <div id="errormessage"></div>
             <div align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive">
 
-                    <input id="profile-image-upload" class="hidden" type="file">
+                    <input id="profile-image-upload" class="hidden" type="file" onchange="readURL(this , 'profile-image1','200px');">
                     <div style="color:#999;">click here to change profile image</div>
                     <!--Upload Image Js And Css-->
                   </div>
