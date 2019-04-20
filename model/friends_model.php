@@ -26,6 +26,8 @@ function getFriends($username){
     // foreach ($friendArray as $friend) {
     //     echo "friend: " . $friend->fusername. " - friendname: " . $friend->fname. "<br>";
     // }
+
+    return $friendArray;
 }
 
 /**
