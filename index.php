@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <?php session_start() ?>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Plan It</title>
@@ -30,9 +31,19 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="#about">About</a>
             <a href="#event">Event</a>
-            <a href="create-event.php">Create Event</a> <!-- Can allow this only after login -->
-            <a href="myprofile.php">Manage Profile</a>  <!-- Can allow this only after login -->
-          <a href="login.php">Login</a>
+
+            <?php if (isset($_SESSION['username'])) { ?>
+              <a href="create-event.php">Create Event</a> <!-- Can allow this only after login -->
+              <a href="myprofile.php">Manage Profile</a>  <!-- Can allow this only after login -->
+              <a href="controller/logout_controller.php">Logout</a>
+            <?php
+              }
+              else { ?>
+                <a href="login.php">Login</a>
+            <?php }
+            ?>
+
+
 			<!-- <a href="register.php">Register</a> -->
           </div>
           <!-- Use any element to open the sidenav -->

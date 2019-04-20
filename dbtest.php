@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 require("dbconnection/dbconnect.php");
 $user_query = sendQuery("show tables");
 if($user_query) {
@@ -22,7 +20,14 @@ if($user_query) {
     </head>
     <body>
         <?php
-        echo "DB Connected!";
+        // session_destroy();
+        if ($_SESSION["username"]) {
+            echo "username present";
+        }
+        else {
+            echo "username NOT present";
+        }
+        echo "DB Connected!".$_SESSION["username"];
         echo count($user);
 		foreach($user as $value) {
 		  echo $value;

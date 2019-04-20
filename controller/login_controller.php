@@ -19,7 +19,7 @@
  if ($customerQuery && password_auth($customerQuery)) {
     // Set username on session object
     $_SESSION["username"] = $username;
-     header("Location: ../index.php");
+    header("Location: ../index.php");
  } else{
      echo '<script type="text/javascript">alert("Unknown User"); location="../login.php";</script>';
  } 
