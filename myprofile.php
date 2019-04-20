@@ -28,6 +28,33 @@
 	$prof = getProfile($_SESSION['username']);
 	echo $prof->email;
 	?>
+	<script>
+		$( function () {
+			$( '#profile-image1' ).on( 'click', function () {
+				$( '#profile-image-upload' ).click();
+			} );
+		} );
+	</script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.easing.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="contactform/contactform.js"></script>
+	<script>
+		$( document ).ready( function () {
+			console.log( "on ready" );
+
+		} );
+		
+		function saveChanges()
+		{
+			var newFullName = $('#fullname').html();
+			var newEmail = $('#email').html();
+			var newPhone = $('#phone').html();
+			
+			console.log(newFullName+" "+newEmail+" "+newPhone);
+		}
+	</script>
 </head>
 
 <body>
@@ -63,9 +90,9 @@
 			<div class="col-md-12">
 
 				<div class="panel panel-default">
-					<div class="panel-heading" >
+					<div class="panel-heading">
 						<h4>My Profile</h4>
-						<button style="font-size:24px"><i class="material-icons" >mode_edit</i>
+					
 					</div>
 					
 					<div class="panel-body">
@@ -83,11 +110,11 @@
 
 
 
-
-
-										<h4 style="color:#00b1b1;">
+										<h4 style="color:#00b1b1;" >
+										<div id="fullname" contenteditable="true">
+										 
 											<?php echo $prof->fullname ?>
-										</h4>
+										</div></h4>
 									</div>
 
 									<br>
@@ -103,59 +130,44 @@
 								<hr style="margin:5px 0 5px 0;">
 
 
-								<div class="col-sm-5 col-xs-6 tital ">Username:</div>
-								<div class="col-sm-7 ">
+								<div class="col-sm-5 col-xs-6 tital " >Username:</div>
+								<div id="username" class="col-sm-7 ">
 									<?php echo $prof->username ?>
 								</div>
 								<div class="clearfix"></div>
 								<div class="bot-border"></div>
 
 								<div class="col-sm-5 col-xs-6 tital ">Email:</div>
-								<div class="col-sm-7">
+								<div id="email" class="col-sm-7" contenteditable="true">
 									<?php echo $prof->email ?>
 								</div>
 								<div class="clearfix"></div>
 								<div class="bot-border"></div>
 
 								<div class="col-sm-5 col-xs-6 tital ">Phone Number:</div>
-								<div class="col-sm-7">
+								<div id="phone" class="col-sm-7" contenteditable="true">
 									<?php echo $prof->phone ?>
 								</div>
+						
 								<div class="clearfix"></div>
+								
 								<div class="bot-border"></div>
+								<button style="align:center" onClick="saveChanges()">Save Changes</button>
 
-
-								<!-- /.box-body -->
-							</div>
-							<!-- /.box -->
-
-						</div>
-
-
+						<!-- /.box-body -->
 					</div>
+					<!-- /.box -->
+
 				</div>
+
+
 			</div>
-			<script>
-				$( function () {
-					$( '#profile-image1' ).on( 'click', function () {
-						$( '#profile-image-upload' ).click();
-					} );
-				} );
-			</script>
-			<script src="js/jquery.min.js"></script>
-			<script src="js/jquery.easing.min.js"></script>
-			<script src="js/bootstrap.min.js"></script>
-			<script src="js/custom.js"></script>
-			<script src="contactform/contactform.js"></script>
-			<script>
-				$( document ).ready( function () {
-					console.log( "on ready" );
-
-				} );
-			</script>
-			</button>
-
 		</div>
+	</div>
+	
+	</button>
+
+	</div>
 	</div>
 </body>
 
