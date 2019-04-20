@@ -24,7 +24,7 @@
   ======================================================= -->
 	<?php 
 	echo "hi".$_SERVER['DOCUMENT_ROOT'];
-	include 'model\profile_controller.php';
+	include 'model\profile_model.php';
 	$prof = getProfile($_SESSION['username']);
 	echo $prof->email;
 	?>
