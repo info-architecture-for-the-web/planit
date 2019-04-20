@@ -1,5 +1,11 @@
 <?php
 require "../dbconnection/dbconnect.php";
+
+/**
+ * Get profile for a user
+ * @params  username
+ * @return object containing all user details
+ */
 function getProfile($username) {
     $result = new stdClass();
     $userProfile = new stdClass();
