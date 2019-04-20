@@ -1,5 +1,5 @@
 <?php
- require "../dbconnection/dbconnect.php";
+ require $_SERVER['DOCUMENT_ROOT']."/planit/dbconnection/dbconnect.php";
  $username = filter_input(INPUT_POST, 'username');
  $password = filter_input(INPUT_POST, 'password');
  echo $username . $password;
