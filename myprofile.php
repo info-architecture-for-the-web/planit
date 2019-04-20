@@ -24,10 +24,10 @@
     Author URL: https://bootstrapmade.com
   ======================================================= -->
 	<?php 
-	echo "hi".$_SERVER['DOCUMENT_ROOT'];
+//	echo "hi".$_SERVER['DOCUMENT_ROOT'];
 	include 'model\profile_model.php';
 	$prof = getProfile($_SESSION['username']);
-	echo $prof->email;
+//	echo $prof->email;
 	?>
 	<script>
 		$( function () {
