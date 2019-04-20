@@ -16,6 +16,7 @@
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
 	<!-- =======================================================
     Theme Name: Delicious
     Theme URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
@@ -28,6 +29,32 @@
 	$prof = getProfile($_SESSION['username']);
 	echo $prof->email;
 	?>
+	<script>
+		$( function () {
+			$( '#profile-image1' ).on( 'click', function () {
+				$( '#profile-image-upload' ).click();
+			} );
+		} );
+	</script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.easing.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="contactform/contactform.js"></script>
+	<script>
+		$( document ).ready( function () {
+			console.log( "on ready" );
+
+		} );
+
+		function saveChanges() {
+			var newFullName = $( '#fullname' ).html();
+			var newEmail = $( '#email' ).html();
+			var newPhone = $( '#phone' ).html();
+
+			console.log( newFullName + " " + newEmail + " " + newPhone );
+		}
+	</script>
 </head>
 
 <body>
@@ -62,12 +89,13 @@
 			<br>
 			<div class="col-md-12">
 
-				<div class="panel panel-default">
-					<div class="panel-heading" >
-						<h4>My Profile</h4>
-						<button style="font-size:24px"><i class="material-icons" >mode_edit</i>
+<!--				<div class="panel panel-default">-->
+					<div class="panel panel-warning" >
+					<div class="panel-heading">
+						<h4 class="heading">My Profile</h4>
+
 					</div>
-					
+
 					<div class="panel-body">
 
 						<div class="box box-info">
@@ -83,10 +111,11 @@
 
 
 
-
-
 										<h4 style="color:#00b1b1;">
-											<?php echo $prof->fullname ?>
+											<div id="fullname" contenteditable="true">
+
+												<?php echo $prof->fullname ?>
+											</div>
 										</h4>
 									</div>
 
@@ -103,27 +132,29 @@
 								<hr style="margin:5px 0 5px 0;">
 
 
-								<div class="col-sm-5 col-xs-6 tital ">Username:</div>
-								<div class="col-sm-7 ">
+								<div class="col-sm-5 col-xs-6 form-group ">Username:</div>
+								<div id="username" class="col-sm-7 form-group">
 									<?php echo $prof->username ?>
 								</div>
 								<div class="clearfix"></div>
 								<div class="bot-border"></div>
 
-								<div class="col-sm-5 col-xs-6 tital ">Email:</div>
-								<div class="col-sm-7">
+								<div class="col-sm-5 col-xs-6 form-group ">Email:</div>
+								<div id="email" class="col-sm-7" contenteditable="true">
 									<?php echo $prof->email ?>
 								</div>
 								<div class="clearfix"></div>
 								<div class="bot-border"></div>
 
 								<div class="col-sm-5 col-xs-6 tital ">Phone Number:</div>
-								<div class="col-sm-7">
+								<div id="phone" class="col-sm-7" contenteditable="true">
 									<?php echo $prof->phone ?>
 								</div>
-								<div class="clearfix"></div>
-								<div class="bot-border"></div>
 
+								<div class="clearfix"></div>
+
+								<div class="bot-border"></div>
+								<button style="align:center" onClick="saveChanges()">Save Changes</button>
 
 								<!-- /.box-body -->
 							</div>
@@ -131,31 +162,88 @@
 
 						</div>
 
-
 					</div>
+				<div style="display: flex">
+					<div class="panel-body">
+
+						<div class="box box-info">
+
+							<div class="box-body">
+								<div class="col-sm-12">
+									
+									<div class="panel panel-warning" id="result_panel">
+										<div class="panel-heading">
+											<h5 class="heading">My Friends</h3>
+										</div>
+										<div class="panel-body">
+											<ul class="list-group">
+												<li class="list-group-item"><strong>Signature
+                Accommodations</strong>(1480m)
+												</li>
+												
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				<div class="panel-body">
+
+						<div class="box box-info">
+
+							<div class="box-body">
+								<div class="col-sm-12">
+									
+									<div class="panel panel-warning" id="result_panel">
+										<div class="panel-heading">
+											<h5 class="heading">My Events</h3>
+										</div>
+										<div class="panel-body">
+											<ul class="list-group">
+												<li class="list-group-item"><strong>Signature
+                Accommodations</strong>(1480m)
+												</li>
+												
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel-body">
+
+						<div class="box box-info">
+
+							<div class="box-body">
+								<div class="col-sm-12">
+									
+									<div class="panel panel-warning" id="result_panel">
+										<div class="panel-heading">
+											<h5 class="heading">My Tasks</h3>
+										</div>
+										<div class="panel-body">
+											<ul class="list-group">
+												<li class="list-group-item"><strong>Signature
+                Accommodations</strong>(1480m)
+												</li>
+												
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+</div>
 				</div>
 			</div>
-			<script>
-				$( function () {
-					$( '#profile-image1' ).on( 'click', function () {
-						$( '#profile-image-upload' ).click();
-					} );
-				} );
-			</script>
-			<script src="js/jquery.min.js"></script>
-			<script src="js/jquery.easing.min.js"></script>
-			<script src="js/bootstrap.min.js"></script>
-			<script src="js/custom.js"></script>
-			<script src="contactform/contactform.js"></script>
-			<script>
-				$( document ).ready( function () {
-					console.log( "on ready" );
-
-				} );
-			</script>
-			</button>
-
 		</div>
+
+		</button>
+
+	</div>
 	</div>
 </body>
 
