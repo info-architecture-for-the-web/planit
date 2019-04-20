@@ -28,8 +28,10 @@
 	require $_SERVER['DOCUMENT_ROOT']."/planit/dbconnection/dbconnect.php";
 	include 'model\profile_model.php';
 	include 'model\friends_model.php';
+	include 'model\event_model.php';
 	$prof = getProfile($_SESSION['username']);
 	$friendArray = getFriends($_SESSION['username']);
+	$eventArray = getEvents($_SESSION['username']);
 //	echo $prof->email;
 	?>
 	<script>
@@ -207,6 +209,8 @@
 										<div class="panel-body">
 											<ul class="list-group">
 												
+												  <?php foreach ($eventArray as $event) {
+		?> <li class="list-group-item"><strong><a href="events-details.php?eventid=<?php echo $event->eventid;	?>"><?php echo $event->ename;}?></li>   
 												
 											</ul>
 										</div>
