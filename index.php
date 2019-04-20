@@ -30,7 +30,7 @@
           <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="#about">About</a>
-            <a href="#event">Event</a>
+            <a href="events.php">Explore Events</a>
 
             <?php if (isset($_SESSION['username'])) { ?>
               <a href="create-event.php">Create Event</a> <!-- Can allow this only after login -->
@@ -99,6 +99,7 @@
   </section>
   <!--/about-->
   <!-- event -->
+<!--
   <section id="event">
     <div class="bg-color" class="section-padding">
       <div class="container">
@@ -132,8 +133,10 @@
       </div>
     </div>
   </section>
+-->
   <!--/ event -->
   <!-- menu -->
+<!--
   <section id="menu-list" class="section-padding">
     <div class="container">
       <div class="row">
@@ -264,8 +267,10 @@
       </div>
     </div>
   </section>
+-->
   <!--/ menu -->
   <!-- contact -->
+<!--
   <section id="contact" class="section-padding">
     <div class="container">
       <div class="row">
@@ -282,7 +287,7 @@
             </div>
             <div class="media-body">
               <h4 class="dark-blue regular">Phone Numbers</h4>
-              <!-- <p class="light-blue regular alt-p">+812 0000000000 - <span class="contacts-sp">Call us</span></p> -->
+               <p class="light-blue regular alt-p">+812 0000000000 - <span class="contacts-sp">Call us</span></p> 
               <p class="light-blue regular alt-p">+812 0000000000 </p>
             </div>
           </div>
@@ -357,6 +362,7 @@
       </div>
     </div>
   </section>
+-->
   <!-- / contact -->
   <!-- footer -->
   <footer class="footer text-center">
