@@ -8,7 +8,8 @@
 body {
 	font-size: 15px;
     line-height: 1.52;
-    color: #717f86;
+    /*color: #717f86;*/
+    color: white;
     font-size: 16px;
 	font-family: 'Open Sans', sans-serif;
     font-weight: 400;
@@ -34,10 +35,20 @@ table {
     background-size: cover;
     min-height: 630px;
 }
+#banner2{
+    background: url(../img/banner-bg.jpg) no-repeat center top;
+    background-size: cover;
+    min-height: 130px;
+}
 .bg-color{
     background-color: RGBA(0, 0, 0, 0.61);
     min-height: 630px;
 }
+.bg-color2{
+    background-color: RGBA(0, 0, 0, 0.61);
+    min-height: 130px;
+}
+
 #banner h2{
     font-family: 'Satisfy', sans-serif;
     font-size: 45px;
@@ -55,6 +66,12 @@ table {
     font-family: 'Satisfy', sans-serif;
     font-size: 65px;
     margin-top: 140px;
+    color: #FFB03B;
+}
+.logo-name2{
+    font-family: 'Satisfy', sans-serif;
+    font-size: 65px;
+    /*margin-top: 140px;*/
     color: #FFB03B;
 }
 .sidenav {
@@ -428,6 +445,11 @@ table {
 }
 #contact{
     background-color: rgba(221, 221, 221, 0.33);
+
+}
+
+.createevent{
+    margin-left: 20%;
 }
 .footer .social-list a {
     font-size: 32px;
@@ -476,3 +498,16 @@ table {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }
+              input.hidden {
+    position: absolute;
+    left: -9999px;
+}
+
+#profile-image1 {
+    cursor: pointer;
+  
+     width: 100px;
+    height: 100px;
+	border:2px solid #03b1ce ;}
+	.tital{ font-size:16px; font-weight:500;}
+	 .bot-border{ border-bottom:1px #f8f8f8 solid;  margin:5px 0  5px 0}	
