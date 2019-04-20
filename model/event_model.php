@@ -1,5 +1,5 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT']."/planit/dbconnection/dbconnect.php";;
+require "../dbconnection/dbconnect.php";
 
 /**
  * Get all events for the given user
