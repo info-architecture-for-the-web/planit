@@ -28,5 +28,5 @@ function updateProfile($userProfile){
     $customerQuery = sendQuery("SELECT * FROM person where username = '$username'");
 }
 
-echo getProfile("mbelnek")->email;
+//echo getProfile("mbelnek")->email;
 ?>
