@@ -123,7 +123,7 @@
                               <strong>Time: </strong>
                               04:00pm
                             </address>
-                  <a class="btn btn-imfo btn-read-more" href="events-details.html">Read more</a>
+                  <a class="btn btn-imfo btn-read-more" href="events-details.php">Read more</a>
                 </div>
               </div>
             </div>
