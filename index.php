@@ -45,7 +45,7 @@
             <h1 class="logo-name">Plan It</h1>
             <h2>Your party planner</h2>
             <p>Manage and Organise your events!</p>
-            <a class="btn btn-imfo btn-read-more" href="events-details.html">Get Started</a>
+            <a class="btn btn-imfo btn-read-more" href="create-event.php">Get Started</a>
           </div>
         </div>
       </div>
