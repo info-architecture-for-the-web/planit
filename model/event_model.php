@@ -29,8 +29,30 @@ function getEvents($username){
     // }
 
     return $eventArray;
-    
 }
+
+// get event details
+function getEventDetails($eventId)
+{
+    $customerQuery = sendQuery("SELECT * FROM event inner join person ON event.host = person.username where eventid = '$eventId'");
+    $row = $customerQuery->fetch_assoc();
+
+    // create object (username,fullname)
+    $eventObj = new stdClass();
+    $eventObj->eventid = $row["eventid"];
+    $eventObj->ename = $row["name"];
+    $eventObj->edate = $row["date"];
+    $eventObj->elocation = $row["location"];
+    $eventObj->edescription = $row["description"];
+    $eventObj->ehostUsername = $row["host"];
+    $eventObj->ehostName = $row["fullname"];
+    
+    // print all our friends
+    // echo "event: " . $eventObj->hostUsername. " - edate: " . $eventObj->hostName. "<br>";
+
+    return $eventObj;
+}
+
 
 /**
  * Add event
