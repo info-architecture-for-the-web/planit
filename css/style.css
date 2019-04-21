@@ -518,16 +518,54 @@ table {
     overflow:scroll;
     -webkit-overflow-scrolling: touch;
 }
+.task{
+    display:inline-block;
+    border:1px solid #b6b6b6;
+    padding:20px;
+    width:100%;
+}
+.tasks{
+    width:80%;
+}
 .task-status{
     text-align: right;
     float: right;
+    
+    
 }
-.tasks{
-    width: 80%;
+.taskdata .tasktitle{
+    font-size: 20px !important;
+    
+}
+ .tasktitle{
+    width:auto;
+}
+
+.taskaccord{
+    margin-left: 1%;
 }
 .modal-notify .modal-header {
     border-radius: 3px 3px 0 0;
 }
 .modal-notify .modal-content {
     border-radius: 3px;
+}
+.output {
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+p,
+dt {
+    font-weight: bold;
+}
+
+dl,
+dd {
+    margin-left: 2.3%;
+    font-size: 1.2rem;
+}
+
+dd {
+    margin-left: 2.3%;
+    margin-bottom: 1em;
 }
