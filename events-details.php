@@ -60,7 +60,8 @@
 </head>
 
 <body>
-	<!--banner-->
+  <!--banner-->
+  
 	<section id="banner">
 		<div class="bg-color">
 			<header id="header">
@@ -209,9 +210,12 @@
                             <div class="taskaccord">
                                 <div class="col s9"></div>
                                 <div class="col s3 action-buttons">
-                                    <a class="waves-effect waves-light btn approve" onclick = "echo " >Completed</a>
-                                    <a class="waves-effect waves-light btn reject red" data-orgid="<?php echo $task->taskid; ?>">Pending</a>
+                                <form method = "post" action="controller/task_controller.php?eventid=<?php echo $eventid;?>&taskid=<?php echo $task->taskid;?>">
+                                <button type="Submit" name = "status" value="Completed" class="waves-effect waves-light btn completed" >Completed</button>
+                                <button type="Submit" name = "status" value="Pending" class="waves-effect waves-light btn pending">Pending</button>
+                                </form>
                                 </div>
+    
                             </div>
                     </li>
                     <?php
@@ -244,5 +248,4 @@
     <script src="contactform/contactform.js"></script>
 
 </body>
-
 </html>

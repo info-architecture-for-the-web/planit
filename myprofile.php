@@ -29,9 +29,11 @@
 	include 'model\profile_model.php';
 	include 'model\friends_model.php';
 	include 'model\event_model.php';
+	include 'model\task_model.php';
 	$prof = getProfile($_SESSION['username']);
 	$friendArray = getFriends($_SESSION['username']);
 	$eventArray = getEvents($_SESSION['username']);
+	$taskArray = getTasksByUsername($_SESSION['username']);
 //	echo $prof->email;
 	?>
 	<script>
@@ -59,6 +61,20 @@
 
 			console.log( newFullName + " " + newEmail + " " + newPhone );
 		}
+		
+		function readURL(input, id, size) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+            $("#" + id).attr("src", e.target.result);
+            // $("#" + id).attr("width", size);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+
+}
 	</script>
 </head>
 
@@ -100,6 +116,7 @@
 						<h4 class="heading">My Profile</h4>
 
 					</div>
+					<form action="" method="post" role="form" class="contactForm">
 
 					<div class="panel-body">
 
@@ -109,7 +126,8 @@
 								<div class="col-sm-12">
 									<div align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive">
 
-										<input id="profile-image-upload" class="hidden" type="file">
+										<input id="profile-image-upload" class="hidden" type="file"
+											    onchange="readURL(this , 'profile-image1','200px');">
 										<div style="color:#999;">click here to change profile image</div>
 										<!--Upload Image Js And Css-->
 
@@ -166,9 +184,10 @@
 							<!-- /.box -->
 
 						</div>
+					</form>
 
 					</div>
-					<div style="display: flex">
+<!--					<div style="display: flex">-->
 						<div class="panel-body">
 
 							<div class="box box-info">
@@ -176,7 +195,7 @@
 								<div class="box-body">
 									<div class="col-sm-12">
 
-										<div style="width: 325px" class="panel panel-warning" id="result_panel">
+										<div  class="panel panel-warning" id="result_panel">
 											<div class="panel-heading">
 												<h5 class="heading">My Friends</h3>
 										</div>
@@ -195,6 +214,30 @@
 							</div>
 						</div>
 					</div>
+						<div class="panel-body">
+
+						<div class="box box-info">
+
+							<div class="box-body">
+								<div class="col-sm-12">
+									
+									<div class="panel panel-warning" id="result_panel">
+										<div class="panel-heading">
+											<h5 class="heading">My Tasks</h3>
+										</div>
+										<div class="panel-body">
+											<ul class="list-group">
+												
+												  <?php foreach ($taskArray as $task) {
+		?> <li class="list-group-item"><strong><?php echo $task->title;}	?></li> 
+												
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				<div class="panel-body">
 
 						<div class="box box-info">
@@ -202,7 +245,7 @@
 							<div class="box-body">
 								<div class="col-sm-12">
 									
-									<div style="width: 325px" class="panel panel-warning" id="result_panel">
+									<div  class="panel panel-warning" id="result_panel">
 										<div class="panel-heading">
 											<h5 class="heading">My Events</h3>
 										</div>
@@ -219,28 +262,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="panel-body">
-
-						<div class="box box-info">
-
-							<div class="box-body">
-								<div class="col-sm-12">
-									
-									<div style="width: 325px" class="panel panel-warning" id="result_panel">
-										<div class="panel-heading">
-											<h5 class="heading">My Tasks</h3>
-										</div>
-										<div class="panel-body">
-											<ul class="list-group">
-												
-												
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					
 </div>
 				</div>
 			</div>
