@@ -99,19 +99,19 @@
 
         <div class="container">
 
-            <div class="row">
+            <div class="row ">
 
-                <ul class="collapsible">
+                <ul class="collapsible task ">
 
                     <li>
                         <div class="collapsible-header"><i class="material-icons">work</i>
                             <span class="tasks">Task 1</span>
                             <span class="tasks-status">Pending</span>
                         </div>
-                        <div class="collapsible-body">
+                        <div class="collapsible-body taskaccord">
                             <div class="row">
-                                <div class="col s2">Task Description:</div>
-                                <div class="col s9">akjlfbsjgbvljfb hfbje hfauhf jaflh hbfj hgafhgajfg egfwehfg wefg
+                                <div class="col s2 tasktitle">Task Description:</div>
+                                <div class="col s9 taskdata">akjlfbsjgbvljfb hfbje hfauhf jaflh hbfj hgafhgajfg egfwehfg wefg
                                     gfalhgljdhfajgf agfjlgsf</div>
                                 <div class="col s2">Assigned to:</div>
                                 <div class="col s9">jbkjbkjhvbhvg</div>
