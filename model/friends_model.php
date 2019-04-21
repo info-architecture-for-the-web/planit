@@ -36,6 +36,4 @@ function getFriends($username){
  */
 function addFriends($friendArray, $username) {
 }
-
-// getFriends("vbhor");
 ?>

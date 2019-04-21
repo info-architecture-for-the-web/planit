@@ -100,5 +100,6 @@ function getEventMembers($eventId)
  * @params event object, should contain all data
  */
 function addEvent($event) {
+    
 }
 ?>

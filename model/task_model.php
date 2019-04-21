@@ -105,7 +105,6 @@ function getTasksByEvent($eventid){
     // }
 
     $taskQuery = sendQuery("SELECT * FROM planit.task where eventid = '$eventid'");
-    echo "SELECT * FROM planit.task where eventid = '$eventid'";
     $taskArray = array();
     // output data of each row
     while($row = $taskQuery->fetch_assoc()) {
@@ -136,13 +135,43 @@ function getTasksByEvent($eventid){
     return $taskArray;
 }
 
+/**
+ * Add a new task
+ * @param task object, it contains all the required details
+ * @return returns true or false, based on the result
+ */
 function addTask($task) {
-    $addQuery = sendQuery("SELECT * FROM planit.task;INSERT INTO `planit`.`task` (`taskid`, `title`,`deadline`,`status`,`assignedTo`,`eventid`,`assignedBy`,`modifiedBy`,`description`) VALUES (<{taskid: }>, <{title: }>, <{deadline: }>, <{status: }>, <{assignedTo: }>, <{eventid: }>, <{assignedBy: }>, <{modifiedBy: }>,<{description: }>)");
+    $addQuery = sendQuery(
+        "INSERT INTO `planit`.`task`
+        (`title`,
+        `deadline`,
+        `status`,
+        `assignedTo`,
+        `eventid`,
+        `assignedBy`,
+        `modifiedBy`,
+        `description`)
+        VALUES
+        ($task->title,
+        $task->deadline,
+        $task->status,
+        $task->assignedTo,
+        $task->eventid,
+        $task->assignedBy,
+        $task->modifiedBy,
+        $task->description,)");
+
+    if (addQuery) {
+        return true;
+    }
+    
+    return false;
+
 }
 
 // Update status of this task with newStatus
 function updateTaskStatus($taskId, $newStatus){
-    $statusQuery = sendQuery("UPDATE `planit`.`task` SET `status` = '$newStatus' WHERE `taskid` = '$taskId'");
+    $statusQuery = sendQuery("UPDATE `task` SET `status` = '$newStatus' WHERE `taskid` = '$taskId'");
 
     if ($statusQuery) {
         return true;
