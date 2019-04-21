@@ -44,8 +44,8 @@ function getEventDetails($eventId)
     $eventObj->edate = $row["date"];
     $eventObj->elocation = $row["location"];
     $eventObj->edescription = $row["description"];
-    $eventObj->hostUsername = $row["host"];
-    $eventObj->hostName = $row["fullname"];
+    $eventObj->ehostUsername = $row["host"];
+    $eventObj->ehostName = $row["fullname"];
     
     // print all our friends
     // echo "event: " . $eventObj->hostUsername. " - edate: " . $eventObj->hostName. "<br>";

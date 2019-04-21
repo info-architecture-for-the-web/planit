@@ -2,7 +2,7 @@
  require $_SERVER['DOCUMENT_ROOT']."/planit/dbconnection/dbconnect.php";
  $username = filter_input(INPUT_POST, 'username');
  $password = filter_input(INPUT_POST, 'password');
- echo $username . $password;
+//  echo $username . $password;
  $passwordEnc = md5($password);
  $customerQuery = sendQuery("SELECT password FROM person where username = '$username'");
  function password_auth($authQuery) {
