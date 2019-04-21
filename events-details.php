@@ -43,15 +43,14 @@
         margin: 20px;
     }
     </style>
-    <script>
-      <script>
+      <!-- <script>
         $(".approve").click( function(){
           takeAction( $(this), $(this).data("orgid"), "approve");
         });
         $(".reject").click( function(){
           takeAction( $(this), $(this).data("orgid"), "reject");
         });
-    </script>
+    </script> -->
     <!-- =======================================================
     Theme Name: Delicious
     Theme URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
@@ -182,36 +181,32 @@
                 <?php
                   foreach ($tasks as $task){
                 	?>
-                    <li>
-                        <div class="collapsible-header"><i class="material-icons">work</i>
-                            <span class="tasks">Task 1</span>
+                    <li class="task">
+                        <div class="collapsible-header"  style="display:flex;"><i class="material-icons" style="color:orange;">check_circle</i>
+                          <div style="width:80%; margin-left:0.5%;">  <span class="tasks"><?php echo $task->title;?></span></div>
                             <span class="tasks-status"><?php echo $task->status;?></span>
                         </div>
-                        <div class="collapsible-body taskaccord">
-                            <div class="row">
-                              <div style="display: flex;" >
-                                <div class="col s2 tasktitle">Task Description:</div>
-                                <div class="col s9 taskdata"> <?php echo $task->title;?></div>
-                              </div>
-                              <div style="display: flex;" >
-                                <div class="col s2">Assigned to:</div>
-                                <div class="col s9"><?php echo $task->assignedToName;?></div>
-                              </div>
-                              <div style="display: flex;" >
-                                <div class="col s2">Assigned by:</div>
-                                <div class="col s9"><?php echo $task->assignedByName;?></div>
-                              </div>
-                              <div style="display: flex;" >
-                                <div class="col s2">Last Modified by:</div>
-                                <div class="col s9"><?php echo $task->modifiedByName;?></div>
-                              </div>
-                              <div style="display: flex;" >
-                                <div class="col s2">Targeted by:</div>
-                                <div class="col s9"><?php echo $task->deadline;?></div>
-                              </div>
-                            </div>
+                        <div class="collapsible-body ">
+                        <p style="margin-left: 2.5%;">Details of task:</p>
+
+                                    <dl>
+                                        <dt>Task Description:</dt>
+                                        <dd><?php echo $task->description;?></dd>
+
+                                        <dt>Assigned to:</dt>
+                                        <dd><?php echo $task->assignedToName;?></dd>
+
+                                        <dt>Assigned by:</dt>
+                                        <dd><?php echo $task->assignedByName;?></dd>
+
+                                        <dt>Last Modified by:</dt>
+                                        <dd><?php echo $task->modifiedByName;?></dd>
+
+                                        <dt>Targeted by:</dt>
+                                        <dd><?php echo $task->deadline;?></dd>
+                                    </dl>
                             <hr />
-                            <div class="row">
+                            <div class="taskaccord">
                                 <div class="col s9"></div>
                                 <div class="col s3 action-buttons">
                                     <a class="waves-effect waves-light btn approve" onclick = "echo " >Completed</a>
