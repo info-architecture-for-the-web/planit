@@ -67,7 +67,7 @@ $(document).ready(function() {
                         <a href="index.php">Home</a>
                         <a href="create-event.php">Create Event</a> <!-- Can allow this only after login -->
                         <a href="myprofile.php">Manage Profile</a> <!-- Can allow this only after login -->
-                        <a href="login.php">Login</a>
+                        <a href="controller/logout_controller.php">Logout</a>
                         <!-- <a href="register.php">Register</a> -->
                     </div>
                     <!-- Use any element to open the sidenav -->
