@@ -137,7 +137,7 @@ function getTasksByEvent($eventid){
 }
 
 function addTask($task) {
-    
+    $addQuery = sendQuery("SELECT * FROM planit.task;INSERT INTO `planit`.`task` (`taskid`, `title`,`deadline`,`status`,`assignedTo`,`eventid`,`assignedBy`,`modifiedBy`,`description`) VALUES (<{taskid: }>, <{title: }>, <{deadline: }>, <{status: }>, <{assignedTo: }>, <{eventid: }>, <{assignedBy: }>, <{modifiedBy: }>,<{description: }>)");
 }
 
 // Update status of this task with newStatus

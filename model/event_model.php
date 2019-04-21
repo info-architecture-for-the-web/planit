@@ -53,19 +53,52 @@ function getEventDetails($eventId)
     return $eventObj;
 }
 
+/**
+ * Get all members of the of this event
+ * @params eventId
+ * @return array of member objects(memberUsername,memberName,role)
+ */
+function getEventMembers($eventId)
+{
+    // We also get a dictionary of username => fullname, this will be useful to us when
+    // we have to get the fullname using the username
+    $nameQuery = sendQuery("SELECT * from person");
+    $nameArray = array();
+    while($row = $nameQuery->fetch_assoc()) {
+        // add it to our array
+        $nameArray[$row["username"]] = $row["fullname"];
+    }
+
+    // print all users
+    // foreach ($nameArray as $name) {
+    //     echo "username: " . $nameArray['vbhor'] . "<br>";
+    // }
+    
+    $memberQuery = sendQuery("SELECT * FROM planit.participate where eventid = '$eventId'");
+    $memberArray = array();
+    // output data of each row
+    while($row = $memberQuery->fetch_assoc()) {
+        // create object (username,fullname)
+        $memberProfile = new stdClass();
+        $memberProfile->username = $row["username"];
+        $memberProfile->memberName = $nameArray[$memberProfile->username];
+        $memberProfile->role = $row["role"];
+        // add it to our array
+        array_push($memberArray,$memberProfile);
+    }
+    
+    // print all our friends
+    // foreach ($memberArray as $member) {
+    //     echo "friend: " . $member->username. " - friendname: " . $member->memberName. "<br>";
+    // }
+
+    return $memberArray;
+}
 
 /**
  * Add event
  * @params event object, should contain all data
  */
 function addEvent($event) {
-}
-
-/**
- * Get all members in the event
- * @params eventId
- * @return list of member objects, each object containing member details
- */
-function getEventMembers($eventId){
 }
 ?>
