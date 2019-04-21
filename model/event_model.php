@@ -100,18 +100,6 @@ function getEventMembers($eventId)
  * @return true if successfull, false otherwise
  */
 function addEvent($event) {
-    echo "INSERT INTO `event`
-    (`name`,
-    `date`,
-    `location`,
-    `description`,
-    `host`)
-    VALUES
-    ('$event->name',
-    STR_TO_DATE('$event->date','%Y-%m-%d'),
-    '$event->location',
-    '$event->description',
-    '$event->host')";
     $addQuery = sendQuery(
         "INSERT INTO `event`
         (`name`,
@@ -125,9 +113,8 @@ function addEvent($event) {
         '$event->location',
         '$event->description',
         '$event->host')");
-
     if ($addQuery) {
-        return true;
+        return mysqli_insert_id (getMySqli());
     }    
     return false;
 }
