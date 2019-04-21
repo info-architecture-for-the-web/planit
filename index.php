@@ -2,18 +2,20 @@
 <html lang="en">
 
 <head>
-  <?php session_start() ?>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Plan It</title>
-  <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
-  <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
+    <?php session_start() ?>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plan It</title>
+    <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
+    <meta name="keywords"
+        content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Satisfy|Bree+Serif|Candal|PT+Sans">
-  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <!-- =======================================================
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Satisfy|Bree+Serif|Candal|PT+Sans">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- =======================================================
     Theme Name: Delicious
     Theme URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
     Author: BootstrapMade.com
@@ -22,84 +24,92 @@
 </head>
 
 <body>
-  <!--banner-->
-  <section id="banner">
-    <div class="bg-color">
-      <header id="header">
-        <div class="container">
-          <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#about">About</a>
-            <a href="events.php">Explore Events</a>
+    <!--banner-->
+    <section id="banner">
+        <div class="bg-color">
+            <header id="header">
+                <div class="container">
+                    <div id="mySidenav" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <a href="#about">About</a>
+                        <a href="events.php">Explore Events</a>
 
-            <?php if (isset($_SESSION['username'])) { ?>
-              <a href="create-event.php">Create Event</a> <!-- Can allow this only after login -->
-              <a href="myprofile.php">Manage Profile</a>  <!-- Can allow this only after login -->
-              <a href="controller/logout_controller.php">Logout</a>
-            <?php
+                        <?php if (isset($_SESSION['username'])) { ?>
+                        <a href="create-event.php">Create Event</a> <!-- Can allow this only after login -->
+                        <a href="myprofile.php">Manage Profile</a> <!-- Can allow this only after login -->
+                        <a href="controller/logout_controller.php">Logout</a>
+                        <?php
               }
               else { ?>
-                <a href="login.php">Login</a>
-            <?php }
+                        <a href="login.php">Login</a>
+                        <?php }
             ?>
 
 
-			<!-- <a href="register.php">Register</a> -->
-          </div>
-          <!-- Use any element to open the sidenav -->
-          <span onclick="openNav()" class="pull-right menu-icon">☰</span>
-        </div>
-      </header>
-      <div class="container">
-        <div class="row">
-          <div class="inner text-center">
-            <h1 class="logo-name">Plan It</h1>
-            <h2>Your party planner</h2>
-            <p>Manage and Organise your events!</p>
-            <a class="btn btn-imfo btn-read-more" href="create-event.php">Get Started</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- / banner -->
-  <!--about-->
-  <section id="about" class="section-padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center marb-35">
-          <h1 class="header-h">Plan and Organize</h1>
-          <p class="header-p">Hosting a party soon? Confused where to start? “Plan it” is solution to your problems.
-            <br>Plan your event more effectively and efficiently using Plan it!</p>
-        </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
-          <div class="col-md-6 col-sm-6">
-            <div class="about-info">
-              <h2 class="heading">Our Motivation</h2>
-              <p>The purpose of the project is to make a website that helps Event hosts to plan an event. An event host can create an Event and add people to the group that will help him plan the event. The host can create tasks and assign them to the people in the group. Alternatively, the group members can also assign tasks to themselves and mark them as complete as they finish it. Thus, everyone on the group is aware of the current status of the planning thereby avoiding chaos.</p>
-              <div class="details-list">
-                <ul>
-                  <li><i class="fa fa-check"></i>Create an event</li>
-                  <li><i class="fa fa-check"></i>Manage your events</li>
-                  <li><i class="fa fa-check"></i>Add organizers and friends to your planning committee</li>
-                  <li><i class="fa fa-check"></i>Collaborate and build</li>
-                  <li><i class="fa fa-check"></i>View similar events and create your own checklist</li>
-                </ul>
-              </div>
+                        <!-- <a href="register.php">Register</a> -->
+                    </div>
+                    <!-- Use any element to open the sidenav -->
+                    <span onclick="openNav()" class="pull-right menu-icon">☰</span>
+                </div>
+            </header>
+            <div class="container">
+                <div class="row">
+                    <div class="inner text-center">
+                        <h1 class="logo-name">Plan It</h1>
+                        <h2>Your party planner</h2>
+                        <p>Manage and Organise your events!</p>
+                        <a class="btn btn-imfo btn-read-more" href="create-event.php">Get Started</a>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="col-md-6 col-sm-6">
-            <img src="img/res06.jpg" alt="" class="img-responsive">
-          </div>
         </div>
-        <div class="col-md-1"></div>
-      </div>
-    </div>
-  </section>
-  <!--/about-->
-  <!-- event -->
-<!--
+    </section>
+    <!-- / banner -->
+    <!--about-->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center marb-35">
+                    <h1 class="header-h">Plan and Organize</h1>
+                    <p class="header-p">Hosting a party soon? Confused where to start? “Plan it” is solution to your
+                        problems.
+                        <br>Plan your event more effectively and efficiently using Plan it!</p>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="about-info">
+                            <h2 class="heading">Our Motivation</h2>
+                            <p>The purpose of the project is to make a website that helps Event hosts to plan an event.
+                                An event host can create an Event and add people to the group that will help him plan
+                                the event. The host can create tasks and assign them to the people in the group.
+                                Alternatively, the group members can also assign tasks to themselves and mark them as
+                                complete as they finish it. Thus, everyone on the group is aware of the current status
+                                of the planning thereby avoiding chaos.</p>
+                            <div class="details-list">
+                                <ul>
+                                    <li><i class="fa fa-check"></i>Create an event</li>
+                                    <li><i class="fa fa-check"></i>Manage your events</li>
+                                    <li><i class="fa fa-check"></i>Add organizers and friends to your planning committee
+                                    </li>
+                                    <li><i class="fa fa-check"></i>Collaborate and build</li>
+                                    <li><i class="fa fa-check"></i>View similar events and create your own checklist
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <img src="img/res06.jpg" alt="" class="img-responsive">
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </section>
+    <!--/about-->
+    <!-- event -->
+    <!--
   <section id="event">
     <div class="bg-color" class="section-padding">
       <div class="container">
@@ -134,9 +144,9 @@
     </div>
   </section>
 -->
-  <!--/ event -->
-  <!-- menu -->
-<!--
+    <!--/ event -->
+    <!-- menu -->
+    <!--
   <section id="menu-list" class="section-padding">
     <div class="container">
       <div class="row">
@@ -268,9 +278,9 @@
     </div>
   </section>
 -->
-  <!--/ menu -->
-  <!-- contact -->
-<!--
+    <!--/ menu -->
+    <!-- contact -->
+    <!--
   <section id="contact" class="section-padding">
     <div class="container">
       <div class="row">
@@ -363,26 +373,26 @@
     </div>
   </section>
 -->
-  <!-- / contact -->
-  <!-- footer -->
-  <footer class="footer text-center">
-    <div class="footer-top">
-      <div class="row">
-        <div class="col-md-offset-3 col-md-6 text-center">
-          <div class="widget">
-            <h4 class="widget-title">Plan it!</h4>
-          </div>
+    <!-- / contact -->
+    <!-- footer -->
+    <footer class="footer text-center">
+        <div class="footer-top">
+            <div class="row">
+                <div class="col-md-offset-3 col-md-6 text-center">
+                    <div class="widget">
+                        <h4 class="widget-title">Plan it!</h4>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </footer>
-  <!-- / footer -->
+    </footer>
+    <!-- / footer -->
 
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery.easing.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/custom.js"></script>
-  <script src="contactform/contactform.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="contactform/contactform.js"></script>
 
 </body>
 
