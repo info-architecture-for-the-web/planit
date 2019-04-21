@@ -518,3 +518,10 @@ table {
     overflow:scroll;
     -webkit-overflow-scrolling: touch;
 }
+.task-status{
+    text-align: right;
+    float: right;
+}
+.tasks{
+    width: 80%;
+}
