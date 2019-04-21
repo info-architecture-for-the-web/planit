@@ -54,33 +54,21 @@
 			?>
 		} );
 	</script>
-	<!-- <script>
-        $(".approve").click( function(){
-          takeAction( $(this), $(this).data("orgid"), "approve");
-        });
-        $(".reject").click( function(){
-          takeAction( $(this), $(this).data("orgid"), "reject");
-        });
-    </script> -->
-	<!-- =======================================================
-    Theme Name: Delicious
-    Theme URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
-    Author: BootstrapMade.com
-    Author URL: https://bootstrapmade.com
-  ======================================================= -->
+
 </head>
 
 <body>
-	<!--banner-->
 
-	<section id="banner">
-		<div class="bg-color">
-			<header id="header">
-				<div class="container">
-					<div id="mySidenav" class="sidenav">
-						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-						<a href="#about">About</a>
-						<a href="#event">Event</a>
+
+    <section id="banner">
+        <div class="bg-color">
+            <header id="header">
+                <div class="container">
+                    <div id="mySidenav" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <a href="#about">About</a>
+                        <a href="#event">Event</a>
+
 
 						<?php if (isset($_SESSION['username'])) { ?>
 						<a href="create-event.php">Create Event</a>
@@ -95,8 +83,6 @@
 						<?php }
             ?>
 
-
-						<!-- <a href="register.php">Register</a> -->
 					</div>
 					<!-- Use any element to open the sidenav -->
 					<span onclick="openNav()" class="pull-right menu-icon">☰</span>
@@ -215,8 +201,8 @@
 														</option>
 													</select>
 
-												</div>
 
+												</div>
 
 											</div>
 											<div class="form-group">
@@ -280,6 +266,96 @@
 						</div>
 						<div class="collapsible-body ">
 							<p style="margin-left: 2.5%;">Details of task:</p>
+
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="assignedTo" style="padding-top: 1.3% !important;font-size: 15px!important;
+    color: #494949!important;
+    font-weight: normal!important;" class="col-sm-3 control-label formlabel">Task Status</label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-control" id="taskStatus">
+
+                                                        <option>Pending</option>
+                                                        <option>Completed</option>
+                                                    </select>
+
+                                                </div>
+
+
+                                            </div>
+                                            <br>
+                                            <button style="margin: 20px" type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+                                            <button id="save" type="button" class="btn btn-primary">Save
+                                                changes</button>
+                                            <br>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!--Add tasks-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!-- / banner -->
+    <!--about-->
+    <section id="about" class="section-padding">
+
+        <div class="container">
+
+            <div class="row">
+
+                <ul class="collapsible task ">
+                    <?php
+                  foreach ($tasks as $task){
+                	?>
+                    <li class="task">
+                        <div class="collapsible-header" style="display:flex;"><i class="material-icons"
+                                style="color:orange;">check_circle</i>
+                            <div style="width:80%; margin-left:0.5%;"> <span
+                                    class="tasks"><?php echo $task->title;?></span></div>
+                            <span class="tasks-status"><?php echo $task->status;?></span>
+                        </div>
+                        <div class="collapsible-body ">
+                            <p style="margin-left: 2.5%;">Details of task:</p>
+
+                            <dl>
+                                <dt>Task Description:</dt>
+                                <dd><?php echo $task->description;?></dd>
+
+                                <dt>Assigned to:</dt>
+                                <dd><?php echo $task->assignedToName;?></dd>
+
+                                <dt>Assigned by:</dt>
+                                <dd><?php echo $task->assignedByName;?></dd>
+
+                                <dt>Last Modified by:</dt>
+                                <dd><?php echo $task->modifiedByName;?></dd>
+
+                                <dt>Targeted by:</dt>
+                                <dd><?php echo $task->deadline;?></dd>
+                            </dl>
+                            <hr />
+                            <div class="taskaccord">
+                                <div class="col s9"></div>
+                                <div class="col s3 action-buttons">
+                                    <form method="post"
+                                        action="controller/task_controller.php?eventid=<?php echo $eventid;?>&taskid=<?php echo $task->taskid;?>">
+                                        <button type="Submit" name="status" value="Completed"
+                                            class="waves-effect waves-light btn completed">Completed</button>
+                                        <button type="Submit" name="status" value="Pending"
+                                            class="waves-effect waves-light btn pending">Pending</button>
+                                    </form>
+                                </div>
+
+                            </div>
+                    </li>
+                    <?php
+                	}
+                	?>
+
 
 							<dl>
 								<dt>Task Description:</dt>
@@ -377,4 +453,5 @@
     <script src="contactform/contactform.js"></script>
 
 </body>
+
 </html>

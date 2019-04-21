@@ -19,6 +19,9 @@ function getTaskDetails($taskId){
 
     $taskQuery = sendQuery("SELECT * FROM planit.task where taskid = '$taskId'");
     $taskArray = array();
+    if (! $taskQuery ) {
+        return $taskArray;
+    }
     // output data of each row
     $row = $taskQuery->fetch_assoc();
     // create object for task
@@ -60,6 +63,9 @@ function getTasksByUsername($username){
 
     $taskQuery = sendQuery("SELECT * FROM planit.task where assignedTo = '$username'");
     $taskArray = array();
+    if (! $taskQuery ) {
+        return $taskArray;
+    }
     // output data of each row
     while($row = $taskQuery->fetch_assoc()) {
         // create object (username,fullname)
@@ -106,6 +112,11 @@ function getTasksByEvent($eventid){
 
     $taskQuery = sendQuery("SELECT * FROM planit.task where eventid = '$eventid'");
     $taskArray = array();
+
+    if (! $taskQuery ) {
+        return $taskArray;
+    }
+
     // output data of each row
     while($row = $taskQuery->fetch_assoc()) {
         // create object (username,fullname)

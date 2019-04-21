@@ -31,3 +31,8 @@ function sendQuery($cmd) {
     }
     $conn->close();
 }
+
+function getMySqli(){
+    global $conn;
+    return $conn;
+}

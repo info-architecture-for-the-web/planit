@@ -10,6 +10,10 @@ function getEvents($username){
 
     $customerQuery = sendQuery("SELECT * FROM event where eventid IN (select eventid from participate where username = '$username')");
     $eventArray = array();
+
+    if (! $customerQuery ) {
+        return $eventArray;
+    }
     // output data of each row
     while($row = $customerQuery->fetch_assoc()) {
         // create object (username,fullname)
@@ -35,10 +39,14 @@ function getEvents($username){
 function getEventDetails($eventId)
 {
     $customerQuery = sendQuery("SELECT * FROM event inner join person ON event.host = person.username where eventid = '$eventId'");
+    $eventObj = new stdClass();
+
+    if (! $customerQuery ) {
+        return $eventObj;
+    }
     $row = $customerQuery->fetch_assoc();
 
     // create object (username,fullname)
-    $eventObj = new stdClass();
     $eventObj->eventid = $row["eventid"];
     $eventObj->ename = $row["name"];
     $eventObj->edate = $row["date"];
@@ -64,6 +72,10 @@ function getEventMembers($eventId)
     // we have to get the fullname using the username
     $nameQuery = sendQuery("SELECT * from person");
     $nameArray = array();
+    if (! $nameQuery ) {
+        return $nameArray;
+    }
+    
     while($row = $nameQuery->fetch_assoc()) {
         // add it to our array
         $nameArray[$row["username"]] = $row["fullname"];
@@ -76,6 +88,10 @@ function getEventMembers($eventId)
     
     $memberQuery = sendQuery("SELECT * FROM planit.participate where eventid = '$eventId'");
     $memberArray = array();
+    
+    if (! $memberQuery ) {
+        return $memberArray;
+    }
     // output data of each row
     while($row = $memberQuery->fetch_assoc()) {
         // create object (username,fullname)
@@ -97,21 +113,9 @@ function getEventMembers($eventId)
 /**
  * Add a new event
  * @params event object, should contain all data
- * @return true if successfull, false otherwise
+ * @return id of the event created, 0 otherwise
  */
 function addEvent($event) {
-    echo "INSERT INTO `event`
-    (`name`,
-    `date`,
-    `location`,
-    `description`,
-    `host`)
-    VALUES
-    ('$event->name',
-    STR_TO_DATE('$event->date','%Y-%m-%d'),
-    '$event->location',
-    '$event->description',
-    '$event->host')";
     $addQuery = sendQuery(
         "INSERT INTO `event`
         (`name`,
@@ -126,10 +130,23 @@ function addEvent($event) {
         '$event->description',
         '$event->host')");
 
+    $eventId = 0;
     if ($addQuery) {
-        return true;
+        $eventId = mysqli_insert_id (getMySqli());
+
+        // add entry in participate
+        $participateQuery = sendQuery(
+            "INSERT INTO `planit`.`participate`
+            (`role`,
+            `username`,
+            `eventid`)
+            VALUES
+            ('organizer',
+            '$event->host',
+            '$eventId')"
+        );
     }    
-    return false;
+    return $eventId;
 }
 
 /**

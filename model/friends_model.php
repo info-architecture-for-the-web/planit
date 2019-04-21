@@ -12,6 +12,9 @@ function getFriends($username){
 
     $customerQuery = sendQuery("SELECT friend,friendname FROM friends where username = '$username'");
     $friendArray = array();
+    if (! $customerQuery ) {
+        return $friendArray;
+    }
     // output data of each row
     while($row = $customerQuery->fetch_assoc()) {
         // create object (username,fullname)

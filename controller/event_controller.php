@@ -19,11 +19,18 @@ if (isset($_SESSION['EVENT_ID'])) {
     // call update
     $eventObj->eventid = $_SESSION['EVENT_ID'];
     $status = updateEvent($eventObj);
+    
 }
 else{
     // call add
     $status = addEvent($eventObj);
-    echo $status;
 }
-return $status;
+
+if ($status) {
+    header("Location:/planit/events-details.php?eventid=$status");
+}
+else {
+    echo '<script type="text/javascript">alert("Error creating event"); location="../create-event.php";</script>';
+}
+
 ?>
