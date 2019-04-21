@@ -11,6 +11,7 @@
     $eventArray = getEventDetails($eventid);
     $tasks = getTasksByEvent($eventid);
 	 $memberArray = getEventMembers($eventid);
+	  $friendArray = getFriends($_SESSION['username']);
   }else{
     header("Location: login.php");
   }
@@ -19,60 +20,45 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Plan It</title>
-    <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
-    <meta name="keywords"
-        content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Plan It</title>
+	<meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
+	<meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
-    <link rel="stylesheet" type="text/css"
-        href="https://fonts.googleapis.com/css?family=Satisfy|Bree+Serif|Candal|PT+Sans">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" rel="stylesheet"> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style type="text/css">
-    .bs-example {
-        margin: 20px;
-    }
-    </style>
-    <script>
-    $("#save").click(function(e) {
-        console.log("in save");
-        //    e.preventDefault(); // cancel the link behaviour
-        //    var selText = $(this).text();
-        //    $("#tableButton").text(selText);
-        <?php
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Satisfy|Bree+Serif|Candal|PT+Sans">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" rel="stylesheet"> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		.bs-example {
+			margin: 20px;
+		}
+	</style>
+	<script>
+		$( "#save" ).click( function ( e ) {
+			console.log( "in save" );
+			//    e.preventDefault(); // cancel the link behaviour
+			//    var selText = $(this).text();
+			//    $("#tableButton").text(selText);
+			<?php
 			$taskObj = new stdClass();
 			?>
-    });
-    </script>
-    <!-- <script>
-        $(".approve").click( function(){
-          takeAction( $(this), $(this).data("orgid"), "approve");
-        });
-        $(".reject").click( function(){
-          takeAction( $(this), $(this).data("orgid"), "reject");
-        });
-    </script> -->
-    <!-- =======================================================
-    Theme Name: Delicious
-    Theme URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
-    Author: BootstrapMade.com
-    Author URL: https://bootstrapmade.com
-  ======================================================= -->
+		} );
+	</script>
+
 </head>
 
 <body>
-    <!--banner-->
+
 
     <section id="banner">
         <div class="bg-color">
@@ -83,139 +69,183 @@
                         <a href="#about">About</a>
                         <a href="#event">Event</a>
 
-                        <?php if (isset($_SESSION['username'])) { ?>
-                        <a href="create-event.php">Create Event</a> <!-- Can allow this only after login -->
-                        <a href="myprofile.php">Manage Profile</a> <!-- Can allow this only after login -->
-                        <a href="controller/logout_controller.php">Logout</a>
-                        <?php
-              }
-              else { ?>
-                        <a href="login.php">Login</a>
-                        <?php }
+
+						<?php if (isset($_SESSION['username'])) { ?>
+						<a href="create-event.php">Create Event</a>
+						<!-- Can allow this only after login -->
+						<a href="myprofile.php">Manage Profile</a>
+						<!-- Can allow this only after login -->
+						<a href="controller/logout_controller.php">Logout</a>
+						<?php
+						} else {
+							?>
+						<a href="login.php">Login</a>
+						<?php }
             ?>
 
+					</div>
+					<!-- Use any element to open the sidenav -->
+					<span onclick="openNav()" class="pull-right menu-icon">☰</span>
+				</div>
+			</header>
+			<div class="container">
+				<div class="row">
+					<div class="inner text-center">
+						<h1 class="logo-name">
+							<?php echo $eventArray->ename;	?>
+						</h1>
+						<h2>
+							<?php echo $eventArray->ehostName; ?>
+						</h2>
+						<p>
+							<?php echo $eventArray->edescription; ?>
+						</p>
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add Tasks</button>
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#peopleModal">Add People</button>
 
-                        <!-- <a href="register.php">Register</a> -->
-                    </div>
-                    <!-- Use any element to open the sidenav -->
-                    <span onclick="openNav()" class="pull-right menu-icon">☰</span>
-                </div>
-            </header>
-            <div class="container">
-                <div class="row">
-                    <div class="inner text-center">
-                        <h1 class="logo-name"><?php echo $eventArray->ename;	?></h1>
-                        <h2><?php echo $eventArray->ehostName; ?></h2>
-                        <p><?php echo $eventArray->edescription; ?></p>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            Add Tasks
-                        </button>
-                        <button type="button" class="btn btn-primary">
-                            Add People
-                        </button>
-                        <button type="button" class="btn btn-primary">
-                            Edit Event
-                        </button>
+						<!--						Add People-->
+						<!--Add tasks-->
+						<div class="modal fade" id="peopleModal" tabindex="-1" role="dialog" aria-labelledby="peopleModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-notify modal-warning">
+								<div class="modal-content" style="height: 410px">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+								
+<!--									<div style="height: 300px" class="panel panel-warning" id="result_panel">-->
+<!--										<div class="panel-heading">-->
+											<h2>Invite Friends</h2>
+<!--										</div>-->
+										<div class="panel-body">
+											<ul class="list-group">
 
 
-                        <!--Add tasks-->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-notify modal-warning">
-                                <div class="modal-content" style="height: 380px">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+												<?php foreach ($friendArray as $friend) {?>
+			
+											<li class="list-group-item" style="text-align: left" >
+												<div style="display: flex; width: 100%;">
+												<strong>
+													
+													
+														<span><?php echo $friend->fname;?></span>
 
 
-                                    <h2 id="exampleModalLabel">Create Task</h2>
-                                    <br>
-                                    <form action="" method="post" role="form" class="contactForm">
-                                        <div class="contact-form pad-form">
+													<button type="button" class="btn btn-primary" style="align: right" >Send Invite</button>
 
-                                            <div class="form-group contact-form pad-form">
-                                                <label for="taskname" style="padding-top: 1.3% !important;font-size: 15px!important;
+													</div>
+												</li>
+											<?php } ?>
+
+											</ul>
+										</div>
+<!--									</div>-->
+								</div>
+							</div>
+						</div>
+
+
+						<!--Add tasks-->
+						<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-notify modal-warning">
+								<div class="modal-content" style="height: 380px">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+								
+
+
+									<h2 id="exampleModalLabel">Create Task</h2>
+									<br>
+									<form action="" method="post" role="form" class="contactForm">
+										<div class="contact-form pad-form">
+
+											<div class="form-group contact-form pad-form">
+												<label for="taskname" style="padding-top: 1.3% !important;font-size: 15px!important;
     color: #494949!important;
     font-weight: normal!important;" class="col-sm-3 control-label formlabel">Task Name</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" id="taskname" name="taskname"
-                                                        placeholder="Task Name" class="form-control">
-                                                </div>
-                                            </div>
+												<div class="col-sm-9">
+													<input type="text" id="taskname" name="taskname" placeholder="Task Name" class="form-control">
+												</div>
+											</div>
 
-                                            <div class="form-group contact-form pad-form">
-                                                <label for="description" style="padding-top: 1.3% !important;font-size: 15px!important;
+											<div class="form-group contact-form pad-form">
+												<label for="description" style="padding-top: 1.3% !important;font-size: 15px!important;
     color: #494949!important;
     font-weight: normal!important;" class="col-sm-3 control-label formlabel">Description</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" id="description" name="description"
-                                                        placeholder="Description" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="form-group contact-form pad-form">
-                                                <label for="targetedBy" style="padding-top: 1.3% !important;font-size: 15px!important;
+												<div class="col-sm-9">
+													<input type="text" id="description" name="description" placeholder="Description" class="form-control">
+												</div>
+											</div>
+											<div class="form-group contact-form pad-form">
+												<label for="targetedBy" style="padding-top: 1.3% !important;font-size: 15px!important;
     color: #494949!important;
     font-weight: normal!important;" class="col-sm-3 control-label formlabel">Targeted by</label>
-                                                <div class="col-sm-9">
-                                                    <input type="date" id="date" name="date" placeholder="Date"
-                                                        class="form-control">
+												<div class="col-sm-9">
+													<input type="date" id="date" name="date" placeholder="Date" class="form-control">
 
-                                                </div>
-                                            </div>
+												</div>
+											</div>
 
 
-                                            <div class="form-group">
-                                                <label for="assignedTo" style="padding-top: 1.3% !important;font-size: 15px!important;
+											<div class="form-group">
+												<label for="assignedTo" style="padding-top: 1.3% !important;font-size: 15px!important;
     color: #494949!important;
     font-weight: normal!important;" class="col-sm-3 control-label formlabel">Assigned To</label>
-                                                <div class="col-sm-9">
-                                                    <select class="form-control" id="assignedTo">
+												<div class="col-sm-9">
+													<select class="form-control" id="assignedTo">
 
-                                                        <?php foreach ($memberArray as $member) {
-		?> <option value="<?php echo $member->username;?>"><?php echo $member->memberName;}	?></option>
-                                                    </select>
+														<?php foreach ($memberArray as $member) {
+		?>
+														<option value="<?php echo $member->username;?>">
+															<?php echo $member->memberName;}	?>
+														</option>
+													</select>
 
-                                                </div>
 
+												</div>
 
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="assignedTo" style="padding-top: 1.3% !important;font-size: 15px!important;
+											</div>
+											<div class="form-group">
+												<label for="assignedTo" style="padding-top: 1.3% !important;font-size: 15px!important;
     color: #494949!important;
     font-weight: normal!important;" class="col-sm-3 control-label formlabel">Task Status</label>
-                                                <div class="col-sm-9">
-                                                    <select class="form-control" id="taskStatus">
+												<div class="col-sm-9">
+													<select class="form-control" id="taskStatus">
 
-                                                        <option>Pending</option>
-                                                        <option>Completed</option>
-                                                    </select>
+														<option>Pending</option>
+														<option>Completed</option>
+													</select>
 
-                                                </div>
+												</div>
 
 
-                                            </div>
-                                            <br>
-                                            <button style="margin: 20px" type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Close</button>
-                                            <button id="save" type="button" class="btn btn-primary">Save
-                                                changes</button>
-                                            <br>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <!--Add tasks-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </section>
+											</div>
+											<br>
+											<button style="margin: 20px" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+											<button id="save" type="button" class="btn btn-primary">Save changes</button>
+											<br>
+										</div>
+									</form>
+								</div>
+							</div>
+							<!--Add tasks-->
+
+							<!--							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#peopleModal">Add People</button>-->
+
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+	<!-- / banner -->
+	<!--about-->
+	<div class="col-md-12 text-center marb-35">
+		<h1 class="header-h">To-Do List</h1>
+
+	</div>
+
     <!-- / banner -->
     <!--about-->
-    <div class="col-md-12 text-center marb-35">
-        <h1 class="header-h">To-Do List</h1>
-
-    </div>
     <section id="about" class="section-padding">
 
         <div class="container">
@@ -271,9 +301,38 @@
                 	}
                 	?>
 
-            </div>
-        </div>
-    </section>
+
+					</div>
+			</div>
+	</section>
+	<section id="about" class="section-padding">
+		<div class="panel-body">
+
+			<div class="box box-info">
+
+				<div class="box-body">
+					<div class="col-sm-12">
+
+						<div class="panel panel-warning" id="result_panel">
+							<div class="panel-heading">
+								<h5 class="heading">My Friends</h3>
+										</div>
+										<div class="panel-body">
+											<ul class="list-group">
+												
+												
+												  <?php foreach ($memberArray as $member) {
+		?> <li class="list-group-item"><strong><?php echo $member->memberName;}	?></li>   
+												
+        
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				 </section>
     <!--/about-->
 
     <!-- footer -->
