@@ -137,7 +137,7 @@ function getTasksByEvent($eventid){
 
 /**
  * Add a new task
- * @param task object, it contains all the required details
+ * @param task object, that contains all the required details
  * @return returns true or false, based on the result
  */
 function addTask($task) {
@@ -152,21 +152,44 @@ function addTask($task) {
         `modifiedBy`,
         `description`)
         VALUES
-        ($task->title,
-        $task->deadline,
-        $task->status,
-        $task->assignedTo,
-        $task->eventid,
-        $task->assignedBy,
-        $task->modifiedBy,
-        $task->description,)");
+        ('$task->title',
+        STR_TO_DATE('$task->deadline','%m/%d/%Y'),
+        '$task->status',
+        '$task->assignedTo',
+        '$task->eventid',
+        '$task->assignedBy',
+        '$task->modifiedBy',
+        '$task->description')");
 
     if (addQuery) {
         return true;
-    }
-    
+    }    
     return false;
+}
 
+/**
+ * Update an existing task
+ * @param task object, that contains all the required details
+ * @return returns true or false, based on the result
+ */
+function updateTask($task) {
+    $updateQuery = sendQuery(
+        "UPDATE `planit`.`task`
+        SET
+        `title` = '$task->title',
+        `deadline` = STR_TO_DATE('$task->deadline','%m/%d/%Y')>,
+        `status` = '$task->status',
+        `assignedTo` = '$task->assignedTo',
+        `eventid` = '$task->eventid',
+        `assignedBy` = '$task->assignedBy',
+        `modifiedBy` = '$task->modifiedBy',
+        `description` = '$task->description'
+        WHERE `taskid` = '$task->titleid'");
+
+    if (updateQuery) {
+        return true;
+    }    
+    return false;
 }
 
 // Update status of this task with newStatus

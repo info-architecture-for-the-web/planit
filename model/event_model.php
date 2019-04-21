@@ -91,15 +91,53 @@ function getEventMembers($eventId)
     // foreach ($memberArray as $member) {
     //     echo "friend: " . $member->username. " - friendname: " . $member->memberName. "<br>";
     // }
-
     return $memberArray;
 }
 
 /**
- * Add event
+ * Add a new event
  * @params event object, should contain all data
+ * @return true if successfull, false otherwise
  */
 function addEvent($event) {
-    
+    $addQuery = sendQuery(
+        "INSERT INTO `event`
+        (`name`,
+        `date`,
+        `location`,
+        `description`,
+        `host`)
+        VALUES
+        ('$event->name',
+        STR_TO_DATE('$event->date','%m/%d/%Y'),
+        '$event->location',
+        '$event->description',
+        '$event->host')");
+    if (addQuery) {
+        return true;
+    }    
+    return false;
+}
+
+/**
+ * Update an existing event
+ * @params event object, should contain all data
+ * @return true if successfull, false otherwise
+ */
+function updateEvent($event) {
+    $updateQuery = sendQuery(
+        "UPDATE `planit`.`event`
+        SET
+        `name` = '$event->name',
+        `date` = STR_TO_DATE('$event->date','%m/%d/%Y'),
+        `location` = '$event->location',
+        `description` = '$event->description',
+        `host` = '$event->host'
+        WHERE `eventid` = '$event->eventid'");
+
+    if (updateQuery) {
+        return true;
+    }    
+    return false;
 }
 ?>
