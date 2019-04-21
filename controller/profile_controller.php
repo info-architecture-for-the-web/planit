@@ -2,31 +2,14 @@
 //require $_SERVER['DOCUMENT_ROOT']."/planit/dbconnection/dbconnect.php";
 
 /**
- * Get profile for a user
- * @params  username
- * @return object containing all user details
+ * This controller is used to update the existing profile
  */
-function getProfile($username) {
-    $result = new stdClass();
-    $userProfile = new stdClass();
-    $customerQuery = sendQuery("SELECT * FROM person where username = '$username'");
-    $result = $customerQuery->fetch_assoc();
-    $userProfile->username = $result['username'];
-    $userProfile->email = $result['email'];
-    $userProfile->phone = $result['phone'];
-    $userProfile->fullname = $result['fullname'];
-    return $userProfile;
-}
 
-/**
- * Update profile
- * 
- * @params Object which contains complete profile of the user
- * 
- */
-function updateProfile($userProfile){
-    $customerQuery = sendQuery("SELECT * FROM person where username = '$username'");
-}
+$profileObj = new stdClass();
+$profileObj->username = $_SESSION["username"];
+$profileObj->email = filter_input(INPUT_POST, 'email');
+$profileObj->phone = filter_input(INPUT_POST, 'phone');
+$profileObj->fullname = filter_input(INPUT_POST, 'fullname');
 
-//echo getProfile("mbelnek")->email;
+return updateProfile($profileObj);
 ?>

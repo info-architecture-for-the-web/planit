@@ -25,8 +25,20 @@ function getProfile($username) {
  * 
  */
 function updateProfile($userProfile){
-    $customerQuery = sendQuery("SELECT * FROM person where username = '$username'");
-}
+    $updateQuery = sendQuery("
+    UPDATE `planit`.`person`
+    SET
+    `password` = <{password: }>,
+    `email` = <{email: }>,
+    `phone` = <{phone: }>,
+    `fullname` = <{fullname: }>
+    WHERE `username` = <{expr}>;");
+
+    if ($updateQuery) {
+        return true;
+    }
+    return false;
+    }
 
 // echo getProfile("mbelnek")->email;
 ?>
