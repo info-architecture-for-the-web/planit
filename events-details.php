@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <?php session_start() ?>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Plan It</title>
@@ -12,12 +13,19 @@
   <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery.easing.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/custom.js"></script>
-  <script src="contactform/contactform.js"></script>
-
+  <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
+      .bs-example{
+        margin: 20px;
+      }
+  </style>
   <!-- =======================================================
     Theme Name: Delicious
     Theme URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
@@ -26,133 +34,101 @@
   ======================================================= -->
 </head>
 
-  <script>
-        $( document ).ready( function () {
-          console.log( "on ready" );
-
-        } );
-  </script>
 <body>
   <!--banner-->
-  <section id="banner2">
-    <div class="bg-color2">
+  <section id="banner">
+    <div class="bg-color">
       <header id="header">
         <div class="container">
           <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="#about">About</a>
             <a href="#event">Event</a>
-            <a href="create-event.php">Create Event</a> <!-- Can allow this only after login -->
-            <a href="myprofile.php">Manage Profile</a>  <!-- Can allow this only after login -->
-          <a href="login.php">Login</a>
+
+            <?php if (isset($_SESSION['username'])) { ?>
+              <a href="create-event.php">Create Event</a> <!-- Can allow this only after login -->
+              <a href="myprofile.php">Manage Profile</a>  <!-- Can allow this only after login -->
+              <a href="controller/logout_controller.php">Logout</a>
+            <?php
+              }
+              else { ?>
+                <a href="login.php">Login</a>
+            <?php }
+            ?>
+
+
 			<!-- <a href="register.php">Register</a> -->
           </div>
           <!-- Use any element to open the sidenav -->
           <span onclick="openNav()" class="pull-right menu-icon">☰</span>
-          <div class="inner text-center">
-            <h1 class="logo-name2">Plan It</h1>
-          </div>
         </div>
-        
       </header>
-  </section>
-  <!-- contact -->
-  <section id="contact" class="section-padding">
-    <div class="inner text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <h1 class="header-h">Create Event</h1>
-        </div>
-      </div>
-      <div class="row msg-row">
-        <div class="col-md-8 col-sm-8 createevent">
-          <form action="" method="post" role="form" class="contactForm">
-            <div id="sendmessage">Your event has been created. Thank you!</div>
-            <div id="errormessage"></div>
-            <div align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive">
-
-                    <input id="profile-image-upload" class="hidden" type="file" onchange="readURL(this , 'profile-image1','200px');">
-                    <div style="color:#999;">click here to change profile image</div>
-                    <!--Upload Image Js And Css-->
-                  </div>
-            <div class="col-md-6 col-sm-6 contact-form pad-form">
-              <div class="form-group label-floating is-empty">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Event Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                <div class="validation"></div>
-              </div>
-
-            </div>
-            <div class="col-md-6 col-sm-6 contact-form">
-              <div class="form-group">
-                <input type="date" class="form-control label-floating is-empty" name="date" id="date" placeholder="Date" data-rule="required" data-msg="This field is required" />
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6 contact-form pad-form">
-              <div class="form-group">
-                <input type="email" class="form-control label-floating is-empty" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Please enter a valid email" />
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6 contact-form">
-              <div class="form-group">
-                <input type="time" class="form-control label-floating is-empty" name="time" id="time" placeholder="Time" data-rule="required" data-msg="This field is required" />
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6 contact-form">
-              <div class="form-group">
-                <input type="text" class="form-control label-floating is-empty" name="phone" id="phone" placeholder="Phone" data-rule="required" data-msg="This field is required" />
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6 contact-form">
-              <div class="form-group">
-                <input type="text" class="form-control label-floating is-empty" name="people" id="Add People" placeholder="People" data-rule="required" data-msg="This field is required" />
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6 contact-form">
-              <div class="form-group">
-                <input type="text" class="form-control label-floating is-empty" name="host" id="host" placeholder="Host Name" data-rule="required" data-msg="This field is required" />
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6 contact-form">
-              <div class="form-group">
-                <input type="text" class="form-control label-floating is-empty" name="venue" id="venue" placeholder="Venue" data-rule="required" data-msg="This field is required" />
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="col-md-12 contact-form">
-              <div class="form-group label-floating is-empty">
-                <textarea class="form-control" name="message" rows="5" rows="3" data-rule="required" data-msg="Please write something for us" placeholder="Describe your event"></textarea>
-                <div class="validation"></div>
-              </div>
-
-            </div>
-            <div class="col-md-12 btnpad">
-              <div class="contacts-btn-pad">
-                <button class="contacts-btn">Create</button>
-              </div>
-            </div>
-          </form>
+      <div class="container">
+        <div class="row">
+          <div class="inner text-center">
+            <h1 class="logo-name">Event Name</h1>
+            <h2>Host Name</h2>
+            <p>Event description</p>
+            <a class="btn btn-imfo btn-read-more" href="create-event.php">Add Tasks</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>  
   </section>
-  <!-- / contact -->
+  <!-- / banner -->
+  <!--about-->
+  <div class="col-md-12 text-center marb-35">
+          <h1 class="header-h">To-Do List</h1>
+
+        </div>
+  <section id="about" class="section-padding">
+    
+    <div class="container">
+      
+      <div class="row">
+      
+      <ul class="collapsible">
+                
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">work</i>
+                      <span class="tasks">Task 1</span>
+                      <span class="tasks-status">Pending</span>
+                    </div>
+                      	<div class="collapsible-body">
+                      		<div class="row">
+                          <div class="col s2">Task Description:</div>
+                      			<div class="col s9">akjlfbsjgbvljfb hfbje hfauhf jaflh hbfj hgafhgajfg egfwehfg wefg gfalhgljdhfajgf agfjlgsf</div>
+                      			<div class="col s2">Assigned to:</div>
+                      			<div class="col s9">jbkjbkjhvbhvg</div>
+
+                      			<div class="col s2">Last Modified by:</div>
+                      			<div class="col s9">gvkgvkjh</div>
+
+                                        <div class="col s2">Targeted by:</div>
+                      			<div class="col s9">mm/dd/yyyy</div>
+                      		</div>
+                      		<hr/>
+                      		<div class="row">
+                      			<div class="col s9"></div>
+                      			<div class="col s3 action-buttons">
+                      				<a class="waves-effect waves-light btn approve" >Completed</a>
+                      				<a class="waves-effect waves-light btn reject red">Pending</a>
+                      			</div>
+                      	</div>
+                    </li>
+                    
+      </div>
+    </div>
+  </section>
+  <!--/about-->
   
-  <!-- / contact -->
   <!-- footer -->
   <footer class="footer text-center">
     <div class="footer-top">
       <div class="row">
         <div class="col-md-offset-3 col-md-6 text-center">
           <div class="widget">
-            <!-- <h4 class="widget-title">Plan it!</h4> -->
+            <h4 class="widget-title">Plan it!</h4>
           </div>
         </div>
       </div>

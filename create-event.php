@@ -61,8 +61,7 @@
         <div class="container">
           <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#about">About</a>
-            <a href="#event">Event</a>
+            <a href="index.php">Home</a>
             <a href="create-event.php">Create Event</a> <!-- Can allow this only after login -->
             <a href="myprofile.php">Manage Profile</a>  <!-- Can allow this only after login -->
           <a href="login.php">Login</a>
