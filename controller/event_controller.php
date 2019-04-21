@@ -19,6 +19,7 @@ if (isset($_SESSION['EVENT_ID'])) {
     // call update
     $eventObj->eventid = $_SESSION['EVENT_ID'];
     $status = updateEvent($eventObj);
+    
 }
 else{
     // call add

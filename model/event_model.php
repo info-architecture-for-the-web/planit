@@ -64,6 +64,10 @@ function getEventMembers($eventId)
     // we have to get the fullname using the username
     $nameQuery = sendQuery("SELECT * from person");
     $nameArray = array();
+    if (! $nameQuery ) {
+        return $nameArray;
+    }
+    
     while($row = $nameQuery->fetch_assoc()) {
         // add it to our array
         $nameArray[$row["username"]] = $row["fullname"];
@@ -76,6 +80,9 @@ function getEventMembers($eventId)
     
     $memberQuery = sendQuery("SELECT * FROM planit.participate where eventid = '$eventId'");
     $memberArray = array();
+    if (! $memberQuery ) {
+        return $nameArray;
+    }
     // output data of each row
     while($row = $memberQuery->fetch_assoc()) {
         // create object (username,fullname)
