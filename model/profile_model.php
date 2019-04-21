@@ -28,17 +28,14 @@ function updateProfile($userProfile){
     $updateQuery = sendQuery("
     UPDATE `planit`.`person`
     SET
-    `password` = <{password: }>,
-    `email` = <{email: }>,
-    `phone` = <{phone: }>,
-    `fullname` = <{fullname: }>
-    WHERE `username` = <{expr}>;");
+    `email` = '$userProfile->username',
+    `phone` = '$userProfile->phone',
+    `fullname` = '$userProfile->fullname'
+    WHERE `username` = '$userProfile->username'");
 
     if ($updateQuery) {
         return true;
     }
     return false;
-    }
-
-// echo getProfile("mbelnek")->email;
+}
 ?>
