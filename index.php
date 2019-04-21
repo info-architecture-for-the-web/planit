@@ -32,7 +32,7 @@
                     <div id="mySidenav" class="sidenav">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                         <a href="#about">About</a>
-                        <a href="events.php">Explore Events</a>
+                        
 
                         <?php if (isset($_SESSION['username'])) { ?>
                         <a href="create-event.php">Create Event</a> <!-- Can allow this only after login -->

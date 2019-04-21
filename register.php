@@ -48,7 +48,7 @@
 			<a href="index.php">Home</a>
 			<a href="login.php">Login</a>
             <a href="#about">About</a>
-            <a href="#event">Event</a>
+            
           </div>
           <!-- Use any element to open the sidenav -->
           <span onclick="openNav()" class="pull-right menu-icon">☰</span>
