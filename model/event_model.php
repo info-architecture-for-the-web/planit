@@ -29,8 +29,29 @@ function getEvents($username){
     // }
 
     return $eventArray;
-    
 }
+
+// get event details
+function getEventDetails($eventId)
+{
+    $customerQuery = sendQuery("SELECT * FROM event where eventid = '$eventId'");
+    $row = $customerQuery->fetch_assoc();
+
+    // create object (username,fullname)
+    $eventObj = new stdClass();
+    $eventObj->eventid = $row["eventid"];
+    $eventObj->ename = $row["name"];
+    $eventObj->edate = $row["date"];
+    $eventObj->elocation = $row["location"];
+    $eventObj->edescription = $row["description"];
+    
+    // print all our friends
+    
+    // echo "event: " . $eventObj->ename. " - edate: " . $eventObj->edate. "<br>";
+
+    return $eventObj;
+}
+
 
 /**
  * Add event
