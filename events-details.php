@@ -120,9 +120,10 @@
           <span aria-hidden="true">&times;</span>
         </button>
 								
-
+		
 									<h2 id="exampleModalLabel">Create Task</h2>
 									<br>
+									<form action="" method="post" role="form" class="contactForm">
 									<div class="contact-form pad-form">
 
 										<div class="form-group contact-form pad-form">
@@ -151,6 +152,8 @@
 
 											</div>
 										</div>
+										
+										
 										<div class="form-group">
 											<label for="assignedTo" style="padding-top: 1.3% !important;font-size: 15px!important;
     color: #494949!important;
@@ -159,7 +162,7 @@
 												<select class="form-control" id="assignedTo">
 													
 													<?php foreach ($memberArray as $member) {
-		?> <option><?php echo $member->memberName;}	?></option> 
+		?> <option value="<?php echo $member->username;?>"><?php echo $member->memberName;}	?></option> 
 												</select>
 
 											</div>
@@ -186,6 +189,7 @@
 										<button id="save" type="button" class="btn btn-primary">Save changes</button>
 										<br>
 									</div>
+									</form>
 								</div>
 							</div>
 							<!--Add tasks-->
