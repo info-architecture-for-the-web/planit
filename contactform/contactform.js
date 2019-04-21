@@ -92,7 +92,7 @@ jQuery(document).ready(function($) {
     else var str = $(this).serialize();
     $.ajax({
       type: "POST",
-      url: "contactform/contactform.php",
+      url: "controller/event_controller.php",
       data: str,
       success: function(msg) {
         // alert(msg);

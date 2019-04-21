@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<?php 
+	require $_SERVER['DOCUMENT_ROOT']."/planit/dbconnection/dbconnect.php";
+	include 'model\profile_model.php';
+	include 'model\friends_model.php';
+    include 'model\event_model.php';
+    include 'model\task_model.php';
+
+  
+	?>
 <html lang="en">
 
 <head>
@@ -90,7 +99,7 @@ $(document).ready(function() {
                 </div>
                 <div class="row msg-row">
                     <div class="col-md-8 col-sm-8 createevent">
-                        <form action="controller/event_controller.php" method="post" role="form" class="contactForm">
+                        <form action="controller/event_controller.php" method="post" role="form">
                             <div id="sendmessage">Your event has been created. Thank you!</div>
                             <div id="errormessage"></div>
                             <div align="center"> <img alt="User Pic"

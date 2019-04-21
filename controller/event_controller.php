@@ -1,16 +1,18 @@
 <?php
-// require $_SERVER['DOCUMENT_ROOT']."/planit/dbconnection/dbconnect.php";;
-
+require $_SERVER['DOCUMENT_ROOT']."/planit/dbconnection/dbconnect.php";;
+include $_SERVER['DOCUMENT_ROOT']."/planit/model/event_model.php";
 /**
  * This contoller handles requests for both, add and update events
  * this is defined if the session variable has EVENT_ID defined or not
  */
+
 $status = false;
 $eventObj = new stdClass();
-$eventObj->ename = filter_input(INPUT_POST, 'name');
-$eventObj->edate = filter_input(INPUT_POST, 'date');
-$eventObj->elocation = filter_input(INPUT_POST, 'location');
-$eventObj->edescription = filter_input(INPUT_POST, 'description');
+$eventObj->name = filter_input(INPUT_POST, 'name');
+$eventObj->date = filter_input(INPUT_POST, 'date');
+$eventObj->location = filter_input(INPUT_POST, 'venue');
+$eventObj->description = filter_input(INPUT_POST, 'message');
+$eventObj->host = $_SESSION["username"];
 
 // check if we have 'EVENT_ID' set
 if (isset($_SESSION['EVENT_ID'])) {
@@ -21,6 +23,7 @@ if (isset($_SESSION['EVENT_ID'])) {
 else{
     // call add
     $status = addEvent($eventObj);
+    echo $status;
 }
 return $status;
 ?>
