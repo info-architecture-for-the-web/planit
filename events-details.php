@@ -10,6 +10,7 @@
   if (isset($_SESSION['username'])){
     $eventArray = getEventDetails($eventid);
     $tasks = getTasksByEvent($eventid);
+	 $memberArray = getEventMembers($eventid);
   }else{
     header("Location: login.php");
   }
@@ -43,6 +44,17 @@
         margin: 20px;
     }
     </style>
+	<script>
+		$("#save").click(function(e){
+			console.log("in save");
+//    e.preventDefault(); // cancel the link behaviour
+//    var selText = $(this).text();
+//    $("#tableButton").text(selText);
+			<?php
+			$taskObj = new stdClass();
+			?>
+});
+	</script>
       <!-- <script>
         $(".approve").click( function(){
           takeAction( $(this), $(this).data("orgid"), "approve");
@@ -103,7 +115,7 @@
 						<!--Add tasks-->
 						<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div class="modal-dialog modal-notify modal-warning">
-								<div class="modal-content" style="height: 350px">
+								<div class="modal-content" style="height: 380px">
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -145,8 +157,24 @@
     font-weight: normal!important;" class="col-sm-3 control-label formlabel">Assigned To</label>
 											<div class="col-sm-9">
 												<select class="form-control" id="assignedTo">
-													<option>Male</option>
-													<option>Female</option>
+													
+													<?php foreach ($memberArray as $member) {
+		?> <option><?php echo $member->memberName;}	?></option> 
+												</select>
+
+											</div>
+
+
+										</div>
+										<div class="form-group">
+											<label for="assignedTo" style="padding-top: 1.3% !important;font-size: 15px!important;
+    color: #494949!important;
+    font-weight: normal!important;" class="col-sm-3 control-label formlabel">Task Status</label>
+											<div class="col-sm-9">
+												<select class="form-control" id="taskStatus">
+
+													<option>Pending</option>
+													<option>Completed</option>
 												</select>
 
 											</div>
@@ -155,7 +183,7 @@
 										</div>
 										<br>
 										<button style="margin: 20px" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-										<button type="button" class="btn btn-primary">Save changes</button>
+										<button id="save" type="button" class="btn btn-primary">Save changes</button>
 										<br>
 									</div>
 								</div>
