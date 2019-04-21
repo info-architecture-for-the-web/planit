@@ -104,7 +104,7 @@ function getEventMembers($eventId)
 /**
  * Add a new event
  * @params event object, should contain all data
- * @return true if successfull, false otherwise
+ * @return id of the event created, 0 otherwise
  */
 function addEvent($event) {
     $addQuery = sendQuery(
@@ -120,10 +120,24 @@ function addEvent($event) {
         '$event->location',
         '$event->description',
         '$event->host')");
+
+    $eventId = 0;
     if ($addQuery) {
-        return mysqli_insert_id (getMySqli());
+        $eventId = mysqli_insert_id (getMySqli());
+
+        // add entry in participate
+        $participateQuery = sendQuery(
+            "INSERT INTO `planit`.`participate`
+            (`role`,
+            `username`,
+            `eventid`)
+            VALUES
+            ('organizer',
+            '$event->host',
+            '$eventId')"
+        );
     }    
-    return false;
+    return $eventId;
 }
 
 /**
