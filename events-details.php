@@ -5,12 +5,15 @@
 	include 'model\profile_model.php';
 	include 'model\friends_model.php';
   include 'model\event_model.php';
+  include 'model\task_model.php';
   $eventid = $_GET['eventid'];
   if (isset($_SESSION['username'])){
     $eventArray = getEventDetails($eventid);
+    $tasks = getTasksByEvent($eventid);
   }else{
     header("Location: login.php");
   }
+  
 	?>
 
 <head>
@@ -102,35 +105,49 @@
             <div class="row ">
 
                 <ul class="collapsible task ">
-
+                <?php
+                  foreach ($tasks as $task){
+                	?>
                     <li>
                         <div class="collapsible-header"><i class="material-icons">work</i>
                             <span class="tasks">Task 1</span>
-                            <span class="tasks-status">Pending</span>
+                            <span class="tasks-status"><?php echo $task->status;?></span>
                         </div>
                         <div class="collapsible-body taskaccord">
                             <div class="row">
+                              <div style="display: flex;" >
                                 <div class="col s2 tasktitle">Task Description:</div>
-                                <div class="col s9 taskdata">akjlfbsjgbvljfb hfbje hfauhf jaflh hbfj hgafhgajfg egfwehfg wefg
-                                    gfalhgljdhfajgf agfjlgsf</div>
+                                <div class="col s9 taskdata"> <?php echo $task->title;?></div>
+                              </div>
+                              <div style="display: flex;" >
                                 <div class="col s2">Assigned to:</div>
-                                <div class="col s9">jbkjbkjhvbhvg</div>
-
+                                <div class="col s9"><?php echo $task->assignedToName;?></div>
+                              </div>
+                              <div style="display: flex;" >
+                                <div class="col s2">Assigned by:</div>
+                                <div class="col s9"><?php echo $task->assignedByName;?></div>
+                              </div>
+                              <div style="display: flex;" >
                                 <div class="col s2">Last Modified by:</div>
-                                <div class="col s9">gvkgvkjh</div>
-
+                                <div class="col s9"><?php echo $task->modifiedByName;?></div>
+                              </div>
+                              <div style="display: flex;" >
                                 <div class="col s2">Targeted by:</div>
-                                <div class="col s9">mm/dd/yyyy</div>
+                                <div class="col s9"><?php echo $task->deadline;?></div>
+                              </div>
                             </div>
                             <hr />
                             <div class="row">
                                 <div class="col s9"></div>
                                 <div class="col s3 action-buttons">
-                                    <a class="waves-effect waves-light btn approve">Completed</a>
-                                    <a class="waves-effect waves-light btn reject red">Pending</a>
+                                    <a class="waves-effect waves-light btn approve  data-orgid="<?php echo $task->taskid; ?>">Completed</a>
+                                    <a class="waves-effect waves-light btn reject red data-orgid="<?php echo $task->taskid; ?>">Pending</a>
                                 </div>
                             </div>
                     </li>
+                    <?php
+                	}
+                	?>
 
             </div>
         </div>
