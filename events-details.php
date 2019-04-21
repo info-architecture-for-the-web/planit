@@ -10,7 +10,6 @@
   if (isset($_SESSION['username'])){
     $eventArray = getEventDetails($eventid);
     $tasks = getTasksByEvent($eventid);
-	$memberArray = getEventMembers($eventid);
   }else{
     header("Location: login.php");
   }
@@ -44,17 +43,6 @@
         margin: 20px;
     }
     </style>
-	<script>
-		$("#save").click(function(e){
-			console.log("in save");
-//    e.preventDefault(); // cancel the link behaviour
-//    var selText = $(this).text();
-//    $("#tableButton").text(selText);
-			<?php
-			$taskObj = new stdClass();
-			?>
-});
-	</script>
       <!-- <script>
         $(".approve").click( function(){
           takeAction( $(this), $(this).data("orgid"), "approve");
@@ -72,7 +60,8 @@
 </head>
 
 <body>
-	<!--banner-->
+  <!--banner-->
+  
 	<section id="banner">
 		<div class="bg-color">
 			<header id="header">
@@ -93,6 +82,8 @@
                         <?php }
             ?>
 
+
+						<!-- <a href="register.php">Register</a> -->
 					</div>
 					<!-- Use any element to open the sidenav -->
 					<span onclick="openNav()" class="pull-right menu-icon">☰</span>
@@ -112,7 +103,7 @@
 						<!--Add tasks-->
 						<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div class="modal-dialog modal-notify modal-warning">
-								<div class="modal-content" style="height: 380px">
+								<div class="modal-content" style="height: 350px">
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -154,24 +145,8 @@
     font-weight: normal!important;" class="col-sm-3 control-label formlabel">Assigned To</label>
 											<div class="col-sm-9">
 												<select class="form-control" id="assignedTo">
-													
-													<?php foreach ($memberArray as $member) {
-		?> <option><?php echo $member->memberName;}	?></option> 
-												</select>
-
-											</div>
-
-
-										</div>
-										<div class="form-group">
-											<label for="assignedTo" style="padding-top: 1.3% !important;font-size: 15px!important;
-    color: #494949!important;
-    font-weight: normal!important;" class="col-sm-3 control-label formlabel">Task Status</label>
-											<div class="col-sm-9">
-												<select class="form-control" id="taskStatus">
-													
-													<option>Pending</option>
-													<option>Completed</option>
+													<option>Male</option>
+													<option>Female</option>
 												</select>
 
 											</div>
@@ -180,7 +155,7 @@
 										</div>
 										<br>
 										<button style="margin: 20px" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-										<button id="save" type="button" class="btn btn-primary">Save changes</button>
+										<button type="button" class="btn btn-primary">Save changes</button>
 										<br>
 									</div>
 								</div>
@@ -235,9 +210,12 @@
                             <div class="taskaccord">
                                 <div class="col s9"></div>
                                 <div class="col s3 action-buttons">
-                                    <a class="waves-effect waves-light btn approve" onclick = "echo " >Completed</a>
-                                    <a class="waves-effect waves-light btn reject red" data-orgid="<?php echo $task->taskid; ?>">Pending</a>
+                                <form method = "post" action="controller/task_controller.php?eventid=<?php echo $eventid;?>&taskid=<?php echo $task->taskid;?>">
+                                <button type="Submit" name = "status" value="Completed" class="waves-effect waves-light btn completed" >Completed</button>
+                                <button type="Submit" name = "status" value="Pending" class="waves-effect waves-light btn pending">Pending</button>
+                                </form>
                                 </div>
+    
                             </div>
                     </li>
                     <?php
@@ -270,5 +248,4 @@
     <script src="contactform/contactform.js"></script>
 
 </body>
-
 </html>
