@@ -1,5 +1,5 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT']."/planit/dbconnection/dbconnect.php";;
+require $_SERVER['DOCUMENT_ROOT']."/planit/dbconnection/dbconnect.php";
 include $_SERVER['DOCUMENT_ROOT']."/planit/model/event_model.php";
 /**
  * This contoller handles requests for both, add and update events

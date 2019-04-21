@@ -22,7 +22,7 @@ function getProfile($username) {
 }
 
 /**
- * Update profile
+ * Update profile. Updates only email and phone
  * 
  * @params Object which contains complete profile of the user
  * 
@@ -31,11 +31,10 @@ function updateProfile($userProfile){
     $updateQuery = sendQuery("
     UPDATE `planit`.`person`
     SET
-    `email` = '$userProfile->username',
-    `phone` = '$userProfile->phone',
-    `fullname` = '$userProfile->fullname'
+    `email` = '$userProfile->email',
+    `phone` = '$userProfile->phone'
     WHERE `username` = '$userProfile->username'");
-
+    
     if ($updateQuery) {
         return true;
     }

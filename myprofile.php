@@ -26,10 +26,10 @@
 	<?php 
 //	echo "hi".$_SERVER['DOCUMENT_ROOT'];
 	require $_SERVER['DOCUMENT_ROOT']."/planit/dbconnection/dbconnect.php";
-	include 'model\profile_model.php';
-	include 'model\friends_model.php';
-	include 'model\event_model.php';
-	include 'model\task_model.php';
+	include 'model/profile_model.php';
+	include 'model/friends_model.php';
+	include 'model/event_model.php';
+	include 'model/task_model.php';
 	$prof = getProfile($_SESSION['username']);
 	$friendArray = getFriends($_SESSION['username']);
 	$eventArray = getEvents($_SESSION['username']);
@@ -92,7 +92,7 @@
 						<!-- Can allow this only after login -->
 						<a href="myprofile.php">Manage Profile</a>
 						<!-- Can allow this only after login -->
-						<a href="login.php">Login</a>
+						<a href="controller/logout_controller.php">Logout</a>
 						<!-- <a href="register.php">Register</a> -->
 					</div>
 					<!-- Use any element to open the sidenav -->
@@ -116,7 +116,7 @@
 						<h4 class="heading">My Profile</h4>
 
 					</div>
-<!--					<form action="" method="post" role="form" class="contactForm">-->
+				<form action="controller/profile_controller.php" method="post" role="form">
 
 					<div class="panel-body">
 
@@ -156,7 +156,7 @@
 
 
 								<div class="col-sm-5 col-xs-6 form-group ">Username:</div>
-								<div id="username" class="col-sm-7 form-group">
+								<div id="username" name="username" class="col-sm-7 form-group">
 									<?php echo $prof->username ?>
 									
 									
@@ -166,7 +166,7 @@
 
 								<div class="col-sm-5 col-xs-6 form-group ">Email:</div>
 								<div  class="col-sm-7" >
-									<input id="email" type="text" class="form-control" id="email" value="<?php echo $prof->email ?>"</input>
+									<input id="email" name="email" type="text" class="form-control" id="email" value="<?php echo $prof->email ?>"</input>
 
 								</div>
 								<div class="clearfix"></div>
@@ -174,21 +174,21 @@
 
 								<div class="col-sm-5 col-xs-6 form-group ">Phone Number:</div>
 								<div class="col-sm-7" contenteditable="true">
-									<input id="phone" type="text" class="form-control" id="phone" value="<?php echo $prof->phone ?>"</input>
+									<input id="phone" name="phone" type="text" class="form-control" id="phone" value="<?php echo $prof->phone ?>"</input>
 								
 								</div>
 
 								<div class="clearfix"></div>
 
 								<div class="bot-border"></div>
-								<button style="align:center" onClick="saveChanges()">Save Changes</button>
+								<button type="submit" style="align:center" >Save Changes</button>
 
 								<!-- /.box-body -->
 							</div>
 							<!-- /.box -->
 
 						</div>
-<!--					</form>-->
+					</form>
 
 					</div>
 <!--					<div style="display: flex">-->
