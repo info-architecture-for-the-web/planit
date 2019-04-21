@@ -139,4 +139,15 @@ function getTasksByEvent($eventid){
 function addTask($task) {
     
 }
+
+// Update status of this task with newStatus
+function updateTaskStatus($taskId, $newStatus){
+    $statusQuery = sendQuery("UPDATE `planit`.`task` SET `status` = '$newStatus' WHERE `taskid` = '$taskId'");
+
+    if ($statusQuery) {
+        return true;
+    }
+
+    return false;
+}
 ?>
