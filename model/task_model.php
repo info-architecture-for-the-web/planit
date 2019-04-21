@@ -56,9 +56,9 @@ function getTasksByEvent($eventid){
     }
     
     // print all our friends
-    foreach ($taskArray as $task) {
-        echo "task: " . $task->title. " - edate: " . $task->assignedTo. "<br>";
-    }
+    // foreach ($taskArray as $task) {
+    //     echo "task: " . $task->title. " - edate: " . $task->assignedTo. "<br>";
+    // }
 
     return $taskArray;
 }
