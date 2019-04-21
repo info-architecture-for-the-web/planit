@@ -105,7 +105,7 @@ function getTasksByEvent($eventid){
     // }
 
     $taskQuery = sendQuery("SELECT * FROM planit.task where eventid = '$eventid'");
-    echo "SELECT * FROM planit.task where eventid = '$eventid'";
+    //echo "SELECT * FROM planit.task where eventid = '$eventid'";
     $taskArray = array();
     // output data of each row
     while($row = $taskQuery->fetch_assoc()) {
