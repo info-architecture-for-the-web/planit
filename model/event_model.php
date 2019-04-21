@@ -10,6 +10,10 @@ function getEvents($username){
 
     $customerQuery = sendQuery("SELECT * FROM event where eventid IN (select eventid from participate where username = '$username')");
     $eventArray = array();
+
+    if (! $customerQuery ) {
+        return $eventArray;
+    }
     // output data of each row
     while($row = $customerQuery->fetch_assoc()) {
         // create object (username,fullname)
@@ -35,10 +39,14 @@ function getEvents($username){
 function getEventDetails($eventId)
 {
     $customerQuery = sendQuery("SELECT * FROM event inner join person ON event.host = person.username where eventid = '$eventId'");
+    $eventObj = new stdClass();
+
+    if (! $customerQuery ) {
+        return $eventObj;
+    }
     $row = $customerQuery->fetch_assoc();
 
     // create object (username,fullname)
-    $eventObj = new stdClass();
     $eventObj->eventid = $row["eventid"];
     $eventObj->ename = $row["name"];
     $eventObj->edate = $row["date"];
@@ -80,8 +88,9 @@ function getEventMembers($eventId)
     
     $memberQuery = sendQuery("SELECT * FROM planit.participate where eventid = '$eventId'");
     $memberArray = array();
+    
     if (! $memberQuery ) {
-        return $nameArray;
+        return $memberArray;
     }
     // output data of each row
     while($row = $memberQuery->fetch_assoc()) {

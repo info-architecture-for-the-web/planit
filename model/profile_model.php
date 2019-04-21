@@ -10,6 +10,9 @@ function getProfile($username) {
     $result = new stdClass();
     $userProfile = new stdClass();
     $customerQuery = sendQuery("SELECT * FROM person where username = '$username'");
+    if (! $customerQuery ) {
+        return $userProfile;
+    }
     $result = $customerQuery->fetch_assoc();
     $userProfile->username = $result['username'];
     $userProfile->email = $result['email'];
