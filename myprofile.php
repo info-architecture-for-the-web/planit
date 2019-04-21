@@ -55,11 +55,11 @@
 		} );
 
 		function saveChanges() {
-			var newFullName = $( '#fullname' ).html();
-			var newEmail = $( '#email' ).html();
-			var newPhone = $( '#phone' ).html();
+//			var newFullName = $( '#fullname' ).html();
+			var newEmail = $( '#email' ).val();
+			var newPhone = $( '#phone' ).val();
 
-			console.log( newFullName + " " + newEmail + " " + newPhone );
+			console.log( newEmail + " " + newPhone );
 		}
 		
 		function readURL(input, id, size) {
@@ -116,7 +116,7 @@
 						<h4 class="heading">My Profile</h4>
 
 					</div>
-					<form action="" method="post" role="form" class="contactForm">
+<!--					<form action="" method="post" role="form" class="contactForm">-->
 
 					<div class="panel-body">
 
@@ -128,16 +128,16 @@
 
 										<input id="profile-image-upload" class="hidden" type="file"
 											    onchange="readURL(this , 'profile-image1','200px');">
-										<div style="color:#999;">click here to change profile image</div>
+										<div style="color:#999;">Click here to change profile image</div>
 										<!--Upload Image Js And Css-->
 
 
 
 
-										<h4 style="color:#00b1b1;">
-											<div id="fullname" contenteditable="true">
-
+										<h4 style="color:#00b1b1;" >
+											<div >
 												<?php echo $prof->fullname ?>
+												
 											</div>
 										</h4>
 									</div>
@@ -158,20 +158,24 @@
 								<div class="col-sm-5 col-xs-6 form-group ">Username:</div>
 								<div id="username" class="col-sm-7 form-group">
 									<?php echo $prof->username ?>
+									
+									
 								</div>
 								<div class="clearfix"></div>
 								<div class="bot-border"></div>
 
 								<div class="col-sm-5 col-xs-6 form-group ">Email:</div>
-								<div id="email" class="col-sm-7" contenteditable="true">
-									<?php echo $prof->email ?>
+								<div  class="col-sm-7" >
+									<input id="email" type="text" class="form-control" id="email" value="<?php echo $prof->email ?>"</input>
+
 								</div>
 								<div class="clearfix"></div>
 								<div class="bot-border"></div>
 
 								<div class="col-sm-5 col-xs-6 form-group ">Phone Number:</div>
-								<div id="phone" class="col-sm-7" contenteditable="true">
-									<?php echo $prof->phone ?>
+								<div class="col-sm-7" contenteditable="true">
+									<input id="phone" type="text" class="form-control" id="phone" value="<?php echo $prof->phone ?>"</input>
+								
 								</div>
 
 								<div class="clearfix"></div>
@@ -184,7 +188,7 @@
 							<!-- /.box -->
 
 						</div>
-					</form>
+<!--					</form>-->
 
 					</div>
 <!--					<div style="display: flex">-->
