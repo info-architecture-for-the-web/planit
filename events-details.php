@@ -5,12 +5,15 @@
 	include 'model\profile_model.php';
 	include 'model\friends_model.php';
   include 'model\event_model.php';
+  include 'model\task_model.php';
   $eventid = $_GET['eventid'];
   if (isset($_SESSION['username'])){
     $eventArray = getEventDetails($eventid);
+    $tasks = getTasksByEvent($eventid);
   }else{
     header("Location: login.php");
   }
+  
 	?>
 
 <head>
@@ -40,6 +43,15 @@
         margin: 20px;
     }
     </style>
+    <script>
+      <script>
+        $(".approve").click( function(){
+          takeAction( $(this), $(this).data("orgid"), "approve");
+        });
+        $(".reject").click( function(){
+          takeAction( $(this), $(this).data("orgid"), "reject");
+        });
+    </script>
     <!-- =======================================================
     Theme Name: Delicious
     Theme URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
@@ -49,15 +61,15 @@
 </head>
 
 <body>
-    <!--banner-->
-    <section id="banner">
-        <div class="bg-color">
-            <header id="header">
-                <div class="container">
-                    <div id="mySidenav" class="sidenav">
-                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                        <a href="#about">About</a>
-                        <a href="#event">Event</a>
+	<!--banner-->
+	<section id="banner">
+		<div class="bg-color">
+			<header id="header">
+				<div class="container">
+					<div id="mySidenav" class="sidenav">
+						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+						<a href="#about">About</a>
+						<a href="#event">Event</a>
 
                         <?php if (isset($_SESSION['username'])) { ?>
                         <a href="create-event.php">Create Event</a> <!-- Can allow this only after login -->
@@ -71,66 +83,145 @@
             ?>
 
 
-                        <!-- <a href="register.php">Register</a> -->
-                    </div>
-                    <!-- Use any element to open the sidenav -->
-                    <span onclick="openNav()" class="pull-right menu-icon">☰</span>
-                </div>
-            </header>
-            <div class="container">
-                <div class="row">
-                    <div class="inner text-center">
-                        <h1 class="logo-name"><?php echo $eventArray->ename;	?></h1>
-                        <h2><?php echo $eventArray->ehostName; ?></h2>
-                        <p><?php echo $eventArray->edescription; ?></p>
-                        <a class="btn btn-imfo btn-read-more" href="create-event.php">Add Tasks</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- / banner -->
-    <!--about-->
-    <div class="col-md-12 text-center marb-35">
-        <h1 class="header-h">To-Do List</h1>
+						<!-- <a href="register.php">Register</a> -->
+					</div>
+					<!-- Use any element to open the sidenav -->
+					<span onclick="openNav()" class="pull-right menu-icon">☰</span>
+				</div>
+			</header>
+			<div class="container">
+				<div class="row">
+					<div class="inner text-center">
+						<h1 class="logo-name"><?php echo $eventArray->ename;	?></h1>
+						<h2><?php echo $eventArray->ehostName; ?></h2>
+						<p><?php echo $eventArray->edescription; ?></p>
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Add Tasks
+</button>
+					
 
-    </div>
-    <section id="about" class="section-padding">
+						<!--Add tasks-->
+						<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-notify modal-warning">
+								<div class="modal-content" style="height: 350px">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+								
 
-        <div class="container">
+									<h2 id="exampleModalLabel">Create Task</h2>
+									<br>
+									<div class="contact-form pad-form">
 
-            <div class="row ">
+										<div class="form-group contact-form pad-form">
+											<label for="taskname" style="padding-top: 1.3% !important;font-size: 15px!important;
+    color: #494949!important;
+    font-weight: normal!important;" class="col-sm-3 control-label formlabel">Task Name</label>
+											<div class="col-sm-9">
+												<input type="text" id="taskname" name="taskname" placeholder="Task Name" class="form-control">
+											</div>
+										</div>
+
+										<div class="form-group contact-form pad-form">
+											<label for="description" style="padding-top: 1.3% !important;font-size: 15px!important;
+    color: #494949!important;
+    font-weight: normal!important;" class="col-sm-3 control-label formlabel">Description</label>
+											<div class="col-sm-9">
+												<input type="text" id="description" name="description" placeholder="Description" class="form-control">
+											</div>
+										</div>
+										<div class="form-group contact-form pad-form">
+											<label for="targetedBy" style="padding-top: 1.3% !important;font-size: 15px!important;
+    color: #494949!important;
+    font-weight: normal!important;" class="col-sm-3 control-label formlabel">Targeted by</label>
+											<div class="col-sm-9">
+												<input type="date" id="date" name="date" placeholder="Date" class="form-control">
+
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="assignedTo" style="padding-top: 1.3% !important;font-size: 15px!important;
+    color: #494949!important;
+    font-weight: normal!important;" class="col-sm-3 control-label formlabel">Assigned To</label>
+											<div class="col-sm-9">
+												<select class="form-control" id="assignedTo">
+													<option>Male</option>
+													<option>Female</option>
+												</select>
+
+											</div>
+
+
+										</div>
+										<br>
+										<button style="margin: 20px" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-primary">Save changes</button>
+										<br>
+									</div>
+								</div>
+							</div>
+							<!--Add tasks-->
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+	<!-- / banner -->
+	<!--about-->
+	<div class="col-md-12 text-center marb-35">
+		<h1 class="header-h">To-Do List</h1>
+
+	</div>
+	<section id="about" class="section-padding">
+
+		<div class="container">
+
+			<div class="row">
 
                 <ul class="collapsible task ">
-
+                <?php
+                  foreach ($tasks as $task){
+                	?>
                     <li>
                         <div class="collapsible-header"><i class="material-icons">work</i>
                             <span class="tasks">Task 1</span>
-                            <span class="tasks-status">Pending</span>
+                            <span class="tasks-status"><?php echo $task->status;?></span>
                         </div>
                         <div class="collapsible-body taskaccord">
                             <div class="row">
+                              <div style="display: flex;" >
                                 <div class="col s2 tasktitle">Task Description:</div>
-                                <div class="col s9 taskdata">akjlfbsjgbvljfb hfbje hfauhf jaflh hbfj hgafhgajfg egfwehfg wefg
-                                    gfalhgljdhfajgf agfjlgsf</div>
+                                <div class="col s9 taskdata"> <?php echo $task->title;?></div>
+                              </div>
+                              <div style="display: flex;" >
                                 <div class="col s2">Assigned to:</div>
-                                <div class="col s9">jbkjbkjhvbhvg</div>
-
+                                <div class="col s9"><?php echo $task->assignedToName;?></div>
+                              </div>
+                              <div style="display: flex;" >
+                                <div class="col s2">Assigned by:</div>
+                                <div class="col s9"><?php echo $task->assignedByName;?></div>
+                              </div>
+                              <div style="display: flex;" >
                                 <div class="col s2">Last Modified by:</div>
-                                <div class="col s9">gvkgvkjh</div>
-
+                                <div class="col s9"><?php echo $task->modifiedByName;?></div>
+                              </div>
+                              <div style="display: flex;" >
                                 <div class="col s2">Targeted by:</div>
-                                <div class="col s9">mm/dd/yyyy</div>
+                                <div class="col s9"><?php echo $task->deadline;?></div>
+                              </div>
                             </div>
                             <hr />
                             <div class="row">
                                 <div class="col s9"></div>
                                 <div class="col s3 action-buttons">
-                                    <a class="waves-effect waves-light btn approve">Completed</a>
-                                    <a class="waves-effect waves-light btn reject red">Pending</a>
+                                    <a class="waves-effect waves-light btn approve" onclick = "echo " >Completed</a>
+                                    <a class="waves-effect waves-light btn reject red" data-orgid="<?php echo $task->taskid; ?>">Pending</a>
                                 </div>
                             </div>
                     </li>
+                    <?php
+                	}
+                	?>
 
             </div>
         </div>

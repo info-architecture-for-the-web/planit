@@ -518,12 +518,6 @@ table {
     overflow:scroll;
     -webkit-overflow-scrolling: touch;
 }
-.task{
-        display:inline-block;
-        border:1px solid #b6b6b6;
-        width: 100%;
-        padding:20px;
-}
 .task-status{
     text-align: right;
     float: right;
@@ -531,15 +525,9 @@ table {
 .tasks{
     width: 80%;
 }
-
-.taskaccord{
-    margin-left: 5%;
+.modal-notify .modal-header {
+    border-radius: 3px 3px 0 0;
 }
-
-.tasktitle .taskdata{
-    margin-left: 5%;
-}
-
-.taskdata{
-    font-style: italic;
+.modal-notify .modal-content {
+    border-radius: 3px;
 }
