@@ -122,29 +122,26 @@ $taskArray = getTasksByUsername($_SESSION['username']);
                             <ul class="list-group">
 
 
-                                <?php if (isset($_SESSION['searchText'])) {
-    foreach ($friendArray as $friend) {
-        if (strpos($friend->fname, $_GET['searchText']) !== false) {?>
+                                <?php
+foreach ($friendArray as $friend) {
+    if (strpos($friend->fname, 'a') !== false) {?>
 
 
 
                                 <li class="list-group-item" style="text-align: left">
+
                                     <div style="display: flex; width: 100%;">
+                                        <input type="checkbox" class="form-check-input" id="check" name="friends[]"
+                                            value="<?php echo $friend->fusername; ?>">
                                         <strong>
-
-
                                             <span><?php echo $friend->fname; ?></span>
-
-
-                                            <button type="button" class="btn btn-primary" style="align: right">Send
-                                                Invite</button>
-
                                     </div>
                                 </li>
-                                <?php }}}?>
+                                <?php }}?>
 
 
                             </ul>
+                            <button type="button" class="btn btn-primary" style="align: center">Add Friend</button>
                         </div>
                     </div>
                 </div>

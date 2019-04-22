@@ -144,7 +144,7 @@ $taskObj = new stdClass();
                                                         <strong>
 
                                                             <input type="checkbox" class="form-check-input" id="check"
-                                                                name="friends[]" value="<?php echo $friend->fname; ?>">
+                                                                name="friends[]" value="<?php echo $friend->fusername; ?>">
                                                             <?php echo $friend->fname; ?>
 
 
