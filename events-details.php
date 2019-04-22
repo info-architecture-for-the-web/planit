@@ -24,9 +24,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Plan It</title>
 	<meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
-	<meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
+    <meta name="keywords"
+        content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Satisfy|Bree+Serif|Candal|PT+Sans">
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Satisfy|Bree+Serif|Candal|PT+Sans">
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -44,17 +46,31 @@
 		}
 	</style>
 	<script>
-		$( "#save" ).click( function ( e ) {
-			console.log( "in save" );
+    $("#save").click(function(e) {
+        console.log("in save");
 			//    e.preventDefault(); // cancel the link behaviour
 			//    var selText = $(this).text();
 			//    $("#tableButton").text(selText);
 			<?php
 			$taskObj = new stdClass();
 			?>
-		} );
+    });
 	</script>
-
+    <script>
+    function datatoggle(evt, tab) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tab).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    </script>
 </head>
 
 <body>
@@ -66,10 +82,7 @@
                 <div class="container">
                     <div id="mySidenav" class="sidenav">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                        <a href="#about">About</a>
-                        <a href="#event">Event</a>
-
-
+                        <a href="index.php">Home</a>
 						<?php if (isset($_SESSION['username'])) { ?>
 						<a href="create-event.php">Create Event</a>
 						<!-- Can allow this only after login -->
@@ -100,12 +113,15 @@
 						<p>
 							<?php echo $eventArray->edescription; ?>
 						</p>
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add Tasks</button>
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#peopleModal">Add People</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#exampleModal">Add Tasks</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#peopleModal">Add
+                            People</button>
 
 						<!--						Add People-->
 						<!--Add tasks-->
-						<div class="modal fade" id="peopleModal" tabindex="-1" role="dialog" aria-labelledby="peopleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="peopleModal" tabindex="-1" role="dialog"
+                            aria-labelledby="peopleModalLabel" aria-hidden="true">
 							<div class="modal-dialog modal-notify modal-warning">
 								<div class="modal-content" style="height: 410px">
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -122,7 +138,7 @@
 
 												<?php foreach ($friendArray as $friend) {?>
 			
-											<li class="list-group-item" style="text-align: left" >
+                                            <li class="list-group-item" style="text-align: left">
 												<div style="display: flex; width: 100%;">
 												<strong>
 													
@@ -130,7 +146,8 @@
 														<span><?php echo $friend->fname;?></span>
 
 
-													<button type="button" class="btn btn-primary" style="align: right" >Send Invite</button>
+                                                        <button type="button" class="btn btn-primary"
+                                                            style="align: right">Send Invite</button>
 
 													</div>
 												</li>
@@ -145,7 +162,8 @@
 
 
 						<!--Add tasks-->
-						<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div class="modal-dialog modal-notify modal-warning">
 								<div class="modal-content" style="height: 380px">
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -164,7 +182,8 @@
     color: #494949!important;
     font-weight: normal!important;" class="col-sm-3 control-label formlabel">Task Name</label>
 												<div class="col-sm-9">
-													<input type="text" id="taskname" name="taskname" placeholder="Task Name" class="form-control">
+                                                    <input type="text" id="taskname" name="taskname"
+                                                        placeholder="Task Name" class="form-control">
 												</div>
 											</div>
 
@@ -173,7 +192,8 @@
     color: #494949!important;
     font-weight: normal!important;" class="col-sm-3 control-label formlabel">Description</label>
 												<div class="col-sm-9">
-													<input type="text" id="description" name="description" placeholder="Description" class="form-control">
+                                                    <input type="text" id="description" name="description"
+                                                        placeholder="Description" class="form-control">
 												</div>
 											</div>
 											<div class="form-group contact-form pad-form">
@@ -181,7 +201,8 @@
     color: #494949!important;
     font-weight: normal!important;" class="col-sm-3 control-label formlabel">Targeted by</label>
 												<div class="col-sm-9">
-													<input type="date" id="date" name="date" placeholder="Date" class="form-control">
+                                                    <input type="date" id="date" name="date" placeholder="Date"
+                                                        class="form-control">
 
 												</div>
 											</div>
@@ -217,10 +238,14 @@
 													</select>
 
 												</div>
+
+
 											</div>
 											<br>
-											<button style="margin: 20px" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-											<button id="save" type="submit" class="btn btn-primary">Save changes</button>
+                                            <button style="margin: 20px" type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+                                            <button id="save" type="submit" class="btn btn-primary">Save
+                                                changes</button>
 											<br>
 										</div>
 									</form>
@@ -237,14 +262,28 @@
 	</section>
 	<!-- / banner -->
 	<!--about-->
-	<div class="col-md-12 text-center marb-35">
-		<h1 class="header-h">To-Do List</h1>
+        <!-- / banner -->
 
+
+    <section id="menu-list" class="section-padding">
+        <div class="container">
+            <div class="row">
+	<div class="col-md-12 text-center marb-35">
+                    <h1 class="header-h">Event Information</h1>
+                    <p class="header-p">Plan you events and more...
+                        <br> Select an option</p>
+                </div>
+
+                <div class="tab col-md-12  text-center" id="menu-flters">
+                    <ul>
+                        <li><a HREF="javascript:datatoggle(event, 'todo' )" id = "todobtn" class="tablinks filter active">To Do List</a></li>
+                        <li><a HREF="javascript:datatoggle(event, 'friendlist' )" id="peoplebtn" class="tablinks filter" >People</a></li>
+                        <li><a HREF="create-event.php?eventid=<?php echo $eventid?>" id="update" class="tablinks filter" >Edit Event</a></li>
+                    </ul>
 	</div>
 
-    <!-- / banner -->
     <!--about-->
-    <section id="about" class="section-padding">
+                <section id="todo" class="tabcontent section-padding" style="display:block;">
 
         <div class="container">
 
@@ -298,10 +337,12 @@
                     <?php
                 	}
                 	?>
+
+
 					</div>
 			</div>
 	</section>
-	<section id="about" class="section-padding">
+                <section id="friendlist" class="tabcontent section-padding">
 		<div class="panel-body">
 
 			<div class="box box-info">
@@ -330,6 +371,8 @@
 					</div>
 				 </section>
     <!--/about-->
+            </div>
+    </section>
 
     <!-- footer -->
     <footer class="footer text-center">
