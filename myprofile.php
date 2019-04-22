@@ -30,6 +30,7 @@
 	include 'model/friends_model.php';
 	include 'model/event_model.php';
 	include 'model/task_model.php';
+	$uploads_dir = $_SERVER['DOCUMENT_ROOT']."/planit/uploads/";
 	$prof = getProfile($_SESSION['username']);
 	$friendArray = getFriends($_SESSION['username']);
 	$eventArray = getEvents($_SESSION['username']);
@@ -116,7 +117,7 @@
 						<h4 class="heading">My Profile</h4>
 
 					</div>
-				<form action="controller/profile_controller.php" method="post" role="form">
+				<form action="controller/profile_controller.php" method="post" role="form" enctype="multipart/form-data">
 
 					<div class="panel-body">
 
@@ -124,16 +125,11 @@
 
 							<div class="box-body">
 								<div class="col-sm-12">
-									<div align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive">
-
-										<input id="profile-image-upload" class="hidden" type="file"
+									<div align="center"> <img alt="User Pic" src="<?php echo $uploads_dir . $prof->profile_image ?>" id="profile-image1" class="img-circle img-responsive">
+										<input type="file" id="profile-image-upload" name="profile_image" class="hidden"
 											    onchange="readURL(this , 'profile-image1','200px');">
 										<div style="color:#999;">Click here to change profile image</div>
 										<!--Upload Image Js And Css-->
-
-
-
-
 										<h4 style="color:#00b1b1;" >
 											<div >
 												<?php echo $prof->fullname ?>

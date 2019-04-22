@@ -18,6 +18,7 @@ function getProfile($username) {
     $userProfile->email = $result['email'];
     $userProfile->phone = $result['phone'];
     $userProfile->fullname = $result['fullname'];
+    $userProfile->profile_image = $result['profile_image'];
     return $userProfile;
 }
 
@@ -32,7 +33,8 @@ function updateProfile($userProfile){
     UPDATE `planit`.`person`
     SET
     `email` = '$userProfile->email',
-    `phone` = '$userProfile->phone'
+    `phone` = '$userProfile->phone',
+    `profile_image` = '$userProfile->profile_image'
     WHERE `username` = '$userProfile->username'");
     
     if ($updateQuery) {
