@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <?php session_start() ?>
+    <?php session_start()?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Plan It</title>
@@ -32,18 +32,17 @@
                     <div id="mySidenav" class="sidenav">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                         <a href="#about">About</a>
-                        
 
-                        <?php if (isset($_SESSION['username'])) { ?>
+
+                        <?php if (isset($_SESSION['username'])) {?>
                         <a href="create-event.php">Create Event</a> <!-- Can allow this only after login -->
                         <a href="myprofile.php">Manage Profile</a> <!-- Can allow this only after login -->
                         <a href="controller/logout_controller.php">Logout</a>
                         <?php
-              }
-              else { ?>
+} else {?>
                         <a href="login.php">Login</a>
                         <?php }
-            ?>
+?>
 
 
                         <!-- <a href="register.php">Register</a> -->
@@ -93,8 +92,6 @@
                                     <li><i class="fa fa-check"></i>Add organizers and friends to your planning committee
                                     </li>
                                     <li><i class="fa fa-check"></i>Collaborate and build</li>
-                                    <li><i class="fa fa-check"></i>View similar events and create your own checklist
-                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -297,7 +294,7 @@
             </div>
             <div class="media-body">
               <h4 class="dark-blue regular">Phone Numbers</h4>
-               <p class="light-blue regular alt-p">+812 0000000000 - <span class="contacts-sp">Call us</span></p> 
+               <p class="light-blue regular alt-p">+812 0000000000 - <span class="contacts-sp">Call us</span></p>
               <p class="light-blue regular alt-p">+812 0000000000 </p>
             </div>
           </div>
