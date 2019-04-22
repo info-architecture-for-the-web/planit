@@ -164,7 +164,7 @@ function addTask($task) {
         `description`)
         VALUES
         ('$task->title',
-        STR_TO_DATE('$task->deadline','%m/%d/%Y'),
+        STR_TO_DATE('$task->deadline','%Y-%m-%d'),
         '$task->status',
         '$task->assignedTo',
         '$task->eventid',
@@ -188,7 +188,7 @@ function updateTask($task) {
         "UPDATE `planit`.`task`
         SET
         `title` = '$task->title',
-        `deadline` = STR_TO_DATE('$task->deadline','%m/%d/%Y')>,
+        `deadline` = STR_TO_DATE('$task->deadline','%Y-%m-%d')>,
         `status` = '$task->status',
         `assignedTo` = '$task->assignedTo',
         `eventid` = '$task->eventid',

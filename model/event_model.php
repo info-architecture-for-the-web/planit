@@ -159,7 +159,7 @@ function updateEvent($event) {
         "UPDATE `planit`.`event`
         SET
         `name` = '$event->name',
-        `date` = STR_TO_DATE('$event->date','%m/%d/%Y'),
+        `date` = STR_TO_DATE('$event->date','%Y-%m-%d'),
         `location` = '$event->location',
         `description` = '$event->description',
         `host` = '$event->host'

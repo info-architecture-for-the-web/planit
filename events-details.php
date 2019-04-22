@@ -156,7 +156,7 @@
 
 									<h2 id="exampleModalLabel">Create Task</h2>
 									<br>
-									<form action="" method="post" role="form" class="contactForm">
+									<form action="controller/add_task_controller.php?eventid=<?php echo $eventid;?>" method="post" role="form">
 										<div class="contact-form pad-form">
 
 											<div class="form-group contact-form pad-form">
@@ -192,7 +192,7 @@
     color: #494949!important;
     font-weight: normal!important;" class="col-sm-3 control-label formlabel">Assigned To</label>
 												<div class="col-sm-9">
-													<select class="form-control" id="assignedTo">
+													<select class="form-control" id="assignedTo" name="assignedTo">
 
 														<?php foreach ($memberArray as $member) {
 		?>
@@ -210,19 +210,17 @@
     color: #494949!important;
     font-weight: normal!important;" class="col-sm-3 control-label formlabel">Task Status</label>
 												<div class="col-sm-9">
-													<select class="form-control" id="taskStatus">
+													<select class="form-control" id="taskStatus" name="taskStatus">
 
 														<option>Pending</option>
 														<option>Completed</option>
 													</select>
 
 												</div>
-
-
 											</div>
 											<br>
 											<button style="margin: 20px" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-											<button id="save" type="button" class="btn btn-primary">Save changes</button>
+											<button id="save" type="submit" class="btn btn-primary">Save changes</button>
 											<br>
 										</div>
 									</form>
@@ -300,8 +298,6 @@
                     <?php
                 	}
                 	?>
-
-
 					</div>
 			</div>
 	</section>
