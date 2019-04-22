@@ -6,13 +6,13 @@
  $password = filter_input(INPUT_POST, 'password');
  $confirmpassword = filter_input(INPUT_POST, 'confirmpassword');
  $phone = filter_input(INPUT_POST, 'phone');
- echo 'Signing Up';
- echo $fullname;
- echo $username;
- echo $email;
- echo $password;
- echo $confirmpassword;
- echo $phone;
+//  echo 'Signing Up';
+//  echo $fullname;
+//  echo $username;
+//  echo $email;
+//  echo $password;
+//  echo $confirmpassword;
+//  echo $phone;
 
  if ($password == $confirmpassword) {
      // echo 'Password matched';
