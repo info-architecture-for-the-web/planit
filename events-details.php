@@ -2,10 +2,10 @@
 <html lang="en">
 <?php
 require $_SERVER['DOCUMENT_ROOT'] . "/planit/dbconnection/dbconnect.php";
-include 'model\profile_model.php';
-include 'model\friends_model.php';
-include 'model\event_model.php';
-include 'model\task_model.php';
+include 'model/profile_model.php';
+include 'model/friends_model.php';
+include 'model/event_model.php';
+include 'model/task_model.php';
 $eventid = $_GET['eventid'];
 if (isset($_SESSION['username'])) {
     $eventArray = getEventDetails($eventid);
@@ -127,7 +127,7 @@ $taskObj = new stdClass();
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
-                                    <form action="controller/add_task_controller.php?eventid=<?php echo $eventid; ?>"
+                                    <form action="controller/email_controller.php?purpose=1&eventid=<?php echo $eventid; ?>&from=<?php echo $_SESSION['username']; ?>"
                                         method="post" role="form">
                                         <!--									<div style="height: 300px" class="panel panel-warning" id="result_panel">-->
                                         <!--										<div class="panel-heading">-->

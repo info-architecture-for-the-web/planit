@@ -20,26 +20,41 @@ $email_from = 'no-reply@planit.com';
 
 $purpose = $_GET['purpose'];
 $fromUsername = $_GET['from'];
-$toUsername = $_GET['to'];
 
 // Get the name of the sender
 $senderName = getProfile($fromUsername)->fullname;
-$receiver = getProfile($toUsername);
-$receiverName = $receiver->fullname;
-$receiverEmail = $receiver->email;
 // Todo: Update as per purpose
 $link = "http://localhost/planit/";
 
 if ($purpose == 1){
-    // Request to join event
-    $eventName = getEventDetails($_GET['eventid'])->ename;
-    $body = "Hi ".$receiverName. ",\n\n Your friend ". $senderName . " has requested you to join the event: ".$eventName;
-    $body = $body . "\nPlease accept it by clicking on the below link:\n\t";
-    $body = $body . $link;
-    $body = $body ."\n\nRegards,\nTeam PlanIt.";
-
-    $subject = 'Request to join event from '. $senderName;
-    sendEmail($receiverEmail, $subject, $body);
+    $friends = $_POST['friends'];
+    
+    if(empty($friends))
+    {
+        echo("You have no friends.");
+    }
+    else{
+        foreach($friends as $friend)
+        {
+            $toUsername = $friend;
+            $receiver = getProfile($toUsername);
+            $receiverName = $receiver->fullname;
+            $receiverEmail = $receiver->email;
+            // echo "\n sending email to".$receiverEmail;
+            // Request to join event
+            $eventName = getEventDetails($_GET['eventid'])->ename;
+            $body = "Hi ".$receiverName. ",\n\n Your friend ". $senderName . " has requested you to join the event: ".$eventName;
+            $body = $body . "\nPlease accept it by clicking on the below link:\n\t";
+            $body = $body . $link;
+            $body = $body ."\n\nRegards,\nTeam PlanIt.";
+        
+            $subject = 'Request to join event from '. $senderName;
+            sendEmail($receiverEmail, $subject, $body);
+        }
+    }
+    // header("Location: ../index.php");
+    // echo '<script type="text/javascript">alert("Requests have been sent to your friends!!!"); location="../index.php";</script>';
+    echo '<script type="text/javascript">alert("Requests have been sent to your friends!!!"); location="../events-details.php?eventid='.$_GET['eventid'].'";</script>';
     // $body = 'Your bid of amount ' .$amount. ' on post #' .$pid . ' has been successfully posted.';
     // $subject = 'We\'ve received your bid.';
     // sendEmail($email_from, $subject, $body);
@@ -70,9 +85,9 @@ try {
     $mail->Subject = $subject;
     $mail->Body    = $body;
     $mail->send();
-    echo 'Message has been sent';
+    // echo 'Message has been sent';
  } catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
  }
 }
 ?>

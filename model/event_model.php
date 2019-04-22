@@ -165,9 +165,10 @@ function updateEvent($event) {
         `host` = '$event->host'
         WHERE `eventid` = '$event->eventid'");
 
+    $eventId = 0;
     if (updateQuery) {
-        return true;
+        $eventId = mysqli_insert_id (getMySqli());
     }    
-    return false;
+    return $eventId;
 }
 ?>
