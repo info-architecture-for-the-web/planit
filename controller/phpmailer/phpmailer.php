@@ -393,7 +393,7 @@ class PHPMailer
      *
      * @var string|callable|\Psr\Log\LoggerInterface
      */
-    public $Debugoutput = 'echo';
+    public $Debugoutput = 'no_echo';
 
     /**
      * Whether to keep SMTP connection open after each message.
@@ -772,7 +772,7 @@ class PHPMailer
             $this->exceptions = (bool) $exceptions;
         }
         //Pick an appropriate debug output format automatically
-        $this->Debugoutput = (strpos(PHP_SAPI, 'cli') !== false ? 'echo' : 'html');
+        $this->Debugoutput = 'no_echo';//(strpos(PHP_SAPI, 'cli') !== false ? 'echo' : 'html');
     }
 
     /**
@@ -837,12 +837,15 @@ class PHPMailer
             return;
         }
         //Avoid clash with built-in function names
-        if (!in_array($this->Debugoutput, ['error_log', 'html', 'echo']) and is_callable($this->Debugoutput)) {
+        if (!in_array($this->Debugoutput, ['no_echo','error_log', 'html', 'echo']) and is_callable($this->Debugoutput)) {
             call_user_func($this->Debugoutput, $str, $this->SMTPDebug);
 
             return;
         }
         switch ($this->Debugoutput) {
+            case 'no_echo':
+                // don't print anything
+                break;
             case 'error_log':
                 //Don't output, just log
                 error_log($str);

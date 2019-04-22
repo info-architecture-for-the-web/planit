@@ -127,7 +127,7 @@ $taskObj = new stdClass();
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
-                                    <form action="controller/add_task_controller.php?eventid=<?php echo $eventid; ?>"
+                                    <form action="controller/email_controller.php?purpose=1&eventid=<?php echo $eventid; ?>&from=<?php echo $_SESSION['username']; ?>"
                                         method="post" role="form">
                                         <!--									<div style="height: 300px" class="panel panel-warning" id="result_panel">-->
                                         <!--										<div class="panel-heading">-->
@@ -144,7 +144,7 @@ $taskObj = new stdClass();
                                                         <strong>
 
                                                             <input type="checkbox" class="form-check-input" id="check"
-                                                                name="friends[]" value="<?php echo $friend->fname; ?>">
+                                                                name="friends[]" value="<?php echo $friend->fusername; ?>">
                                                             <?php echo $friend->fname; ?>
 
 

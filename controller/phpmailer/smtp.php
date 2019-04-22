@@ -116,7 +116,7 @@ class SMTP
      *
      * @var string|callable|\Psr\Log\LoggerInterface
      */
-    public $Debugoutput = 'echo';
+    public $Debugoutput = 'no_echo';
 
     /**
      * Whether to use VERP.
@@ -239,12 +239,15 @@ class SMTP
             return;
         }
         //Avoid clash with built-in function names
-        if (!in_array($this->Debugoutput, ['error_log', 'html', 'echo']) and is_callable($this->Debugoutput)) {
+        if (!in_array($this->Debugoutput, ['no_echo','error_log', 'html', 'echo']) and is_callable($this->Debugoutput)) {
             call_user_func($this->Debugoutput, $str, $level);
 
             return;
         }
         switch ($this->Debugoutput) {
+            case 'no_echo':
+                // don't print anything
+                break;
             case 'error_log':
                 //Don't output, just log
                 error_log($str);
@@ -258,7 +261,6 @@ class SMTP
                 ), "<br>\n";
                 break;
             case 'echo':
-            default:
                 //Normalize line breaks
                 $str = preg_replace('/\r\n|\r/ms', "\n", $str);
                 echo gmdate('Y-m-d H:i:s'),
@@ -273,6 +275,7 @@ class SMTP
                     )
                 ),
                 "\n";
+            default:
         }
     }
 
@@ -1226,7 +1229,7 @@ class SMTP
      *
      * @param string|callable $method The name of the mechanism to use for debugging output, or a callable to handle it
      */
-    public function setDebugOutput($method = 'echo')
+    public function setDebugOutput($method = 'no_echo')
     {
         $this->Debugoutput = $method;
     }
