@@ -152,22 +152,7 @@ $(document).ready(function() {
                                     <div class="validation"></div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-sm-6 contact-form">
-                                <div class="form-group">
-                                    <input type="text" class="form-control label-floating is-empty" name="people"
-                                        id="Add People" placeholder="People" data-rule="required"
-                                        data-msg="This field is required" />
-                                    <div class="validation"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6 contact-form">
-                                <div class="form-group">
-                                    <input type="text" class="form-control label-floating is-empty" name="host"
-                                        id="host" placeholder="Host Name" data-rule="required"
-                                        data-msg="This field is required" />
-                                    <div class="validation"></div>
-                                </div>
-                            </div>
+                           
                             <div class="col-md-6 col-sm-6 contact-form">
                                 <div class="form-group">
                                     <input type="text" class="form-control label-floating is-empty" name="venue"
