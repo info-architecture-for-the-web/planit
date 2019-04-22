@@ -56,7 +56,21 @@
 			?>
     });
     </script>
-
+    <script>
+    function datatoggle(evt, tab) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tab).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    </script>
 </head>
 
 <body>
@@ -248,101 +262,121 @@
     </section>
     <!-- / banner -->
     <!--about-->
-    <div class="col-md-12 text-center marb-35">
-        <h1 class="header-h">To-Do List</h1>
+        <!-- / banner -->
 
-    </div>
 
-    <!-- / banner -->
-    <!--about-->
-    <section id="about" class="section-padding">
-
+    <section id="menu-list" class="section-padding">
         <div class="container">
-
             <div class="row">
+                <div class="col-md-12 text-center marb-35">
+                    <h1 class="header-h">Event Information</h1>
+                    <p class="header-p">Plan you events and more...
+                        <br> Select an option</p>
+                </div>
 
-                <ul class="collapsible task ">
-                    <?php
-                  foreach ($tasks as $task){
-                	?>
-                    <li class="task">
-                        <div class="collapsible-header" style="display:flex;"><i class="material-icons"
-                                style="color:orange;">check_circle</i>
-                            <div style="width:80%; margin-left:0.5%;"> <span
-                                    class="tasks"><?php echo $task->title;?></span></div>
-                            <span class="tasks-status"><?php echo $task->status;?></span>
+                <div class="tab col-md-12  text-center" id="menu-flters">
+                    <ul>
+                        <li><a HREF="javascript:datatoggle(event, 'todo' )" id = "todobtn" class="tablinks filter active">To Do List</a></li>
+                        <li><a HREF="javascript:datatoggle(event, 'friendlist' )" id="peoplebtn" class="tablinks filter" >People</a></li>
+                        <li><a HREF="create-event.php?eventid=<?php echo $eventid?>" id="update" class="tablinks filter" >Edit Event</a></li>
+                    </ul>
+                </div>
+                
+                <!--about-->
+                <section id="todo" class="tabcontent section-padding" style="display:block;">
+
+                    <div class="container">
+
+                        <div class="row">
+
+                            <ul class="collapsible task ">
+                                <?php
+          foreach ($tasks as $task){
+          ?>
+                                <li class="task">
+                                    <div class="collapsible-header" style="display:flex;"><i class="material-icons"
+                                            style="color:orange;">check_circle</i>
+                                        <div style="width:80%; margin-left:0.5%;"> <span
+                                                class="tasks"><?php echo $task->title;?></span></div>
+                                        <span class="tasks-status"><?php echo $task->status;?></span>
+                                    </div>
+                                    <div class="collapsible-body ">
+                                        <p style="margin-left: 2.5%;">Details of task:</p>
+
+                                        <dl>
+                                            <dt>Task Description:</dt>
+                                            <dd><?php echo $task->description;?></dd>
+
+                                            <dt>Assigned to:</dt>
+                                            <dd><?php echo $task->assignedToName;?></dd>
+
+                                            <dt>Assigned by:</dt>
+                                            <dd><?php echo $task->assignedByName;?></dd>
+
+                                            <dt>Last Modified by:</dt>
+                                            <dd><?php echo $task->modifiedByName;?></dd>
+
+                                            <dt>Targeted by:</dt>
+                                            <dd><?php echo $task->deadline;?></dd>
+                                        </dl>
+                                        <hr />
+                                        <div class="taskaccord">
+                                            <div class="col s9"></div>
+                                            <div class="col s3 action-buttons">
+                                                <form method="post"
+                                                    action="controller/task_controller.php?eventid=<?php echo $eventid;?>&taskid=<?php echo $task->taskid;?>">
+                                                    <button type="Submit" name="status" value="Completed"
+                                                        class="waves-effect waves-light btn completed">Completed</button>
+                                                    <button type="Submit" name="status" value="Pending"
+                                                        class="waves-effect waves-light btn pending">Pending</button>
+                                                </form>
+                                            </div>
+
+                                        </div>
+                                </li>
+                                <?php
+          }
+          ?>
+
+
                         </div>
-                        <div class="collapsible-body ">
-                            <p style="margin-left: 2.5%;">Details of task:</p>
+                    </div>
+                </section>
+                <section id="friendlist" class="tabcontent section-padding">
+                    <div class="panel-body">
 
-                            <dl>
-                                <dt>Task Description:</dt>
-                                <dd><?php echo $task->description;?></dd>
+                        <div class="box box-info">
 
-                                <dt>Assigned to:</dt>
-                                <dd><?php echo $task->assignedToName;?></dd>
+                            <div class="box-body">
+                                <div class="col-sm-12">
 
-                                <dt>Assigned by:</dt>
-                                <dd><?php echo $task->assignedByName;?></dd>
+                                    <div class="panel panel-warning" id="result_panel">
+                                        <div class="panel-heading">
+                                            <h5 class="heading">My Friends</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <ul class="list-group">
 
-                                <dt>Last Modified by:</dt>
-                                <dd><?php echo $task->modifiedByName;?></dd>
 
-                                <dt>Targeted by:</dt>
-                                <dd><?php echo $task->deadline;?></dd>
-                            </dl>
-                            <hr />
-                            <div class="taskaccord">
-                                <div class="col s9"></div>
-                                <div class="col s3 action-buttons">
-                                    <form method="post"
-                                        action="controller/task_controller.php?eventid=<?php echo $eventid;?>&taskid=<?php echo $task->taskid;?>">
-                                        <button type="Submit" name="status" value="Completed"
-                                            class="waves-effect waves-light btn completed">Completed</button>
-                                        <button type="Submit" name="status" value="Pending"
-                                            class="waves-effect waves-light btn pending">Pending</button>
-                                    </form>
+                                                <?php foreach ($memberArray as $member) {
+?> <li class="list-group-item"><strong><?php echo $member->memberName;}	?></li>
+
+
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-
-                            </div>
-                    </li>
-                    <?php
-                	}
-                	?>
-
-
-            </div>
-        </div>
-    </section>
-    <section id="about" class="section-padding">
-        <div class="panel-body">
-
-            <div class="box box-info">
-
-                <div class="box-body">
-                    <div class="col-sm-12">
-
-                        <div class="panel panel-warning" id="result_panel">
-                            <div class="panel-heading">
-                                <h5 class="heading">My Friends</h3>
-                            </div>
-                            <div class="panel-body">
-                                <ul class="list-group">
-
-
-                                    <?php foreach ($memberArray as $member) {
-		?> <li class="list-group-item"><strong><?php echo $member->memberName;}	?></li>
-
-
-                                </ul>
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
+                <!--/about-->
             </div>
-        </div>
     </section>
-    <!--/about-->
+
+
+
+
 
     <!-- footer -->
     <footer class="footer text-center">
