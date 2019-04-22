@@ -278,7 +278,7 @@
                     <ul>
                         <li><a HREF="javascript:datatoggle(event, 'todo' )" id = "todobtn" class="tablinks filter active">To Do List</a></li>
                         <li><a HREF="javascript:datatoggle(event, 'friendlist' )" id="peoplebtn" class="tablinks filter" >People</a></li>
-                        <li><a HREF="create-event.php?eventid=<?php echo $eventid?>" id="update" class="tablinks filter" >Edit Event</a></li>
+                        <li><a HREF="update-event.php?eventid=<?php echo $eventid?>" id="update" class="tablinks filter" >Edit Event</a></li>
                     </ul>
 	</div>
 

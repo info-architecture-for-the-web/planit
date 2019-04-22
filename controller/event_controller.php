@@ -15,9 +15,9 @@ $eventObj->description = filter_input(INPUT_POST, 'message');
 $eventObj->host = $_SESSION["username"];
 
 // check if we have 'EVENT_ID' set
-if (isset($_SESSION['EVENT_ID'])) {
+if (isset($_GET['eventid'])) {
     // call update
-    $eventObj->eventid = $_SESSION['EVENT_ID'];
+    $eventObj->eventid =$_GET['eventid'];
     $status = updateEvent($eventObj);
     
 }
