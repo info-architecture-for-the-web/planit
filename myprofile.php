@@ -30,7 +30,7 @@
 	include 'model/friends_model.php';
 	include 'model/event_model.php';
 	include 'model/task_model.php';
-	$uploads_dir = $_SERVER['DOCUMENT_ROOT']."/planit/uploads/";
+	$uploads_dir = "http://127.0.0.1:8887/htdocs/planit/uploads/";
 	$prof = getProfile($_SESSION['username']);
 	$friendArray = getFriends($_SESSION['username']);
 	$eventArray = getEvents($_SESSION['username']);
