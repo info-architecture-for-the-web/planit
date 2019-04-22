@@ -2,10 +2,10 @@
 <html lang="en">
 <?php
 require $_SERVER['DOCUMENT_ROOT'] . "/planit/dbconnection/dbconnect.php";
-include 'model\profile_model.php';
-include 'model\friends_model.php';
-include 'model\event_model.php';
-include 'model\task_model.php';
+include 'model/profile_model.php';
+include 'model/friends_model.php';
+include 'model/event_model.php';
+include 'model/task_model.php';
 $eventid = $_GET['eventid'];
 if (isset($_SESSION['username'])) {
     $eventArray = getEventDetails($eventid);
