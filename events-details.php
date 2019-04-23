@@ -80,7 +80,7 @@ $taskObj = new stdClass();
 
 
     <!-- <section id="banner"> -->
-        <section >
+    <section>
 
         <div class="bg-color" style="background:url(<?php echo $uploads_dir . $eventid ?>.jpg); no-repeat;
   background-size: cover;">
@@ -114,10 +114,14 @@ $taskObj = new stdClass();
                         <h1 class="logo-name">
                             <?php echo $eventArray->ename; ?>
                         </h1>
-                        <h2>
+                        <h2 style="font-family: 'Satisfy', sans-serif;
+  font-size: 40px;
+  color: #ffb03b;">
                             <?php echo $eventArray->ehostName; ?>
                         </h2>
-                        <p>
+                        <p style="font-family: 'Satisfy', sans-serif;
+  font-size: 40px;
+  color: #ffb03b;">
                             <?php echo $eventArray->edescription; ?>
                         </p>
                         <button type="button" class="btn btn-primary" data-toggle="modal"
