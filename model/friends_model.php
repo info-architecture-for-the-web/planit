@@ -46,7 +46,7 @@ function getAllUsers()
         $userProfile = new stdClass();
         $userProfile->fusername = $row["username"];
         $userProfile->fname = $row["fullname"];
-        if ($userProfile->fusername == $_SESSION('username')) {
+        if ($userProfile->fusername == $_SESSION['username']) {
             continue;
         }
         // add it to our array
