@@ -120,37 +120,40 @@
          <button class="btn btn-primary" style="margin: 10px;" value="" type="submit">Search</button>
       </div>
       </form>
-      <div class="panel-body">
-         <div class="box box-info">
-            <div class="box-body">
-               <div class="col-sm-12">
-                  <div class="panel panel-warning" id="result_panel">
-                     <div class="panel-heading">
-                        <h5 class="heading">
-                        People</h3>
-                     </div>
-                     <div class="panel-body">
-                        <ul class="list-group">
-                           <?php
-                           if(isset($searchResults)){
-                              foreach ($searchResults as $friend) {
-                                  ?>
-                           <li class="list-group-item" style="text-align: left">
-                              <div style="display: flex; width: 100%;">
-                                 <input type="checkbox" class="form-check-input" id="check" name="friends[]"
-                                    value="<?php echo $friend->fusername; ?>">
-                                 <strong>
-                                 <span><?php echo $friend->fname; ?></span>
-                              </div>
-                           </li>
-                           <?php }}?>
-                        </ul>
-                        <button type="button" class="btn btn-primary" style="align: center">Add Friend</button>
+      <form  action="controller/email_controller.php?purpose=3&from=<?php echo $_SESSION['username']; ?>"
+            method="post" role="form">
+         <div class="panel-body">
+            <div class="box box-info">
+               <div class="box-body">
+                  <div class="col-sm-12">
+                     <div class="panel panel-warning" id="result_panel">
+                        <div class="panel-heading">
+                           <h5 class="heading">
+                           People</h3>
+                        </div>
+                        <div class="panel-body">
+                           <ul class="list-group">
+                              <?php
+                              if(isset($searchResults)){
+                                 foreach ($searchResults as $friend) {
+                                    ?>
+                              <li class="list-group-item" style="text-align: left">
+                                 <div style="display: flex; width: 100%;">
+                                    <input type="checkbox" class="form-check-input" id="check" name="friends[]"
+                                       value="<?php echo $friend->fusername; ?>">
+                                    <strong>
+                                    <span><?php echo $friend->fname; ?></span>
+                                 </div>
+                              </li>
+                              <?php }}?>
+                           </ul>
+                           <button type="submit" class="btn btn-primary" style="align: center">Add Friend</button>
+                        </div>
                      </div>
                   </div>
                </div>
             </div>
-         </div>
+         </form>
       </div>
    </body>
 </html>
