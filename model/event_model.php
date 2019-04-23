@@ -171,4 +171,21 @@ function updateEvent($event) {
     }    
     return $eventId;
 }
+
+function addMemberToEvent($username,$eventid,$role)
+{
+    $insertQuery = sendQuery(
+        "INSERT INTO `planit`.`participate`
+        (`role`,
+        `username`,
+        `eventid`)
+        VALUES
+        ('$role',
+        '$username',
+        '$eventid');");
+
+    return $eventid;
+}
+addMemberToEvent('mbelnek','30','member');
+
 ?>

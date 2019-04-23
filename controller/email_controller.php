@@ -27,8 +27,8 @@ $senderName = getProfile($fromUsername)->fullname;
 $link = "http://localhost/planit/";
 
 if ($purpose == 1){
+    $link = $link . "controller/add_event_member_controller.php?eventid=".$_GET['eventid'];
     $friends = $_POST['friends'];
-    
     if(empty($friends))
     {
         echo("You have no friends.");
@@ -37,6 +37,7 @@ if ($purpose == 1){
         foreach($friends as $friend)
         {
             $toUsername = $friend;
+            $newLink = $link . "&username=".$friend;
             $receiver = getProfile($toUsername);
             $receiverName = $receiver->fullname;
             $receiverEmail = $receiver->email;
@@ -45,7 +46,7 @@ if ($purpose == 1){
             $eventName = getEventDetails($_GET['eventid'])->ename;
             $body = "Hi ".$receiverName. ",\n\n Your friend ". $senderName . " has requested you to join the event: ".$eventName;
             $body = $body . "\nPlease accept it by clicking on the below link:\n\t";
-            $body = $body . $link;
+            $body = $body . $newLink;
             $body = $body ."\n\nRegards,\nTeam PlanIt.";
         
             $subject = 'Request to join event from '. $senderName;
