@@ -11,7 +11,28 @@
       $friendArray = getFriends($_SESSION['username']);
       $eventArray = getEvents($_SESSION['username']);
       $taskArray = getTasksByUsername($_SESSION['username']);
+      //$allfriends = getAllUsers();
       //    echo $prof->email;
+
+      if(isset($_GET["searchText"])){
+        $searchResults = getSearchResult($_GET["searchText"]);
+        //print_r($searchResults);
+    }
+    function getSearchResult($searchText){
+            $allfriends = getAllUsers();
+            //print_r($allfriends);
+            $frienddisplay = array();
+            //print_r($allfriends);
+          foreach($allfriends as $friend){
+              
+            if (strpos($friend->fname, $searchText) !== false){
+                
+                array_push($frienddisplay,$friend);
+            }
+            }
+            
+            return $frienddisplay;
+    }
       ?>
    <head>
       <meta charset="utf-8">
@@ -26,7 +47,7 @@
       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="css/style.css">
       <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+      <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
       <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
@@ -65,8 +86,7 @@
          function getPeople() {
              console.log("ok");
              $_SESSION['searchText'] = $_GET['searchText'];
-             // $("#refresh_panel").load(location.href + " #refresh_panel>*", "");
-             console.log(<?php echo $_SESSION['searchText']; ?>);
+             
          }
       </script>
    </head>
@@ -93,14 +113,13 @@
          </header>
       </section>
       <!-- Search form -->
-      <!-- <form action="#search-profile.php" method="post" role="form"> -->
+      <form action="search-people.php" method="GET" role="form">
       <div style="display:flex;" class="box-body">
-         <input id="searchText" class="form-control" style="margin: 10px; width:98.5%;" type="text" placeholder="Search"
+         <input id="searchText"name ="searchText" class="form-control" style="margin: 10px; width:98.5%;" type="text" placeholder="Search"
             aria-label="Search">
-         <button class="btn btn-primary" style="margin: 10px;" value="" type="button"
-            onclick="getPeople();">Search</button>
+         <button class="btn btn-primary" style="margin: 10px;" value="" type="submit">Search</button>
       </div>
-      <!-- </form> -->
+      </form>
       <div class="panel-body">
          <div class="box box-info">
             <div class="box-body">
@@ -113,8 +132,9 @@
                      <div class="panel-body">
                         <ul class="list-group">
                            <?php
-                              foreach ($friendArray as $friend) {
-                                  if (strpos($friend->fname, 'a') !== false) {?>
+                           if(isset($searchResults)){
+                              foreach ($searchResults as $friend) {
+                                  ?>
                            <li class="list-group-item" style="text-align: left">
                               <div style="display: flex; width: 100%;">
                                  <input type="checkbox" class="form-check-input" id="check" name="friends[]"
