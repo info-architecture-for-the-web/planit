@@ -93,8 +93,8 @@
 						<!-- Can allow this only after login -->
 						<a href="myprofile.php">Manage Profile</a>
 						<!-- Can allow this only after login -->
+						<a href="search-people.php">Invite Friends</a>
 						<a href="controller/logout_controller.php">Logout</a>
-						<!-- <a href="register.php">Register</a> -->
 					</div>
 					<!-- Use any element to open the sidenav -->
 					<span onclick="openNav()" class="pull-right menu-icon">☰</span>

@@ -166,7 +166,7 @@ function updateEvent($event) {
         WHERE `eventid` = '$event->eventid'");
 
     $eventId = 0;
-    if (updateQuery) {
+    if ($updateQuery) {
         $eventId = mysqli_insert_id (getMySqli());
     }    
     return $eventId;

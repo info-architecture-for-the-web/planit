@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<?php 
-	require $_SERVER['DOCUMENT_ROOT']."/planit/dbconnection/dbconnect.php";
-	include 'model\profile_model.php';
-	include 'model\friends_model.php';
-    include 'model\event_model.php';
-    include 'model\task_model.php';
+<?php
+require $_SERVER['DOCUMENT_ROOT'] . "/planit/dbconnection/dbconnect.php";
+include 'model\profile_model.php';
+include 'model\friends_model.php';
+include 'model\event_model.php';
+include 'model\task_model.php';
 
-  
-	?>
+?>
 <html lang="en">
 
 <head>
@@ -38,8 +37,8 @@
 </head>
 <script>
 $(function() {
-    $('#profile-image1').on('click', function() {
-        $('#profile-image-upload').click();
+    $('#cover_image').on('click', function() {
+        $('#cover_image-upload').click();
     });
 });
 
@@ -76,6 +75,7 @@ $(document).ready(function() {
                         <a href="index.php">Home</a>
                         <a href="create-event.php">Create Event</a> <!-- Can allow this only after login -->
                         <a href="myprofile.php">Manage Profile</a> <!-- Can allow this only after login -->
+                        <a href="search-people.php">Invite Friends</a>
                         <a href="controller/logout_controller.php">Logout</a>
                         <!-- <a href="register.php">Register</a> -->
                     </div>
@@ -99,15 +99,16 @@ $(document).ready(function() {
                 </div>
                 <div class="row msg-row">
                     <div class="col-md-8 col-sm-8 createevent">
-                        <form action="controller/event_controller.php" method="post" role="form">
+
+                        <form action="controller/event_controller.php" method="post" role="form"
+                            enctype="multipart/form-data">
                             <div id="sendmessage">Your event has been created. Thank you!</div>
                             <div id="errormessage"></div>
-                            <div align="center"> <img alt="User Pic"
-                                    src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
-                                    id="profile-image1" class="img-circle img-responsive">
-
-                                <input id="profile-image-upload" class="hidden" type="file"
-                                    onchange="readURL(this , 'profile-image1','200px');">
+                            <div align="center">
+                                <img id="cover_image" src="./uploads/defaultCover.jpg" alt="Cover Pic" width="720"
+                                    height="150">
+                                <input id="cover_image-upload" name="cover_image" class="hidden" type="file"
+                                    onchange="readURL(this , 'cover_image');">
                                 <div style="color:#999;">click here to change profile image</div>
                                 <!--Upload Image Js And Css-->
                             </div>
@@ -152,7 +153,7 @@ $(document).ready(function() {
                                     <div class="validation"></div>
                                 </div>
                             </div>
-                           
+
                             <div class="col-md-6 col-sm-6 contact-form">
                                 <div class="form-group">
                                     <input type="text" class="form-control label-floating is-empty" name="venue"

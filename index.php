@@ -37,6 +37,7 @@
                         <?php if (isset($_SESSION['username'])) {?>
                         <a href="create-event.php">Create Event</a> <!-- Can allow this only after login -->
                         <a href="myprofile.php">Manage Profile</a> <!-- Can allow this only after login -->
+                        <a href="search-people.php">Invite Friends</a>
                         <a href="controller/logout_controller.php">Logout</a>
                         <?php
 } else {?>

@@ -75,9 +75,6 @@ elseif ($purpose == 3){
             $receiver = getProfile($toUsername);
             $receiverName = $receiver->fullname;
             $receiverEmail = $receiver->email;
-            // echo "\n sending email to".$receiverEmail;
-            // Request to join event
-            $eventName = getEventDetails($_GET['eventid'])->ename;
             $body = "Hi ".$receiverName. ",\n\n". $senderName . " has sent you a friendship request on PlanIt.";
             $body = $body . "\n\nPlease accept it by clicking on the below link:\n\t";
             $body = $body . $newLink;
@@ -85,7 +82,7 @@ elseif ($purpose == 3){
         
             $subject = 'Friendship request from '. $senderName;
             sendEmail($receiverEmail, $subject, $body);
-            echo '<script type="text/javascript">alert("Friendship requests have been sent!!!"); location="../myprofile.php';
+            echo '<script type="text/javascript">alert("Friendship requests have been sent!!!"); location="../search-people.php";</script>';
         }
     }
 }
