@@ -23,12 +23,13 @@ if (isset($_GET['eventid'])) {
 } else {
     // call add
     $status = addEvent($eventObj);
+    $eventObj->eventid = $status;
 }
 
 // Cover image
 $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/planit/uploads/";
 $target_file = $target_dir . basename($_FILES["cover_image"]["name"]);
-echo $target_file . "filecccc";
+//echo $target_file . "filecccc";
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 // Check if image file is a actual image or fake image
@@ -55,7 +56,7 @@ $eventObj->cover_image = $eventObj->eventid . "." . $imageFileType;
 // }
 
 // Check file size
-if ($_FILES["profile_image"]["size"] > 500000) {
+if ($_FILES["cover_image"]["size"] > 500000) {
     echo "Sorry, your file is too large.";
     $uploadOk = 0;
 }
@@ -76,9 +77,9 @@ if ($uploadOk == 0) {
         // echo "Sorry, there was an error uploading your profile Image.";
     }
 }
-
-// if ($status) {
-//     header("Location:/planit/events-details.php?eventid=$status");
-// } else {
-//     echo '<script type="text/javascript">alert("Error creating event"); location="../create-event.php";</script>';
-// }
+echo $status;
+if (isset($status)) {
+    header("Location:/planit/events-details.php?eventid=$status");
+} else {
+    echo '<script type="text/javascript">alert("Error creating event"); location="../create-event.php";</script>';
+}

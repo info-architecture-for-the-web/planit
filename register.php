@@ -39,12 +39,12 @@
     <script>
     var check = function() {
         if (document.getElementById('password').value ==
-            document.getElementById('confirmPassword').value) {
+            document.getElementById('confirmpassword').value) {
             document.getElementById('message').style.color = 'green';
-            document.getElementById('message').innerHTML = 'Passwords match';
+            document.getElementById('message').innerHTML = "Passwords match";
         } else {
             document.getElementById('message').style.color = 'red';
-            document.getElementById('message').innerHTML = 'Passwords do not match';
+            document.getElementById('message').innerHTML = "Passwords do not match";
         }
     }
     </script>
@@ -108,9 +108,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="confirmPassword" class="col-sm-3 control-label">Confirm Password</label>
+                                    <label for="confirmpassword" class="col-sm-3 control-label">Confirm Password</label>
                                     <div class="col-sm-9">
-                                        <input type="password" id="confirmPassword" name="confirmPassword"
+                                        <input type="password" id="confirmpassword" name="confirmpassword"
                                             placeholder="Confirm Password" class="form-control" onkeyup='check();'
                                             required>
                                         <span id='message'></span>
