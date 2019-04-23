@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<?php 
-	require $_SERVER['DOCUMENT_ROOT']."/planit/dbconnection/dbconnect.php";
-	include 'model\profile_model.php';
-	include 'model\friends_model.php';
-    include 'model\event_model.php';
-    include 'model\task_model.php';
+<?php
+require $_SERVER['DOCUMENT_ROOT'] . "/planit/dbconnection/dbconnect.php";
+include 'model\profile_model.php';
+include 'model\friends_model.php';
+include 'model\event_model.php';
+include 'model\task_model.php';
 
-    if(isset($_GET["eventid"])){
-        $eventid = $_GET["eventid"];
-        $eventdetails = getEventDetails($eventid);
-    }
-  
-	?>
+if (isset($_GET["eventid"])) {
+    $eventid = $_GET["eventid"];
+    $eventdetails = getEventDetails($eventid);
+}
+
+?>
 <html lang="en">
 
 <head>
@@ -42,8 +42,8 @@
 </head>
 <script>
 $(function() {
-    $('#profile-image1').on('click', function() {
-        $('#profile-image-upload').click();
+    $('#cover_image').on('click', function() {
+        $('#cover_image-upload').click();
     });
 });
 
@@ -103,21 +103,23 @@ $(document).ready(function() {
                 </div>
                 <div class="row msg-row">
                     <div class="col-md-8 col-sm-8 createevent">
-                        <form action="controller/event_controller.php?eventid=<?php echo $eventid; ?>" method="post" role="form">
-                            
-                            <div align="center"> <img alt="User Pic"
-                                    src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
-                                    id="profile-image1" class="img-circle img-responsive">
-
-                                <input id="profile-image-upload" class="hidden" type="file"
-                                    onchange="readURL(this , 'profile-image1','200px');">
+                        <form action="controller/event_controller.php?eventid=<?php echo $eventid; ?>" method="post"
+                            role="form">
+                            <div align="center">
+                                <!-- <img alt="User Pic" src="./uploads/defaultCover.jpg"
+                                    id="profile-image1" width="200px" height="130"> -->
+                                <img id="cover_image" name="cover_image" src="./uploads/defaultCover.jpg" alt="User Pic"
+                                    width="720" height="150">
+                                <input id="cover_image-upload" class="hidden" type="file"
+                                    onchange="readURL(this , 'cover_image');">
                                 <div style="color:#999;">click here to change profile image</div>
                                 <!--Upload Image Js And Css-->
                             </div>
                             <div class="col-md-6 col-sm-6 contact-form pad-form">
                                 <div class="form-group label-floating is-empty">
                                     <input type="text" name="name" class="form-control" id="name"
-                                        placeholder="Event Name" data-rule="minlen:4" value= <?php echo $eventdetails->ename;?>
+                                        placeholder="Event Name" data-rule="minlen:4"
+                                        value=<?php echo $eventdetails->ename; ?>
                                         data-msg="Please enter at least 4 chars" />
                                     <div class="validation"></div>
                                 </div>
@@ -126,12 +128,12 @@ $(document).ready(function() {
                             <div class="col-md-6 col-sm-6 contact-form">
                                 <div class="form-group">
                                     <input type="date" class="form-control label-floating is-empty" name="date"
-                                        id="date" placeholder="Date" data-rule="required"  value= <?php echo $eventdetails->edate;?>
-                                        data-msg="This field is required" />
+                                        id="date" placeholder="Date" data-rule="required"
+                                        value=<?php echo $eventdetails->edate; ?> data-msg="This field is required" />
                                     <div class="validation"></div>
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-6 col-sm-6 contact-form">
                                 <div class="form-group">
                                     <input type="time" class="form-control label-floating is-empty" name="time"
@@ -140,12 +142,13 @@ $(document).ready(function() {
                                     <div class="validation"></div>
                                 </div>
                             </div>
-                            
-                            
+
+
                             <div class="col-md-6 col-sm-6 contact-form">
                                 <div class="form-group">
                                     <input type="text" class="form-control label-floating is-empty" name="venue"
-                                        id="venue" placeholder="Venue" data-rule="required" value= <?php echo $eventdetails->elocation;?>
+                                        id="venue" placeholder="Venue" data-rule="required"
+                                        value=<?php echo $eventdetails->elocation; ?>
                                         data-msg="This field is required" />
                                     <div class="validation"></div>
                                 </div>
@@ -154,7 +157,7 @@ $(document).ready(function() {
                                 <div class="form-group label-floating is-empty">
                                     <textarea class="form-control" name="message" rows="5" rows="3" data-rule="required"
                                         data-msg="Please write something for us"
-                                        placeholder="Describe your event"><?php echo $eventdetails->edescription;?></textarea>
+                                        placeholder="Describe your event"><?php echo $eventdetails->edescription; ?></textarea>
                                     <div class="validation"></div>
                                 </div>
 
