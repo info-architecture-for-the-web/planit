@@ -42,8 +42,8 @@ if (isset($_GET["eventid"])) {
 </head>
 <script>
 $(function() {
-    $('#profile-image1').on('click', function() {
-        $('#profile-image-upload').click();
+    $('#cover_image').on('click', function() {
+        $('#cover_image-upload').click();
     });
 });
 
@@ -105,13 +105,13 @@ $(document).ready(function() {
                     <div class="col-md-8 col-sm-8 createevent">
                         <form action="controller/event_controller.php?eventid=<?php echo $eventid; ?>" method="post"
                             role="form">
-
-                            <div align="center"> <img alt="User Pic"
-                                    src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
-                                    id="profile-image1" width="193" height="130">
-
-                                <input id="profile-image-upload" class="hidden" type="file"
-                                    onchange="readURL(this , 'profile-image1','200px');">
+                            <div align="center">
+                                <!-- <img alt="User Pic" src="./uploads/defaultCover.jpg"
+                                    id="profile-image1" width="200px" height="130"> -->
+                                <img id="cover_image" name="cover_image" src="./uploads/defaultCover.jpg" alt="User Pic"
+                                    width="720" height="150">
+                                <input id="cover_image-upload" class="hidden" type="file"
+                                    onchange="readURL(this , 'cover_image');">
                                 <div style="color:#999;">click here to change profile image</div>
                                 <!--Upload Image Js And Css-->
                             </div>
