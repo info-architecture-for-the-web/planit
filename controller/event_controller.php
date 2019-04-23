@@ -79,7 +79,7 @@ if ($uploadOk == 0) {
 }
 echo $status;
 if (isset($status)) {
-    header("Location:/planit/events-details.php?eventid=$status");
+    header("Location:/planit/events-details.php?eventid=" .$eventObj->eventid);
 } else {
     echo '<script type="text/javascript">alert("Error creating event"); location="../create-event.php";</script>';
 }

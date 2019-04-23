@@ -7,6 +7,9 @@ include 'model/friends_model.php';
 include 'model/event_model.php';
 include 'model/task_model.php';
 $eventid = $_GET['eventid'];
+
+$uploads_dir = "http://127.0.0.1:8887/htdocs/planit/uploads/";
+
 if (isset($_SESSION['username'])) {
     $eventArray = getEventDetails($eventid);
     $tasks = getTasksByEvent($eventid);
@@ -76,8 +79,11 @@ $taskObj = new stdClass();
 <body>
 
 
-    <section id="banner">
-        <div class="bg-color">
+    <!-- <section id="banner"> -->
+        <section >
+
+        <div class="bg-color" style="background:url(<?php echo $uploads_dir . $eventid ?>.jpg); no-repeat;
+  background-size: cover;">
             <header id="header">
                 <div class="container">
                     <div id="mySidenav" class="sidenav">
@@ -101,7 +107,7 @@ $taskObj = new stdClass();
                     <span onclick="openNav()" class="pull-right menu-icon">☰</span>
                 </div>
             </header>
-            <div class="container">
+            <div>
                 <div class="row">
                     <div class="inner text-center">
                         <h1 class="logo-name">
@@ -114,7 +120,8 @@ $taskObj = new stdClass();
                             <?php echo $eventArray->edescription; ?>
                         </p>
                         <button type="button" class="btn btn-primary" data-toggle="modal"
-                            data-target="#exampleModal">Add Tasks</button>
+                            data-target="#exampleModal">Add
+                            Tasks</button>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#peopleModal">Add
                             People</button>
 
@@ -127,7 +134,8 @@ $taskObj = new stdClass();
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
-                                    <form action="controller/email_controller.php?purpose=1&eventid=<?php echo $eventid; ?>&from=<?php echo $_SESSION['username']; ?>"
+                                    <form
+                                        action="controller/email_controller.php?purpose=1&eventid=<?php echo $eventid; ?>&from=<?php echo $_SESSION['username']; ?>"
                                         method="post" role="form">
                                         <!--									<div style="height: 300px" class="panel panel-warning" id="result_panel">-->
                                         <!--										<div class="panel-heading">-->
@@ -144,7 +152,8 @@ $taskObj = new stdClass();
                                                         <strong>
 
                                                             <input type="checkbox" class="form-check-input" id="check"
-                                                                name="friends[]" value="<?php echo $friend->fusername; ?>">
+                                                                name="friends[]"
+                                                                value="<?php echo $friend->fusername; ?>">
                                                             <?php echo $friend->fname; ?>
 
 

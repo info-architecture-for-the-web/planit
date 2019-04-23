@@ -46,6 +46,9 @@ $(function() {
         $('#cover_image-upload').click();
     });
 });
+<?php
+$uploads_dir = "http://127.0.0.1:8887/htdocs/planit/uploads/";
+?>
 
 function readURL(input, id, size) {
     if (input.files && input.files[0]) {
@@ -108,8 +111,8 @@ $(document).ready(function() {
                             <div align="center">
                                 <!-- <img alt="User Pic" src="./uploads/defaultCover.jpg"
                                     id="profile-image1" width="200px" height="130"> -->
-                                <img id="cover_image" src="<?php echo $uploads_dir . $eventdetails->cover_image ?>"
-                                    alt="User Pic" width="720" height="150">
+                                <img id="cover_image" src="<?php echo $uploads_dir . $eventid ?>.jpg" alt="User Pic"
+                                    width="720" height="150">
                                 <input id="cover_image-upload" name="cover_image" class="hidden" type="file"
                                     onchange="readURL(this , 'cover_image');">
                                 <div style="color:#999;">Click here to change cover image</div>
