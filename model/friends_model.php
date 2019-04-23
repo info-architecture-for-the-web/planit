@@ -46,6 +46,9 @@ function getAllUsers()
         $userProfile = new stdClass();
         $userProfile->fusername = $row["username"];
         $userProfile->fname = $row["fullname"];
+        if ($userProfile->fusername == $_SESSION('username')) {
+            continue;
+        }
         // add it to our array
         array_push($friendArray,$userProfile);
     }
@@ -78,7 +81,7 @@ function addFriendship($user1, $user2) {
     // 2. user2 friends with user1(user1's username, user1's fullname)
     // We add this redundancy to improve fetching data at runtime, as
     // #read_requests >> #write_requests
-    
+
     // First insert query:
     $insertQuery = sendQuery("INSERT INTO `planit`.`friends`
     (`username`,
