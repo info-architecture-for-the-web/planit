@@ -35,7 +35,7 @@ function getFriends($username){
 
 function getAllUsers()
 {
-    $customerQuery = sendQuery("SELECT friend,friendname FROM friends");
+    $customerQuery = sendQuery("SELECT * FROM person");
     $friendArray = array();
     if (! $customerQuery ) {
         return $friendArray;
@@ -44,8 +44,8 @@ function getAllUsers()
     while($row = $customerQuery->fetch_assoc()) {
         // create object (username,fullname)
         $userProfile = new stdClass();
-        $userProfile->fusername = $row["friend"];
-        $userProfile->fname = $row["friendname"];
+        $userProfile->fusername = $row["username"];
+        $userProfile->fname = $row["fullname"];
         // add it to our array
         array_push($friendArray,$userProfile);
     }
