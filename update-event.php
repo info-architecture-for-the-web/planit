@@ -104,15 +104,15 @@ $(document).ready(function() {
                 <div class="row msg-row">
                     <div class="col-md-8 col-sm-8 createevent">
                         <form action="controller/event_controller.php?eventid=<?php echo $eventid; ?>" method="post"
-                            role="form">
+                            role="form" enctype="multipart/form-data">
                             <div align="center">
                                 <!-- <img alt="User Pic" src="./uploads/defaultCover.jpg"
                                     id="profile-image1" width="200px" height="130"> -->
-                                <img id="cover_image" name="cover_image" src="./uploads/defaultCover.jpg" alt="User Pic"
-                                    width="720" height="150">
-                                <input id="cover_image-upload" class="hidden" type="file"
+                                <img id="cover_image" src="<?php echo $uploads_dir . $eventdetails->cover_image ?>"
+                                    alt="User Pic" width="720" height="150">
+                                <input id="cover_image-upload" name="cover_image" class="hidden" type="file"
                                     onchange="readURL(this , 'cover_image');">
-                                <div style="color:#999;">click here to change profile image</div>
+                                <div style="color:#999;">Click here to change cover image</div>
                                 <!--Upload Image Js And Css-->
                             </div>
                             <div class="col-md-6 col-sm-6 contact-form pad-form">
