@@ -82,7 +82,7 @@ elseif ($purpose == 3){
         
             $subject = 'Friendship request from '. $senderName;
             sendEmail($receiverEmail, $subject, $body);
-            echo '<script type="text/javascript">alert("Friendship requests have been sent!!!"); location="../myprofile.php';
+            echo '<script type="text/javascript">alert("Friendship requests have been sent!!!"); location="../search-people.php";</script>';
         }
     }
 }

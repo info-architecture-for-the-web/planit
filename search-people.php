@@ -11,7 +11,7 @@
       $friendArray = getFriends($_SESSION['username']);
       $eventArray = getEvents($_SESSION['username']);
       $taskArray = getTasksByUsername($_SESSION['username']);
-      //$allfriends = getAllUsers();
+      $allfriends = getAllUsers();
       //    echo $prof->email;
 
       if(isset($_GET["searchText"])){
@@ -25,7 +25,7 @@
             //print_r($allfriends);
           foreach($allfriends as $friend){
               
-            if (strpos($friend->fname, $searchText) !== false){
+            if (strpos(strtolower($friend->fname), strtolower($searchText)) !== false){
                 
                 array_push($frienddisplay,$friend);
             }
@@ -134,8 +134,13 @@
                         <div class="panel-body">
                            <ul class="list-group">
                               <?php
+                              $data = array();
                               if(isset($searchResults)){
-                                 foreach ($searchResults as $friend) {
+                                 $data =  $searchResults; 
+                              }else{
+                                  $data = $allfriends;
+                              }
+                                 foreach ($data as $friend) {
                                     ?>
                               <li class="list-group-item" style="text-align: left">
                                  <div style="display: flex; width: 100%;">
@@ -145,7 +150,7 @@
                                     <span><?php echo $friend->fname; ?></span>
                                  </div>
                               </li>
-                              <?php }}?>
+                              <?php }?>
                            </ul>
                            <button type="submit" class="btn btn-primary" style="align: center">Add Friend</button>
                         </div>
