@@ -73,6 +73,8 @@ if ($uploadOk == 0) {
 } else {
     if (move_uploaded_file($_FILES["cover_image"]["tmp_name"], $target_file)) {
         // echo "The file ". basename( $_FILES["profile_image"]["name"]). " has been uploaded.";
+        $uploadOk = 1;
+        chmod("../uploads/".$eventObj->cover_image,0755);
     } else {
         // echo "Sorry, there was an error uploading your profile Image.";
     }

@@ -56,7 +56,9 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["profile_image"]["tmp_name"], $target_file)) {
-        // echo "The file ". basename( $_FILES["profile_image"]["name"]). " has been uploaded.";
+        // echo "The file ". "uploads/".$profileObj->profile_image . " has been uploaded.";
+        $uploadOk = 1;
+        chmod("../uploads/".$profileObj->profile_image,0755);
     } else {
         // echo "Sorry, there was an error uploading your profile Image.";
     }

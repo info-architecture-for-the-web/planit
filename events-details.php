@@ -8,7 +8,7 @@ include 'model/event_model.php';
 include 'model/task_model.php';
 $eventid = $_GET['eventid'];
 
-$uploads_dir = "http://127.0.0.1:8887/htdocs/planit/uploads/";
+$uploads_dir = "uploads/";
 
 if (isset($_SESSION['username'])) {
     $eventArray = getEventDetails($eventid);

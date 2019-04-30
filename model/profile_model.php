@@ -24,9 +24,9 @@ function getProfile($username) {
 
 /**
  * Update profile. Updates only email and phone
- * 
+ *
  * @params Object which contains complete profile of the user
- * 
+ *
  */
 function updateProfile($userProfile){
     // echo "\n DB profile image name: ".$profileObj->profile_image."\n";
@@ -37,7 +37,7 @@ function updateProfile($userProfile){
     `phone` = '$userProfile->phone',
     `profile_image` = '$userProfile->profile_image'
     WHERE `username` = '$userProfile->username'");
-    
+
     if ($updateQuery) {
         return true;
     }

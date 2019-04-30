@@ -23,14 +23,14 @@
     Author: BootstrapMade.com
     Author URL: https://bootstrapmade.com
   ======================================================= -->
-	<?php 
+	<?php
 //	echo "hi".$_SERVER['DOCUMENT_ROOT'];
 	require "dbconnection/dbconnect.php";
 	include 'model/profile_model.php';
 	include 'model/friends_model.php';
 	include 'model/event_model.php';
 	include 'model/task_model.php';
-	$uploads_dir = "http://127.0.0.1:8887/htdocs/planit/uploads/";
+	$uploads_dir = "uploads/";
 	$prof = getProfile($_SESSION['username']);
 	$friendArray = getFriends($_SESSION['username']);
 	$eventArray = getEvents($_SESSION['username']);
@@ -62,7 +62,7 @@
 
 			console.log( newEmail + " " + newPhone );
 		}
-		
+
 		function readURL(input, id, size) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -88,7 +88,7 @@
 					<div id="mySidenav" class="sidenav">
 						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 						<a href="index.php">Home</a>
-						
+
 						<a href="create-event.php">Create Event</a>
 						<!-- Can allow this only after login -->
 						<a href="myprofile.php">Manage Profile</a>
@@ -133,7 +133,7 @@
 										<h4 style="color:#00b1b1;" >
 											<div >
 												<?php echo $prof->fullname ?>
-												
+
 											</div>
 										</h4>
 									</div>
@@ -154,8 +154,8 @@
 								<div class="col-sm-5 col-xs-6 form-group ">Username:</div>
 								<div id="username" name="username" class="col-sm-7 form-group">
 									<?php echo $prof->username ?>
-									
-									
+
+
 								</div>
 								<div class="clearfix"></div>
 								<div class="bot-border"></div>
@@ -171,7 +171,7 @@
 								<div class="col-sm-5 col-xs-6 form-group ">Phone Number:</div>
 								<div class="col-sm-7" contenteditable="true">
 									<input id="phone" name="phone" type="text" class="form-control" id="phone" value="<?php echo $prof->phone ?>"</input>
-								
+
 								</div>
 
 								<div class="clearfix"></div>
@@ -201,12 +201,12 @@
 										</div>
 										<div class="panel-body">
 											<ul class="list-group">
-												
-												
+
+
 												  <?php foreach ($friendArray as $friend) {
-		?> <li class="list-group-item"><strong><?php echo $friend->fname;}	?></li>   
-												
-        
+		?> <li class="list-group-item"><strong><?php echo $friend->fname;}	?></li>
+
+
 											</ul>
 										</div>
 									</div>
@@ -220,17 +220,17 @@
 
 							<div class="box-body">
 								<div class="col-sm-12">
-									
+
 									<div class="panel panel-warning" id="result_panel">
 										<div class="panel-heading">
 											<h5 class="heading">My Tasks</h3>
 										</div>
 										<div class="panel-body">
 											<ul class="list-group">
-												
+
 												  <?php foreach ($taskArray as $task) {
-		?> <li class="list-group-item"><strong><?php echo $task->title;}	?></li> 
-												
+		?> <li class="list-group-item"><strong><?php echo $task->title;}	?></li>
+
 											</ul>
 										</div>
 									</div>
@@ -244,17 +244,17 @@
 
 							<div class="box-body">
 								<div class="col-sm-12">
-									
+
 									<div  class="panel panel-warning" id="result_panel">
 										<div class="panel-heading">
 											<h5 class="heading">My Events</h3>
 										</div>
 										<div class="panel-body">
 											<ul class="list-group">
-												
+
 												  <?php foreach ($eventArray as $event) {
-		?> <li class="list-group-item"><strong><a href="events-details.php?eventid=<?php echo $event->eventid;	?>"><?php echo $event->ename;}?></li>   
-												
+		?> <li class="list-group-item"><strong><a href="events-details.php?eventid=<?php echo $event->eventid;	?>"><?php echo $event->ename;}?></li>
+
 											</ul>
 										</div>
 									</div>
@@ -262,7 +262,7 @@
 							</div>
 						</div>
 					</div>
-					
+
 </div>
 				</div>
 			</div>
