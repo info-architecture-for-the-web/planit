@@ -49,11 +49,10 @@ $target_file = $target_dir . $eventObj->eventid . "." . $imageFileType;
 // store image name to be uploaded to database
 $eventObj->cover_image = $eventObj->eventid . "." . $imageFileType;
 
-// Check if file already exists
-// if (file_exists($target_file)) {
-//     echo "Sorry, file already exists.";
-//     $uploadOk = 0;
-// }
+// Delete if file already exists
+if (file_exists($target_file)) {
+    unlink($target_file);
+}
 
 // Check file size
 if ($_FILES["cover_image"]["size"] > 500000) {

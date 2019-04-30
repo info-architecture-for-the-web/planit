@@ -33,11 +33,10 @@ $target_file = $target_dir .$profileObj->username.".".$imageFileType;
 // store image name to be uploaded to database
 $profileObj->profile_image = $profileObj->username.".".$imageFileType;
 
-// Check if file already exists
-// if (file_exists($target_file)) {
-//     echo "Sorry, file already exists.";
-//     $uploadOk = 0;
-// }
+// Delete if file already exists
+if (file_exists($target_file)) {
+    unlink($target_file);
+}
 
 // Check file size
 if ($_FILES["profile_image"]["size"] > 500000) {
