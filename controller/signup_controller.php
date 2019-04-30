@@ -1,5 +1,5 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'] . "/planit/dbconnection/dbconnect.php";
+require "../dbconnection/dbconnect.php";
 $fullname = filter_input(INPUT_POST, 'fullname');
 $username = filter_input(INPUT_POST, 'username');
 $email = filter_input(INPUT_POST, 'email');

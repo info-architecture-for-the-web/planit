@@ -1,6 +1,6 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT']."/planit/dbconnection/dbconnect.php";
-include $_SERVER['DOCUMENT_ROOT']."/planit/model/task_model.php";
+require "../dbconnection/dbconnect.php";
+include "../model/task_model.php";
 
 $status = false;
 $eventid = 0;

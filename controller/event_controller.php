@@ -1,6 +1,6 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'] . "/planit/dbconnection/dbconnect.php";
-include $_SERVER['DOCUMENT_ROOT'] . "/planit/model/event_model.php";
+require "../dbconnection/dbconnect.php";
+include "../model/event_model.php";
 /**
  * This contoller handles requests for both, add and update events
  * this is defined if the session variable has EVENT_ID defined or not

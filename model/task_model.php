@@ -1,5 +1,5 @@
 <?php
-// require $_SERVER['DOCUMENT_ROOT']."/planit/dbconnection/dbconnect.php";
+// require "../dbconnection/dbconnect.php";
 
 // Will return details for the given task
 function getTaskDetails($taskId){

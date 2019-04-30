@@ -1,5 +1,5 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT']."/planit/dbconnection/dbconnect.php";
+require "../dbconnection/dbconnect.php";
 echo $_POST["status"];
 if(isset($_POST["status"])){
     $data = $_POST["status"];

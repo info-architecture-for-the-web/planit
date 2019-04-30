@@ -1,5 +1,5 @@
 <?php
-//require $_SERVER['DOCUMENT_ROOT']."/planit/dbconnection/dbconnect.php";
+//require "../dbconnection/dbconnect.php";
 
 /**
  * Get profile for a user
@@ -29,7 +29,7 @@ function getProfile($username) {
  * 
  */
 function updateProfile($userProfile){
-    echo "\n DB profile image name: ".$profileObj->profile_image."\n";
+    // echo "\n DB profile image name: ".$profileObj->profile_image."\n";
     $updateQuery = sendQuery("
     UPDATE `planit`.`person`
     SET

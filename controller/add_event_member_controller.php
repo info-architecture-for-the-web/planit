@@ -1,6 +1,6 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT']."/planit/dbconnection/dbconnect.php";
-include $_SERVER['DOCUMENT_ROOT']."/planit/model/event_model.php";
+require "../dbconnection/dbconnect.php";
+include "../event_model.php";
 
 addMemberToEvent($_GET['username'],$_GET['eventid'],'member');
 

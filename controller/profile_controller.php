@@ -1,6 +1,6 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT']."/planit/dbconnection/dbconnect.php";
-include $_SERVER['DOCUMENT_ROOT']."/planit/model/profile_model.php";
+require "../dbconnection/dbconnect.php";
+include "../model/profile_model.php";
 /**
  * This controller is used to update the existing profile
  */
@@ -11,7 +11,7 @@ $profileObj->email = filter_input(INPUT_POST, 'email');
 $profileObj->phone = filter_input(INPUT_POST, 'phone');
 
 // Profile image
-$target_dir = $_SERVER['DOCUMENT_ROOT']."/planit/uploads/";
+$target_dir = "../uploads/";
 $target_file = $target_dir . basename($_FILES["profile_image"]["name"]);
 
 $uploadOk = 1;
