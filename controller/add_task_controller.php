@@ -33,5 +33,5 @@ if ( ! $status ) {
     echo '<script type="text/javascript">alert("Error creating task");';
 }
 
-header("Location:/planit/events-details.php?eventid=$eventid");
+header("Location:../events-details.php?eventid=$eventid");
 ?>

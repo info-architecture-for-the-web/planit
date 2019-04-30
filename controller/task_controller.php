@@ -21,10 +21,10 @@ function updateTaskStatus($data, $taskid,$eventid){
     $statusQuery = sendQuery("UPDATE `planit`.`task` SET `status` = '$data' WHERE `taskid` = '$taskid'");
 
     if ($statusQuery) {
-        header("Location:/planit/events-details.php?eventid=$eventid");
+        header("Location:../events-details.php?eventid=$eventid");
         return true;
     }
-    header("Location:/planit/events-details.php?eventid=$eventid");
+    header("Location:../events-details.php?eventid=$eventid");
     return false;
 }
 

@@ -64,5 +64,5 @@ if ($uploadOk == 0) {
 if ( ! updateProfile($profileObj) ){
     echo '<script type="text/javascript">alert("Error updating profile")';
 }
-header("Location:/planit/myprofile.php");
+header("Location:../myprofile.php");
 ?>
