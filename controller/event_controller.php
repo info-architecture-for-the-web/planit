@@ -27,7 +27,7 @@ if (isset($_GET['eventid'])) {
 }
 
 // Cover image
-$target_dir = $_SERVER['DOCUMENT_ROOT'] . "/planit/uploads/";
+$target_dir = "../uploads/";
 $target_file = $target_dir . basename($_FILES["cover_image"]["name"]);
 //echo $target_file . "filecccc";
 $uploadOk = 1;
