@@ -25,7 +25,7 @@
   ======================================================= -->
 	<?php 
 //	echo "hi".$_SERVER['DOCUMENT_ROOT'];
-	require "../dbconnection/dbconnect.php";
+	require "dbconnection/dbconnect.php";
 	include 'model/profile_model.php';
 	include 'model/friends_model.php';
 	include 'model/event_model.php';
